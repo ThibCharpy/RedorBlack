@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.stl.tpalt.redorblack.WelcomeActivity"
+    android:background="@drawable/parchment">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/logo_constraintlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_regles"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/logo"
+            android:contentDescription="Displaying the logo"
+            tools:ignore="HardcodedText" />
+    </android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_message"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/logo_constraintlayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <TextView
+        android:id="@+id/warning_alcool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/warning_alcool"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="15dp"
+        tools:ignore="SmallSp" />
+    <Button
+        android:id="@+id/button_regles"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_showrules"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/warning_alcool"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/button_start"/>
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_start"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/warning_alcool"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/button_regles"/>
+</android.support.constraint.ConstraintLayout>
