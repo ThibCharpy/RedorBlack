@@ -14,13 +14,13 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 
-//        val buttonRules= findViewById<Button>(R.id.button_regles)
+        val buttonRules= findViewById<Button>(R.id.button_regles)
         val buttonStart= findViewById<Button>(R.id.button_start)
         val prefs= PreferenceManager.getDefaultSharedPreferences(this)
 
         val isFirstLaunch = prefs.getBoolean(firstLaunchPref, true)
         if (!isFirstLaunch) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, PlayerSelection::class.java)
             startActivity(intent)
             finish()
         }
@@ -31,7 +31,7 @@ class WelcomeActivity : AppCompatActivity() {
                     val editor = prefs.edit()
                     editor.putBoolean(firstLaunchPref, false)
                     editor.apply()
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, PlayerSelection::class.java)
                     startActivity(intent)
                     finish()
                 })

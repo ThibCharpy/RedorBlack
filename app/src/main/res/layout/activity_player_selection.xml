@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:numberpicker="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context="com.stl.tpalt.redorblack.PlayerSelection">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_nbdecks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.travijuu.numberpicker.library.NumberPicker
+            android:id="@+id/numberpicker_nbdecks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:soundEffectsEnabled="true"
+            numberpicker:min="-5"
+            numberpicker:max="-5"
+            numberpicker:value="-5"
+            numberpicker:unit="1"
+            numberpicker:focusable="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_nbdecks">
+        </com.travijuu.numberpicker.library.NumberPicker>
+        <TextView
+            android:id="@+id/tv_nbdecks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/textview_nbdecks"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/numberpicker_nbdecks"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_playerlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout_nbdecks"
+        app:layout_constraintBottom_toTopOf="@id/layout_newplayer">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_playerlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_newplayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/layout_startgame">
+        <Button
+            android:id="@+id/button_add"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="@string/button_add"
+            app:layout_constraintRight_toRightOf="parent" />
+        <EditText
+            android:id="@+id/input_playername"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:hint="@string/hint_addplayer"
+            android:inputType="textPersonName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/button_add" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_startgame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/button_startgame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_launchgame"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

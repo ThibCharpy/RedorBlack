@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Red or Black</string>
-    <string name="welcome_message">Bienvenue sur</string>
-    <string name="warning_alcool">L\'abus d\'alcool est dangereux pour la santé</string>
+
+    <!--Welcome activity-->
+    <string name="textview_welcomemessage">Bienvenue sur</string>
+    <string name="textview_warningalcool">L\'abus d\'alcool est dangereux pour la santé</string>
     <string name="button_showrules">Règles du jeu</string>
     <string name="button_start">Commencer</string>
+
+    <!--PlayerSelection Activity-->
+    <string name="textview_nbdecks">Nombre de jeux de cartes :</string>
+    <string name="button_launchgame">Lancer la partie</string>
+    <string name="button_add">+</string>
+    <string name="hint_addplayer">Entrez le nom d\'un joueur</string>
 </resources>
