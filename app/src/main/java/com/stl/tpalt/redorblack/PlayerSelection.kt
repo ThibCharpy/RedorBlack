@@ -12,15 +12,11 @@ import org.jetbrains.anko.toast
 import kotlinx.android.synthetic.main.activity_player_selection.*
 
 class PlayerSelection : AppCompatActivity() {
-    lateinit var layoutNbDecks : ConstraintLayout
     lateinit var numberPickerNbDecks : NumberPicker
     lateinit var textViewNbDecks : TextView
-    lateinit var layoutPlayerList : ConstraintLayout
     lateinit var listviewPlayerList : ListView
-    lateinit var layoutNewPlayer : ConstraintLayout
     lateinit var buttonAddNewPlayer : Button
     lateinit var editTextPlayerName : EditText
-    lateinit var layoutStartGame : ConstraintLayout
     lateinit var buttonStartGame : Button
 
     //15 cartes dans la pyramide
@@ -31,35 +27,29 @@ class PlayerSelection : AppCompatActivity() {
 
 
 
-    lateinit var playerList: PlayerList
     var NumberOfDecks : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_selection)
 
-        layoutNbDecks       = layout_nbdecks
         numberPickerNbDecks = number_picker
         textViewNbDecks     = tv_nbdecks
 
-        layoutPlayerList    = layout_playerlist
         listviewPlayerList  = listview_playerlist
 
-        layoutNewPlayer     = layout_newplayer
         buttonAddNewPlayer  = button_add
         editTextPlayerName  = input_playername
 
-        layoutStartGame     = layout_startgame
         buttonStartGame     = button_startgame
 
 
 //        val adapter : ArrayAdapter<Player> = ArrayAdapter(this, android.R.layout.simple_list_item_1, playerList)
-        
+
         //button binding
         buttonStartGame.setOnClickListener { _ ->
             val intent = Intent(this, StartGame::class.java)
             intent.putExtra("NumberOfDecks", NumberOfDecks)
-            intent.putExtra("playersList", playerList)
             startActivity(intent)
             onPause()
         }
@@ -68,10 +58,12 @@ class PlayerSelection : AppCompatActivity() {
             if (newplayername == "")
                 return@setOnClickListener
             editTextPlayerName.setText("")
-            playerList.pl_list.add(Player(newplayername))
+
+            applicationContext.
+
             updateNumberPicker()
 //            toast("newplayername added.")
-            toast("$newplayername added.\n$playerList")
+            toast("$newplayername added.\n")
         }
 
         //edittext
@@ -94,8 +86,8 @@ class PlayerSelection : AppCompatActivity() {
 
     //functions
     fun updateNumberPicker() {
-        numberPickerNbDecks.maxValue=Math.max(1, playerList.pl_list.size)
-        numberPickerNbDecks.minValue=playerList.pl_list.size/8+1
+//        numberPickerNbDecks.maxValue=Math.max(1, playerList.pl_list.size)
+//        numberPickerNbDecks.minValue=playerList.pl_list.size/8+1
     }
 
     override fun finish() {
