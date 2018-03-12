@@ -8,5 +8,6 @@
     <dimen name="numberpicker_selected">25sp</dimen>
     <dimen name="numberpicker_notselected">15sp</dimen>
     <dimen name="playerlist_fontsize">20sp</dimen>
+    <dimen name="header_playername">25sp</dimen>
 
 </resources>

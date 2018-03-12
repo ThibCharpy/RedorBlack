@@ -18,7 +18,7 @@ class WelcomeActivity : AppCompatActivity() {
         val buttonStart= findViewById<Button>(R.id.button_start)
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
-        val isFirstLaunch = prefs.getBoolean(firstLaunchPref, true)
+//        val isFirstLaunch = prefs.getBoolean(firstLaunchPref, true)
 //        if (!isFirstLaunch) {
 //            val intent = Intent(this, PlayerSelection::class.java)
 //            startActivity(intent)
@@ -28,12 +28,21 @@ class WelcomeActivity : AppCompatActivity() {
         buttonStart.setOnClickListener(
                 {
                     _ ->
-                    val editor = prefs.edit()
-                    editor.putBoolean(firstLaunchPref, false)
-                    editor.apply()
+//                    val editor = prefs.edit()
+//                    editor.putBoolean(firstLaunchPref, false)
+//                    editor.apply()
                     val intent = Intent(this, PlayerSelection::class.java)
                     startActivity(intent)
                     finish()
+                })
+        buttonRules.setOnClickListener(
+                {
+                    _ ->
+                    val editor = prefs.edit()
+                    editor.putBoolean(firstLaunchPref, true)
+                    editor.apply()
+                    val intent = Intent(this, rules::class.java)
+                    startActivity(intent)
                 })
     }
 }

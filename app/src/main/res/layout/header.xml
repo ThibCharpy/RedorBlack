@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:id="@+id/header"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.stl.tpalt.redorblack.templatePhases"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="$PlayerName"
+        android:textSize="@dimen/header_playername"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="#AA200000"
+        tools:ignore="HardcodedText" />
+</android.support.constraint.ConstraintLayout>

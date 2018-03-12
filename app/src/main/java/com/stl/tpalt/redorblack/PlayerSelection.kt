@@ -21,30 +21,37 @@ class PlayerSelection : AppCompatActivity() {
     lateinit var buttonAddNewPlayer : Button
     lateinit var editTextPlayerName : EditText
     lateinit var buttonStartGame : Button
-
     lateinit var playerListView: ListView
 
 
-    lateinit var playerList: PlayerList
+//    lateinit var playerList: PlayerList
     var NumberOfDecks : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_selection)
 
-        numberPickerNbDecks = findViewById(R.id.number_picker)
+        //init
+        numberPickerNbDecks = number_picker
+        buttonAddNewPlayer  = button_add
+        editTextPlayerName  = input_playername
+        buttonStartGame     = button_startgame
+        playerListView      = listview_playerlist
 
-        buttonAddNewPlayer  = findViewById(R.id.button_add)
-        editTextPlayerName  = findViewById(R.id.input_playername)
-
-        buttonStartGame     = findViewById(R.id.button_startgame)
-
-        playerListView = findViewById(R.id.listview_playerlist)
         val player_list = mutableListOf(
-                Player("Rudy"),
-                Player("Yannick"),
-                Player("Thibault"))
-        playerList = PlayerList()
+                Player("Rudy1"),
+                Player("Thibthib1"),
+                Player("Rudy2"),
+                Player("Thibthib2"),
+                Player("Rudy3"),
+                Player("Thibthib3"),
+                Player("Rudy4"),
+                Player("Thibthib4"),
+                Player("Rudy5"),
+                Player("Thibthib5"),
+                Player("Rudy6"),
+                Player("Thibthib6"))
+//        playerList = PlayerList()
 
         val adapter = PlayerListAdapter(this, player_list)
         playerListView.adapter = adapter
@@ -54,7 +61,7 @@ class PlayerSelection : AppCompatActivity() {
         buttonStartGame.setOnClickListener { _ ->
             val intent = Intent(this, StartGame::class.java)
             intent.putExtra("NumberOfDecks", NumberOfDecks)
-            intent.putExtra("playersList", playerList)
+//            intent.putExtra("playersList", playerList)
             startActivity(intent)
             onPause()
         }
@@ -68,7 +75,7 @@ class PlayerSelection : AppCompatActivity() {
             player_list.add(Player(newplayername))
             adapter.notifyDataSetChanged()
             updateNumberPicker()
-            toast("$newplayername added.\n$playerList")
+            toast("$newplayername added.\n")
         }
 
         // Enable the button when the user put text into the editText
@@ -92,8 +99,8 @@ class PlayerSelection : AppCompatActivity() {
 
     //functions
     fun updateNumberPicker() {
-        numberPickerNbDecks.maxValue=Math.max(1, playerList.pl_list.size)
-        numberPickerNbDecks.minValue=playerList.pl_list.size/8+1
+//        numberPickerNbDecks.maxValue=Math.max(1, playerList.pl_list.size)
+//        numberPickerNbDecks.minValue=playerList.pl_list.size/8+1
     }
 
 }

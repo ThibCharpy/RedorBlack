@@ -10,26 +10,20 @@
         android:roundIcon="@mipmap/launcher_round"
         android:supportsRtl="true"
         android:theme="@style/RedOrBlack">
-        <activity
-            android:name=".WelcomeActivity"
-            android:screenOrientation="nosensor">
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".PlayerSelection" />
+        <activity android:name=".StartGame" />
+        <activity android:name=".rules">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="nosensor">
-
-        </activity>
-        <activity android:name=".PlayerSelection">
-
-        </activity>
-        <activity android:name=".StartGame">
-
-        </activity>
+        <activity android:name=".templatePhases" />
+        <activity android:name=".Phase1" />
+        <activity android:name=".GameTemplate"></activity>
     </application>
 
-</manifest>
+</manifest> <!-- android:screenOrientation="nosensor" -->

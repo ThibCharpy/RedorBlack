@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.stl.tpalt.redorblack.MainActivity"
-    android:background="@drawable/parchment">
+    android:background="@drawable/parchmentmini">
 
     <TextView
         android:layout_width="wrap_content"

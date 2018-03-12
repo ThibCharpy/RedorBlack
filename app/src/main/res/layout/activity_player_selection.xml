@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="30dp"
     tools:context="com.stl.tpalt.redorblack.PlayerSelection"
-    android:background="@drawable/parchment">
+    android:background="#74AF">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layout_nbdecks"
@@ -57,9 +57,9 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/layout_newplayer"
         app:layout_constraintTop_toBottomOf="@id/layout_nbdecks"
-        android:padding="30dp"
-        android:background="#1000"
-        />
+        android:layout_margin="30dp"
+        android:divider="@drawable/listview_divider"
+        android:background="#05000000"/>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layout_newplayer"

@@ -6,7 +6,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="numberpicker_separator">#5ab174</color>
-    <color name="numberpicker_selected">#2d764d</color>
-    <color name="numberpicker_others">#882d764d</color>
+    <color name="numberpicker_separator">#de000000</color>
+    <color name="numberpicker_selected">#b40000</color>
+    <color name="numberpicker_others">#200</color>
 </resources>

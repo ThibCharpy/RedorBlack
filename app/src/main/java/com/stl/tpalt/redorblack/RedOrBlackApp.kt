@@ -12,10 +12,12 @@ class RedOrBlackApp : Application()
         super.onCreate()
     }
 
-    var deck : MutableList<Carte> = mutableListOf()
-    var temporaryplayers : MutableList<Player> = mutableListOf()
-    var players : MutableList<Player> = mutableListOf()
-    var cartesdesjoueurs : HashMap<Player, MutableList<Carte>> = hashMapOf()
+    companion object {
+        var deck : MutableList<Carte> = mutableListOf()
+        var temporaryplayers : MutableList<Player> = mutableListOf()
+        var players : MutableList<Player> = mutableListOf()
+        var cartesdesjoueurs : HashMap<Player, MutableList<Carte>> = hashMapOf()
+    }
 
     fun generateDecks(n : Int) : Unit
     {
@@ -25,6 +27,7 @@ class RedOrBlackApp : Application()
 
     fun addPlayer(name : String)
     {
-        temporaryplayers.add(Player(name, null, null, null, null, null))
+        temporaryplayers.add(Player(name))
+//        temporaryplayers.add(Player(name, null, null, null, null, null))
     }
 }
