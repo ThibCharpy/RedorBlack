@@ -16,7 +16,7 @@ class WelcomeActivity : AppCompatActivity() {
 
         val buttonRules= findViewById<Button>(R.id.button_regles)
         val buttonStart= findViewById<Button>(R.id.button_start)
-        val prefs= PreferenceManager.getDefaultSharedPreferences(this)
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 
         val isFirstLaunch = prefs.getBoolean(firstLaunchPref, true)
 //        if (!isFirstLaunch) {
