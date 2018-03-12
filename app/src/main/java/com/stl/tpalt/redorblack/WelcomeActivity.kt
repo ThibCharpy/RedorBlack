@@ -19,11 +19,11 @@ class WelcomeActivity : AppCompatActivity() {
         val prefs= PreferenceManager.getDefaultSharedPreferences(this)
 
         val isFirstLaunch = prefs.getBoolean(firstLaunchPref, true)
-        if (!isFirstLaunch) {
-            val intent = Intent(this, PlayerSelection::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        if (!isFirstLaunch) {
+//            val intent = Intent(this, PlayerSelection::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
 
         buttonStart.setOnClickListener(
                 {

@@ -4,13 +4,24 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.RecyclerView
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.*
+import com.shawnlin.numberpicker.NumberPicker
 import org.jetbrains.anko.toast
+import kotlinx.android.synthetic.main.activity_player_selection.*
 
 class PlayerSelection : AppCompatActivity() {
+    lateinit var layoutNbDecks : ConstraintLayout
+    lateinit var numberPickerNbDecks : NumberPicker
+    lateinit var textViewNbDecks : TextView
+    lateinit var layoutPlayerList : ConstraintLayout
+    lateinit var listviewPlayerList : ListView
+    lateinit var layoutNewPlayer : ConstraintLayout
+    lateinit var buttonAddNewPlayer : Button
+    lateinit var editTextPlayerName : EditText
+    lateinit var layoutStartGame : ConstraintLayout
+    lateinit var buttonStartGame : Button
 
     //15 cartes dans la pyramide
     //x*52 cartes
@@ -18,54 +29,73 @@ class PlayerSelection : AppCompatActivity() {
     //(x*52 - 15)/5 = nb de joueurs max
     //x=(nbJ*5 + 15)/52
 
-    var playerList= arrayListOf<String>()
+
+
+    lateinit var playerList: PlayerList
     var NumberOfDecks : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_selection)
 
-        val layoutNbDecks       = findViewById<ConstraintLayout>(R.id.layout_nbdecks)
-        val numberPickerNbDecks = findViewById<com.travijuu.numberpicker.library.NumberPicker>(R.id.numberpicker_nbdecks)
-        val textViewNbDecks     = findViewById<TextView>(R.id.tv_nbdecks)
+        layoutNbDecks       = layout_nbdecks
+        numberPickerNbDecks = number_picker
+        textViewNbDecks     = tv_nbdecks
 
-        val layoutPlayerList = findViewById<ConstraintLayout>(R.id.layout_playerlist)
-        val playerListView   = findViewById<RecyclerView>(R.id.recyclerview_playerlist)
+        layoutPlayerList    = layout_playerlist
+        listviewPlayerList  = listview_playerlist
 
-        val layoutNewPlayer    = findViewById<ConstraintLayout>(R.id.layout_newplayer)
-        val buttonAddNewPlayer = findViewById<Button>(R.id.button_add)
-        val editTextPlayerName = findViewById<EditText>(R.id.input_playername)
+        layoutNewPlayer     = layout_newplayer
+        buttonAddNewPlayer  = button_add
+        editTextPlayerName  = input_playername
 
-        val layoutStartGame = findViewById<ConstraintLayout>(R.id.layout_startgame)
-        val buttonStartGame = findViewById<Button>(R.id.button_startgame)
+        layoutStartGame     = layout_startgame
+        buttonStartGame     = button_startgame
 
-//        toast(numberPickerNbDecks.value)
-        numberPickerNbDecks.min=1
-        numberPickerNbDecks.max=99
 
+//        val adapter : ArrayAdapter<Player> = ArrayAdapter(this, android.R.layout.simple_list_item_1, playerList)
+        
         //button binding
         buttonStartGame.setOnClickListener { _ ->
             val intent = Intent(this, StartGame::class.java)
             intent.putExtra("NumberOfDecks", NumberOfDecks)
-            intent.putStringArrayListExtra("playersList", playerList)
+            intent.putExtra("playersList", playerList)
             startActivity(intent)
             onPause()
         }
         buttonAddNewPlayer.setOnClickListener { _ ->
-            //set min and max for numberPicker
-            val max = playerList.size*1+1
-            numberPickerNbDecks.max=max
-            val min = playerList.size/8+1
-            numberPickerNbDecks.min=min
-
-            val newplayer : String = editTextPlayerName.text.toString()
+            val newplayername : String = editTextPlayerName.text.toString()
+            if (newplayername == "")
+                return@setOnClickListener
             editTextPlayerName.setText("")
-            playerList.add(newplayer)
-
-//            toast("$newplayer added.")
-            toast("$newplayer added.\nmin : $min\nmax : $max")
+            playerList.pl_list.add(Player(newplayername))
+            updateNumberPicker()
+//            toast("newplayername added.")
+            toast("$newplayername added.\n$playerList")
         }
 
+        //edittext
+        editTextPlayerName.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                buttonAddNewPlayer.isEnabled=!p0.isNullOrBlank()
+            }
+        })
+
+
+
+
+    }
+
+    //functions
+    fun updateNumberPicker() {
+        numberPickerNbDecks.maxValue=Math.max(1, playerList.pl_list.size)
+        numberPickerNbDecks.minValue=playerList.pl_list.size/8+1
     }
 
     override fun finish() {
