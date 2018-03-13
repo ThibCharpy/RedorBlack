@@ -7,9 +7,10 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
 
+//can go only to WelcomeActivity from here
 class Rules : AppCompatActivity() {
 
-    lateinit var prefs : SharedPreferences
+    private lateinit var prefs : SharedPreferences
     private val firstLaunchPref = "firstLaunchPref"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +19,6 @@ class Rules : AppCompatActivity() {
 
         prefs= PreferenceManager.getDefaultSharedPreferences(this)
 
-        //if
         val isFirstLaunch = prefs.getBoolean(firstLaunchPref, true)
         if (!isFirstLaunch) {
             val intent = Intent(this, WelcomeActivity::class.java)

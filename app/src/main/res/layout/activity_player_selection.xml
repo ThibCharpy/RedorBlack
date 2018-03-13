@@ -33,7 +33,7 @@
             app:np_width="150dp"
             app:np_height="50dp"
             app:np_dividerColor="@color/transparent"
-            app:np_max="99"
+            app:np_max="1"
             app:np_min="1"
             app:np_selectedTextColor="@color/numberpicker_selected"
             app:np_selectedTextSize="@dimen/numberpicker_selected"
@@ -48,7 +48,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_nbdecks" />
-
     </android.support.constraint.ConstraintLayout>
 
     <ListView
