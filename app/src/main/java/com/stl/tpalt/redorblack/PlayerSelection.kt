@@ -41,6 +41,8 @@ class PlayerSelection : AppCompatActivity() {
         val adapter = PlayerListAdapter(this, playerList)
         listview_playerlist.adapter = adapter
 
+
+        RedOrBlackApp.temporaryplayers
         
         //button binding
         button_startgame.setOnClickListener { _ ->

@@ -13,12 +13,15 @@ class RedOrBlackApp : Application()
         super.onCreate()
     }
 
+
+    //global vars
     companion object {
         var deck : MutableList<Carte> = mutableListOf()
         var temporaryplayers : MutableList<Player> = mutableListOf()
         var players : MutableList<Player> = mutableListOf()
         var cartesdesjoueurs : HashMap<Player, MutableList<Carte>> = hashMapOf()
     }
+
 
     fun generateDecks(n : Int) : Unit
     {
