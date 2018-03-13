@@ -51,23 +51,4 @@ class RedOrBlackApp : Application()
             }.flatten()
         }
     }
-
-
-        fun generateDecks(n : Int) : Unit
-        {
-            //TODO
-        }
-
-        fun onGameStart() : Unit
-        {
-            //TODO setDecks
-            //TODO setPlayers
-        }
-    }
-
-
-
-
-
-
 }
