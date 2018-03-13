@@ -9,12 +9,12 @@ import org.jetbrains.anko.toast
 import kotlinx.android.synthetic.main.activity_player_selection.*
 
 
-//can go to StartGame from here
+//can go to Phase1 from here
 class PlayerSelection : AppCompatActivity() {
 
     private var NumberOfDecks : Int = 0
 
-    private val playerList: MutableList<Player> = RedOrBlackApp.temporaryplayers
+    private val playerList: MutableList<Player> = RedOrBlackApp.players
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +40,8 @@ class PlayerSelection : AppCompatActivity() {
 
 
         button_startgame.setOnClickListener { _ ->
-            RedOrBlackApp.generateDecks(number_picker.value)
-            RedOrBlackApp.onGameStart()
+            RedOrBlackApp.generateDeck(number_picker.value)
             val intent = Intent(this, StartGame::class.java)
-//            intent.putExtra("NumberOfDecks", NumberOfDecks)
             startActivity(intent)
             onPause()
         }
@@ -68,9 +66,6 @@ class PlayerSelection : AppCompatActivity() {
                 button_add.isEnabled=!p0.isNullOrBlank()
             }
         })
-
-
-
 
     }
 

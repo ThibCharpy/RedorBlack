@@ -3,6 +3,7 @@ package com.stl.tpalt.redorblack
 import android.app.Application
 import android.os.Bundle
 import org.jetbrains.anko.toast
+import java.util.Random
 
 //15 cartes dans la pyramide
 //x*52 cartes
@@ -19,20 +20,20 @@ class RedOrBlackApp : Application()
     //global vars
     companion object {
         var deck : MutableList<Carte> = mutableListOf()
-        var temporaryplayers : MutableList<Player> = mutableListOf()
         var players : MutableList<Player> = mutableListOf()
-        var cartesdesjoueurs : HashMap<Player, MutableList<Carte>> = hashMapOf()
 
-        fun generateDecks(n : Int) : Unit
+        fun generateDeck(n : Int) : Unit
         {
             //TODO
         }
 
-        fun onGameStart() : Unit
+        fun pickCardFromDeck() : Carte
         {
-            //TODO setDecks
-            //TODO setPlayers
+            val random = Random()
+            val carte = deck.removeAt(random.nextInt(deck.size))
+            return carte
         }
+
     }
 
 
