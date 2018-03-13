@@ -14,7 +14,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".PlayerSelection" />
         <activity android:name=".StartGame" />
-        <activity android:name=".rules">
+        <activity android:name=".Rules">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
         </activity>
         <activity android:name=".templatePhases" />
         <activity android:name=".Phase1" />
-        <activity android:name=".GameTemplate"></activity>
+        <activity android:name=".Phase2" />
     </application>
 
 </manifest> <!-- android:screenOrientation="nosensor" -->

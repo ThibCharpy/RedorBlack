@@ -8,7 +8,7 @@ import android.preference.PreferenceManager
 import android.view.View
 import android.widget.Button
 
-class rules : AppCompatActivity() {
+class Rules : AppCompatActivity() {
 
     lateinit var prefs : SharedPreferences
     private val firstLaunchPref = "firstLaunchPref"

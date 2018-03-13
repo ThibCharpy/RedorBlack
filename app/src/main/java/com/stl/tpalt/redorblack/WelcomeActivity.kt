@@ -41,7 +41,7 @@ class WelcomeActivity : AppCompatActivity() {
                     val editor = prefs.edit()
                     editor.putBoolean(firstLaunchPref, true)
                     editor.apply()
-                    val intent = Intent(this, rules::class.java)
+                    val intent = Intent(this, Rules::class.java)
                     startActivity(intent)
                 })
     }

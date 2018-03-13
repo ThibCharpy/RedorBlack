@@ -7,16 +7,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="com.stl.tpalt.redorblack.templatePhases"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="#AA200000">
 
     <TextView
         android:id="@+id/tv_header"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$PlayerName"
         android:textSize="@dimen/header_playername"
-        android:gravity="center"
         android:padding="10dp"
-        android:background="#AA200000"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.stl.tpalt.redorblack
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
@@ -13,5 +14,8 @@ class StartGame : AppCompatActivity() {
         setContentView(R.layout.activity_start_game)
 
         val nbDecks : Int = intent.extras.getInt("NumberOfDecks")
+        //TODO Do stuff
+
+        startActivity(Intent(this, Phase1::class.java))
     }
 }

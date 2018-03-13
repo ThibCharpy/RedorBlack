@@ -1,7 +1,6 @@
 
 
-
-/* This is a template */
+/* This is a template
 
 
 
@@ -17,26 +16,31 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.view.View
-//import kotlinx.android.synthetic.main.activity_phase/*N*/.*
+import android.R.attr.button
+import android.os.CountDownTimer
+
+
+import kotlinx.android.synthetic.main.activity_phase/*N*/.*
 
 /*N*/
 /*N+1*/
 
 class Phase/*N*/ : AppCompatActivity() {
 
-    lateinit var layout: ConstraintLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_phase/*N*/)
+        setContentView(R.layout.activity_phase/*N*/)
+
+        layout_phase/*N*/.isClickable=false
     }
 
-//    layout=layout_phase/*N*/
+
 
     fun whichcardcliked(v : View)
     {
         //TODO : show card and reduce other opacity
         //TODO : show text
-        layout.isClickable=true
+        makeBackGroundClickableAfterXsec(3)
     }
 
     fun goToPhase/*N+1*/(v : View)
@@ -45,4 +49,29 @@ class Phase/*N*/ : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+    fun makeBackGroundClickableAfterXsec(sec : Long)
+    {
+        object : CountDownTimer(sec*1000, 1000) {
+            override fun onTick(p0: Long) {}
+            override fun onFinish() { layout_phase/*N*/.isClickable=true }
+        }.start()
+    }
 }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import android.support.v7.app.AppCompatActivity
+class Phase/*N*/ : AppCompatActivity() {}
