@@ -29,11 +29,8 @@ class RedOrBlackApp : Application()
 
         fun pickCardFromDeck() : Carte
         {
-            val random = Random()
-            val carte = deck.removeAt(random.nextInt(deck.size))
-            return carte
+            return deck.removeAt(Random().nextInt(deck.size))
         }
-
     }
 
 
