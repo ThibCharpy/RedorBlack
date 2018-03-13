@@ -6,6 +6,7 @@ import android.content.Intent
 import android.widget.Button
 import android.preference.PreferenceManager
 
+//can go to Rules or PlayerSelection from here
 class WelcomeActivity : AppCompatActivity() {
 
     private val firstLaunchPref = "firstLaunchPref"

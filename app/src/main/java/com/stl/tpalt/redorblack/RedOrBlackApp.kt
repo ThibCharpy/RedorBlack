@@ -1,15 +1,20 @@
 package com.stl.tpalt.redorblack
 
 import android.app.Application
+import android.os.Bundle
+import org.jetbrains.anko.toast
 
-/**
- * Created by I346992 on 12/03/2018.
- */
+//15 cartes dans la pyramide
+//x*52 cartes
+//5 cartes par joueur
+//(x*52 - 15)/5 = nb de joueurs max
+//x=(nbJ*5 + 15)/52
 class RedOrBlackApp : Application()
 {
     override fun onCreate() {
         super.onCreate()
     }
+
 
     //global vars
     companion object {
@@ -48,13 +53,21 @@ class RedOrBlackApp : Application()
     }
 
 
-    fun generateDecks(n : Int) : Unit
-    {
+        fun generateDecks(n : Int) : Unit
+        {
+            //TODO
+        }
 
+        fun onGameStart() : Unit
+        {
+            //TODO setDecks
+            //TODO setPlayers
+        }
     }
 
-    fun addPlayer(name : String)
-    {
-        temporaryplayers.add(Player(name))
-    }
+
+
+
+
+
 }

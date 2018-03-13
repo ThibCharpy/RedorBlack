@@ -13,5 +13,7 @@
     <string name="button_launchgame">Lancer la partie</string>
     <string name="button_add">+</string>
     <string name="hint_addplayer">Entrez le nom d\'un joueur</string>
-    <string name="rules">Red or Black est un jeu convivial qui peut se jouer entre amis, en famille ou tout seul si ta vie est triste.\nTout le monde finit généralement bien bourré. (on rappelle que l\'abus d\'alcool est dangereux pour la santé). Bonne beuverie !</string>
+    <string name="rules">Red or Black est un jeu convivial qui peut se jouer entre amis, en famille ou tout seul si ta vie est triste.\n
+        Tout le monde finit généralement bien bourré. (on rappelle que l\'abus d\'alcool est dangereux pour la santé).\n
+        Bonne beuverie !</string>
 </resources>
