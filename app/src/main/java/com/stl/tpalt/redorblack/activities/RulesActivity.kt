@@ -18,20 +18,9 @@ class RulesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rules)
 
-        prefs= PreferenceManager.getDefaultSharedPreferences(this)
-
-        val isFirstLaunch = prefs.getBoolean(firstLaunchPref, true)
-        if (!isFirstLaunch) {
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
 
     fun goToWelcome(v : View){
-        val editor = prefs.edit()
-        editor.putBoolean(firstLaunchPref, false)
-        editor.apply()
         val intent = Intent(this, WelcomeActivity::class.java)
         startActivity(intent)
     }

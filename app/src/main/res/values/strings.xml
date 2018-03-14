@@ -3,17 +3,32 @@
     <string name="default_string">Default String</string>
 
     <!--Welcome activity-->
-    <string name="textview_welcomemessage">Bienvenue sur</string>
-    <string name="textview_warningalcool">L\'abus d\'alcool est dangereux pour la santé</string>
-    <string name="button_showrules">Règles du jeu</string>
-    <string name="button_start">Commencer</string>
+    <string name="textview_welcomemessage">Welcome to</string>
+    <string name="textview_warningalcool">Alcohol: Temporary Fun With Permanent Consequences</string>
+    <string name="button_showrules">Rules</string>
+    <string name="button_start">Start</string>
 
-    PlayerSelectionActivitytion Activity-->
-    <string name="textview_nbdecks">Nombre de jeux de cartes :</string>
-    <string name="button_launchgame">Lancer la partie</string>
+    <!-- PlayerSelectionActivitytion Activity-->
+    <string name="textview_nbdecks">Count of card games :</string>
+    <string name="button_launchgame">Start the game</string>
+    <string name="hint_addplayer">Players names</string>
+    <string name="rules">
+        Stage 1 : Bet on card color between Red or Black\n
+        Stage 2 : Bet on next card number Greater or Lower than your first card\n
+        Stage 3 : Bet on next card number Inside or Outside the interval of your two first cards\n
+        Stage 4 : Bet on next card sign between Hearts, Diamonds, Spades or Clubs\n
+
+        If you loose your bet you have to drink as much shot as the number of the current stage.\n
+        Else you must make drink one player and give him as much shot as the number of the current stage.\n
+        You can also divide the count of shot to give to other players.\n
+    </string>
+    <string name="warnings">
+        Red or Black is a friendly game that can be played with friends, family or alone if your life is sad. \n
+        Everyone usually ends up drunk. (Remember that alcohol abuse is dangerous for your health). \n
+        Good drinking!
+    </string>
+
+    <!-- Utils strings -->
     <string name="button_add">+</string>
-    <string name="hint_addplayer">Entrez le nom d\'un joueur</string>
-    <string name="rules">Red or Black est un jeu convivial qui peut se jouer entre amis, en famille ou tout seul si ta vie est triste.\n
-        Tout le monde finit généralement bien bourré. (on rappelle que l\'abus d\'alcool est dangereux pour la santé).\n
-        Bonne beuverie !</string>
+
 </resources>
