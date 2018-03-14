@@ -2,6 +2,7 @@ package com.stl.tpalt.redorblack.model
 
 import android.app.Application
 import com.stl.tpalt.redorblack.R
+import java.util.*
 
 /**
  * Created by thibault on 14/03/18.
@@ -14,28 +15,28 @@ data class Player(var name: String) : Entity()
 
 class RedOrBlackApp : Application()
 {
-    override fun onCreate() {
-        super.onCreate()
-    }
-
     //global vars
     companion object {
-        var deck : List<Card> = listOf<Card>()
-        var temporaryplayers : MutableList<Player> = mutableListOf()
-        var cartesdesjoueurs : HashMap<Player, MutableList<Card>> = hashMapOf()
+        var deck : MutableList<Card> = mutableListOf<Card>(Card("NaN", 0))
         var players : MutableList<Player> = mutableListOf()
 
-        fun generateDeck(countOfDeck : Int): MutableList<Card> {
-            when(countOfDeck){
-                0 -> return listOf<Card>() as MutableList<Card>
-                else ->
-                    return listOf<List<Card>>(buildDeck(), generateDeck(countOfDeck - 1))
-                            .flatten() as MutableList<Card>
+        fun generateDeck(n : Int)
+        {
+            deck = generateDeckRec(n)
+        }
+
+        private fun generateDeckRec(countOfDeck : Int): MutableList<Card>
+        {
+            return when(countOfDeck){
+                0 ->    listOf<Card>() as MutableList<Card>
+                else -> listOf<List<Card>>(generateOneDeck(), generateDeckRec(countOfDeck - 1))
+                        .flatten() as MutableList<Card>
             }
         }
 
-        fun buildDeck(): List<Card> {
-            val values = listOf<String>("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
+        private fun generateOneDeck(): List<Card>
+        {
+            val values = listOf<String>("1", "2", "3", "4", "5", "6", "7", "8", "9", "t", "j", "q", "k")
             val signs = listOf<String>("Spades", "Clubs", "Heart", "Diamonds")
             return values.map { value ->
                 signs.map { sign ->
@@ -57,8 +58,8 @@ class RedOrBlackApp : Application()
 
         fun pickCardFromDeck() : Card
         {
-            //return deck.removeAt(Random().nextInt(deck.size))
-            return Card("lol", 0)
+            return deck.removeAt(Random().nextInt(deck.size))
+//            return Card("lol", 0)
         }
     }
 }

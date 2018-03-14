@@ -44,7 +44,7 @@ class PlayerSelectionActivity : AppCompatActivity() {
 
 
         button_startgame.setOnClickListener { _ ->
-            RedOrBlackApp.generateDeck(number_picker.value)
+//            RedOrBlackApp.generateDeck(number_picker.value)
             val intent = Intent(this, StartGameActivity::class.java)
             startActivity(intent)
             onPause()

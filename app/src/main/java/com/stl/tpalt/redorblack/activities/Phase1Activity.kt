@@ -42,11 +42,14 @@ class Phase1Activity : AppCompatActivity() {
 
     fun makeBackGroundClickableAfterXsec(sec : Long)
     {
-        phase1_card_red.isClickable=false
-        phase1_card_black.isClickable=false
+        phase1_card_red.isEnabled=false
+        phase1_card_black.isEnabled=false
         object : CountDownTimer(sec*1000, 1000) {
             override fun onTick(p0: Long) {}
-            override fun onFinish() { layout_phase1.isClickable=true; toast("bg clickable")}
+            override fun onFinish() {
+                layout_phase1.isClickable=true;
+                toast("bg clickable")
+            }
         }.start()
     }
 }

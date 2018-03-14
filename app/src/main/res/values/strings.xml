@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Red or Black</string>
     <string name="default_string">Default String</string>
@@ -16,7 +17,8 @@
         Stage 1 : Bet on card color between Red or Black\n
         Stage 2 : Bet on next card number Greater or Lower than your first card\n
         Stage 3 : Bet on next card number Inside or Outside the interval of your two first cards\n
-        Stage 4 : Bet on next card sign between Hearts, Diamonds, Spades or Clubs\n
+        Stage 4 : Bet on next card suit between Hearts, Diamonds, Spades or Clubs\n
+        Stage 5 : Bet on if you already have next card or not, based only on values.\n
 
         If you loose your bet you have to drink as much shot as the number of the current stage.\n
         Else you must make drink one player and give him as much shot as the number of the current stage.\n

@@ -15,7 +15,7 @@ class StartGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_game)
 
-        RedOrBlackApp.generateDeck(playerList.size)
+//        RedOrBlackApp.generateDeck(playerList.size)
 
         startActivity(Intent(this, Phase1Activity::class.java))
     }
