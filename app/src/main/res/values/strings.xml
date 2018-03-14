@@ -29,6 +29,8 @@
         Everyone usually ends up drunk. (Remember that alcohol abuse is dangerous for your health). \n
         Good drinking!
     </string>
+    <string name="loose">PERDU TU BOIS %1$d GORGE</string>
+    <string name="win">GAGNE TU DONNES %1$d GORGE</string>
 
     <!-- Utils strings -->
     <string name="button_add">+</string>

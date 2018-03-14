@@ -13,7 +13,7 @@ import org.jetbrains.anko.toast
 import kotlinx.android.synthetic.main.activity_player_selection.*
 
 
-//can go to Phase1Activity from here
+//can go to StartGameActivity from here
 class PlayerSelectionActivity : AppCompatActivity() {
 
     private var NumberOfDecks : Int = 0
@@ -44,8 +44,9 @@ class PlayerSelectionActivity : AppCompatActivity() {
 
 
         button_startgame.setOnClickListener { _ ->
-//            RedOrBlackApp.generateDeck(number_picker.value)
+            //            RedOrBlackApp.generateDeck(number_picker.value)
             val intent = Intent(this, StartGameActivity::class.java)
+            intent.putExtra("nbJeuCartes", number_picker.value)
             startActivity(intent)
             onPause()
         }
