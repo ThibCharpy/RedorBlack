@@ -53,7 +53,8 @@ class RedOrBlackApp : Application()
         }
         fun pickCardFromDeck() : Carte
         {
-            return deck.removeAt(Random().nextInt(deck.size))
+            //return deck.removeAt(Random().nextInt(deck.size))
+            return Carte("lol",0)
         }
     }
 
