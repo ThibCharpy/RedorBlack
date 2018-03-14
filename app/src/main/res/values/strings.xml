@@ -8,7 +8,7 @@
     <string name="button_showrules">Règles du jeu</string>
     <string name="button_start">Commencer</string>
 
-    <!--PlayerSelection Activity-->
+    PlayerSelectionActivitytion Activity-->
     <string name="textview_nbdecks">Nombre de jeux de cartes :</string>
     <string name="button_launchgame">Lancer la partie</string>
     <string name="button_add">+</string>

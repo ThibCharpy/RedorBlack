@@ -1,16 +1,20 @@
-package com.stl.tpalt.redorblack
+package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import com.stl.tpalt.redorblack.model.Player
+import com.stl.tpalt.redorblack.utils.PlayerListAdapter
+import com.stl.tpalt.redorblack.R
+import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import org.jetbrains.anko.toast
 import kotlinx.android.synthetic.main.activity_player_selection.*
 
 
-//can go to Phase1 from here
-class PlayerSelection : AppCompatActivity() {
+//can go to Phase1Activity from here
+class PlayerSelectionActivity : AppCompatActivity() {
 
     private var NumberOfDecks : Int = 0
 
@@ -41,7 +45,7 @@ class PlayerSelection : AppCompatActivity() {
 
         button_startgame.setOnClickListener { _ ->
             RedOrBlackApp.generateDeck(number_picker.value)
-            val intent = Intent(this, StartGame::class.java)
+            val intent = Intent(this, StartGameActivity::class.java)
             startActivity(intent)
             onPause()
         }

@@ -1,4 +1,4 @@
-package com.stl.tpalt.redorblack
+package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -6,9 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
+import com.stl.tpalt.redorblack.R
 
 //can go only to WelcomeActivity from here
-class Rules : AppCompatActivity() {
+class RulesActivity : AppCompatActivity() {
 
     private lateinit var prefs : SharedPreferences
     private val firstLaunchPref = "firstLaunchPref"

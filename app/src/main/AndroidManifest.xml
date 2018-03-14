@@ -3,27 +3,27 @@
     package="com.stl.tpalt.redorblack">
 
     <application
-        android:name=".RedOrBlackApp"
+        android:name=".model.RedOrBlackApp"
         android:allowBackup="true"
         android:icon="@mipmap/launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/launcher_round"
         android:supportsRtl="true"
         android:theme="@style/RedOrBlack">
-        <activity android:name=".WelcomeActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".PlayerSelection" />
-        <activity android:name=".StartGame" />
-        <activity android:name=".Rules">
+        <activity android:name=".activities.WelcomeActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.PlayerSelectionActivity" />
+        <activity android:name=".activities.StartGameActivity" />
+        <activity android:name=".activities.RulesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".templatePhases" />
-        <activity android:name=".Phase1" />
-        <activity android:name=".Phase2" />
+        <activity android:name=".activities.TemplatePhasesActivity" />
+        <activity android:name=".activities.Phase1Activity" />
+        <activity android:name=".activities.Phase2Activy" />
     </application>
 
 </manifest> <!-- android:screenOrientation="nosensor" -->

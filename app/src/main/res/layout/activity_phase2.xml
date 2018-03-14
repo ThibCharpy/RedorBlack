@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:clickable="false"
     android:onClick="goToPhase3"
-    tools:context="com.stl.tpalt.redorblack.Phase2">
+    tools:context="com.stl.tpalt.redorblack.activities.Phase2Activy">
 
     <include
         android:id="@+id/header"

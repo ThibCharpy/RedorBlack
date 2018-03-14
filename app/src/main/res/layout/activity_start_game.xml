@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.stl.tpalt.redorblack.StartGame">
+    tools:context="com.stl.tpalt.redorblack.activities.StartGameActivity">
 
 </android.support.constraint.ConstraintLayout>

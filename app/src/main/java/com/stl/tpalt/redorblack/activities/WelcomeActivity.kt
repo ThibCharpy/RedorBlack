@@ -1,12 +1,13 @@
-package com.stl.tpalt.redorblack
+package com.stl.tpalt.redorblack.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import android.widget.Button
 import android.preference.PreferenceManager
+import com.stl.tpalt.redorblack.R
 
-//can go to Rules or PlayerSelection from here
+//can go to RulesActivity or PlayerSelectionActivity from here
 class WelcomeActivity : AppCompatActivity() {
 
     private val firstLaunchPref = "firstLaunchPref"
@@ -22,7 +23,7 @@ class WelcomeActivity : AppCompatActivity() {
         buttonStart.setOnClickListener(
                 {
                     _ ->
-                    val intent = Intent(this, PlayerSelection::class.java)
+                    val intent = Intent(this, PlayerSelectionActivity::class.java)
                     startActivity(intent)
                     finish()
                 })
@@ -32,7 +33,7 @@ class WelcomeActivity : AppCompatActivity() {
                     val editor = prefs.edit()
                     editor.putBoolean(firstLaunchPref, true)
                     editor.apply()
-                    val intent = Intent(this, Rules::class.java)
+                    val intent = Intent(this, RulesActivity::class.java)
                     startActivity(intent)
                 })
     }

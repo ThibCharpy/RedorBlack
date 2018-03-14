@@ -1,9 +1,10 @@
-package com.stl.tpalt.redorblack
+package com.stl.tpalt.redorblack.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.stl.tpalt.redorblack.R
 
-class templatePhases : AppCompatActivity() {
+class TemplatePhasesActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

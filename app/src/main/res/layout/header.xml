@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.stl.tpalt.redorblack.templatePhases"
+    tools:context="com.stl.tpalt.redorblack.activities.TemplatePhasesActivity"
     app:layout_constraintTop_toTopOf="parent"
     android:background="#AA200000">
 

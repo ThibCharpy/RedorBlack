@@ -1,13 +1,13 @@
-package com.stl.tpalt.redorblack
+package com.stl.tpalt.redorblack.utils
 
 import android.app.Activity
 import android.content.Context
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.stl.tpalt.redorblack.model.Player
+import com.stl.tpalt.redorblack.R
 
 /**
  * Created by I346992 on 12/03/2018.

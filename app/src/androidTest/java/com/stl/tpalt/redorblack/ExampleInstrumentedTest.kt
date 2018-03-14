@@ -3,12 +3,12 @@ package com.stl.tpalt.redorblack
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 import android.util.Log
+import com.stl.tpalt.redorblack.model.RedOrBlackApp
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
-import java.util.logging.Logger
 
 /**
  * Instrumented test, which will execute on an Android device.

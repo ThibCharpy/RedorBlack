@@ -1,16 +1,15 @@
-package com.stl.tpalt.redorblack
+package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.support.constraint.ConstraintLayout
 import android.view.View
-import android.widget.ImageView
+import com.stl.tpalt.redorblack.R
 import kotlinx.android.synthetic.main.activity_phase1.*
 import org.jetbrains.anko.toast
 
-class Phase1 : AppCompatActivity() {
+class Phase1Activity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +35,7 @@ class Phase1 : AppCompatActivity() {
 
     fun goToPhase2(v : View)
     {
-        val intent = Intent(this, Phase2::class.java)
+        val intent = Intent(this, Phase2Activy::class.java)
         startActivity(intent)
         finish()
     }
