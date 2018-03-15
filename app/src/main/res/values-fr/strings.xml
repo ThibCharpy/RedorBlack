@@ -29,4 +29,11 @@
         Tout le monde finit généralement bien bourré. (on rappelle que l\'abus d\'alcool est dangereux pour la santé).\n
         Bonne beuverie !
     </string>
+
+    <string name="win">Gagné !</string>
+    <string name="lose">Perdu !</string>
+    <string name="drink">Bois %1$d gorgées</string>
+    <string name="give">Donne %1$d gorgées</string>
+    <string name="drink1">Bois %1$d gorgée</string>
+    <string name="give1">Donne %1$d gorgée</string>
 </resources>

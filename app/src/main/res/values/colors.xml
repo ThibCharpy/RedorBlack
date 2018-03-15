@@ -9,4 +9,5 @@
     <color name="numberpicker_separator">#de000000</color>
     <color name="numberpicker_selected">#b40000</color>
     <color name="numberpicker_others">#200</color>
+    <color name="tv_winorlose">#000000</color>
 </resources>

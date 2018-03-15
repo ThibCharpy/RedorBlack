@@ -10,4 +10,7 @@
     <dimen name="playerlist_fontsize">20sp</dimen>
     <dimen name="header_playername">25sp</dimen>
 
+    <dimen name="WinOrLose">30sp</dimen>
+    <dimen name="DrinkOrGive">20sp</dimen>
+
 </resources>
