@@ -14,15 +14,17 @@ import kotlinx.android.synthetic.main.header.*
 
 class Phase1Activity : AppCompatActivity() {
 
-    lateinit var hiddenCard : Card
-    lateinit var redCard : ImageView
-    lateinit var blackCard : ImageView
+    val phase : Int = 1
+
+    private lateinit var hiddenCard : Card
+    private lateinit var redCard : ImageView
+    private lateinit var blackCard : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phase1)
 
-        val playerCurr = RedOrBlackApp.getPlayerForPhase(1)
+        val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
         if (playerCurr == null)
         {
             val intent = Intent(this, Phase2Activity::class.java)
@@ -39,6 +41,8 @@ class Phase1Activity : AppCompatActivity() {
         //UI init
         redCard.setImageResource(R.drawable.red)
         blackCard.setImageResource(R.drawable.black)
+        tv_drinkorgive.visibility=View.INVISIBLE
+        tv_winorlose.visibility=View.INVISIBLE
 
 
     }
@@ -53,10 +57,7 @@ class Phase1Activity : AppCompatActivity() {
         }
         winlose(win)
         redCard.setImageResource(hiddenCard.image)
-
-        /**
-         * https://stackoverflow.com/questions/3656371/dynamic-string-using-string-xml
-         */
+        blackCard.alpha=RedOrBlackApp.masked
     }
 
     @Suppress("UNUSED_PARAMETER")
@@ -69,6 +70,7 @@ class Phase1Activity : AppCompatActivity() {
         }
         winlose(win)
         blackCard.setImageResource(hiddenCard.image)
+        redCard.alpha=RedOrBlackApp.masked
     }
 
     private fun makeBackGroundClickableAfterXsec(sec: Double)
@@ -81,7 +83,7 @@ class Phase1Activity : AppCompatActivity() {
         object : CountDownTimer((sec*1000).toLong(), 1000) {
             override fun onTick(p0: Long) {}
             override fun onFinish() {
-                if (RedOrBlackApp.getPlayerForPhase(1) == null) {
+                if (RedOrBlackApp.getPlayerForPhase(phase) == null) {
                     val intent = Intent(that, Phase2Activity::class.java)
                     layout_phase1.setOnClickListener({ _ ->
                         startActivity(intent)

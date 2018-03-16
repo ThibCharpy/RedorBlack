@@ -5,10 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
-import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.ImageView
-import android.widget.LinearLayout
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
@@ -20,8 +18,10 @@ import org.jetbrains.anko.toast
 
 
 
+@Suppress("MemberVisibilityCanBePrivate")
 class Phase2Activity : AppCompatActivity() {
 
+    val phase : Int = 2
     lateinit var lessCard: ImageView
     lateinit var moreCard: ImageView
     lateinit var equalsCard: ImageView
@@ -40,10 +40,10 @@ class Phase2Activity : AppCompatActivity() {
         equalsCard=phase2_card_equals
         firstCard=phase2_card_mycard
 
-        val playerCurr = RedOrBlackApp.getPlayerForPhase(2)
+        val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
         if (playerCurr == null)
         {
-            val intent = Intent(this, Phase1Activity::class.java)
+            val intent = Intent(this, Phase3Activity::class.java)
             startActivity(intent)
             finish()
         }
@@ -59,83 +59,94 @@ class Phase2Activity : AppCompatActivity() {
             firstCard.setImageResource(playerCurr.cartes[0]!!.image)
             card1value = playerCurr.cartes[0]!!.getValue()
             newcardValue = hiddenCard.getValue()
+            tv_drinkorgive.visibility=View.INVISIBLE
+            tv_winorlose.visibility=View.INVISIBLE
         }
     }
 
     @Suppress("UNUSED_PARAMETER")
     fun onLessClicked(v : View)
     {
-        makeBackGroundClickableAfterXsec(1)
+        makeBackGroundClickableAfterXsec(1.0)
         if (card1value > newcardValue)
             win=true
         winlose()
         lessCard.setImageResource(hiddenCard.image)
+        moreCard.alpha=RedOrBlackApp.masked
+        equalsCard.alpha=RedOrBlackApp.masked
         val margin = resources.getDimension(R.dimen.maincardsmargin).toInt()
         MarginLayoutParams(lessCard.layoutParams).setMargins(margin,margin,margin,margin)
     }
     @Suppress("UNUSED_PARAMETER")
     fun onMoreClicked(v : View)
     {
-        makeBackGroundClickableAfterXsec(1)
+        makeBackGroundClickableAfterXsec(1.0)
         if (card1value < newcardValue)
             win=true
         winlose()
         moreCard.setImageResource(hiddenCard.image)
+        lessCard.alpha=RedOrBlackApp.masked
+        equalsCard.alpha=RedOrBlackApp.masked
     }
     @Suppress("UNUSED_PARAMETER")
     fun onEqualsClicked(v : View)
     {
-        makeBackGroundClickableAfterXsec(1)
+        makeBackGroundClickableAfterXsec(1.0)
         if (card1value == newcardValue) {
             win=true
             bojeu=true
         }
-        winlose()
+        winlose(win)
         equalsCard.setImageResource(hiddenCard.image)
-    }
-    @Suppress("UNUSED_PARAMETER")
-    fun goToPhase3(v : View)
-    {
-        val intent = Intent(this, Phase3Activity::class.java)
-        startActivity(intent)
-        finish()
+        lessCard.alpha=RedOrBlackApp.masked
+        moreCard.alpha=RedOrBlackApp.masked
     }
 
-    fun makeBackGroundClickableAfterXsec(sec : Long)
+    fun makeBackGroundClickableAfterXsec(sec : Double)
     {
         phase2_card_less.isEnabled=false
         phase2_card_equals.isEnabled=false
         phase2_card_more.isEnabled=false
         phase2_card_mycard.isEnabled=false
 
-
         phase2_card_less.isClickable=false
         phase2_card_equals.isClickable=false
         phase2_card_more.isClickable=false
         phase2_card_mycard.isClickable=false
 
-        val phase2Activy = this
-        object : CountDownTimer((sec*1000), 1000) {
+        val that = this
+        object : CountDownTimer((sec*1000).toLong(), 1000) {
             override fun onTick(p0: Long) {}
             override fun onFinish() {
-                toast("Go")
-                val intent = Intent(phase2Activy, Phase2Activity::class.java)
-                layout_phase2.setOnClickListener({ _ ->
-                    startActivity(intent)
-                    finish()
-                })
+                if (RedOrBlackApp.getPlayerForPhase(phase) == null)
+                {
+                    val intent = Intent(that, Phase3Activity::class.java)
+                    layout_phase2.setOnClickListener({ _ ->
+                        startActivity(intent)
+                        finish()
+                    })
+                }
+                else
+                {
+                    val intent = Intent(that, Phase2Activity::class.java)
+                    layout_phase2.setOnClickListener({ _ ->
+                        startActivity(intent)
+                        finish()
+                    })
+                }
             }
         }.start()
     }
 
-    private fun winlose()
+    private fun winlose(bonus : Boolean = false)
     {
         questionmark.visibility=View.INVISIBLE
-        val sips = RedOrBlackApp.rules.phase2sips
-        val bonussips = RedOrBlackApp.rules.bonusForEquals
+        var sips = RedOrBlackApp.rules.phase2sips
+        val bonussips = if (bonus) RedOrBlackApp.rules.bonusForEquals else 0
         tv_winorlose.visibility=View.VISIBLE
         tv_drinkorgive.visibility=View.VISIBLE
         tv_winorlose.text = if(bojeu) getString(R.string.bojeu) else if(win) getString(R.string.win) else getString(R.string.lose)
+        sips+=bonussips
         when(sips)
         {
             0   -> tv_drinkorgive.visibility=View.INVISIBLE

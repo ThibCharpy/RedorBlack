@@ -4,7 +4,6 @@
     <string name="default_string">Default String</string>
 
     <!-- Welcome activity -->
-    <string name="textview_welcomemessage">Bienvenue sur</string>
     <string name="textview_warningalcool">L\'abus d\'alcool est dangereux pour la santé</string>
     <string name="button_showrules">Règles du jeu</string>
     <string name="button_start">Commencer</string>
@@ -12,22 +11,17 @@
     <!-- PlayerSelectionActivitytion Activity -->
     <string name="textview_nbdecks">Nombre de jeux de cartes :</string>
     <string name="button_launchgame">Lancer la partie</string>
-    <string name="button_add">+</string>
     <string name="hint_addplayer">Entrez le nom d\'un joueur</string>
+    <string name="emptyplayerlist">Y\'a au moins toi qui joues, non ?\nAlors ajoute ton nom.</string>
     <string name="rules">
-        Phase 1: Pariez sur la couleur de la carte entre rouge ou noire\n
-        Phase 2: Pariez sur le numéro de la prochaine carte entre supérieur ou inférieur à votre première carte\n
-        Phase 3: Pariez sur le numéro de la prochaine carte entre à l\'intérieur ou à l\'extérieur de l\'intervalle de vos deux cartes\n
-        Phase 4: Pariez sur le signe de la prochaine carte entre coeurs, carreaux, piques ou trefles\n
+        Round 1: Pariez sur la couleur de la carte entre rouge ou noire\n
+        Round 2: Pariez sur la valeur de la prochaine carte entre supérieur ou inférieur à votre première carte\n
+        Round 3: Pariez sur la valeur de la prochaine carte entre à l\'intérieur ou à l\'extérieur de l\'intervalle de vos deux cartes\n
+        Round 4: Pariez sur la couleur de la prochaine carte entre Pique Coeur Carreau ou Trèfle\n
+        Round 5: Pariez si vous avez déjà la valeur de la prochaine carte ou non.\n
 
-        Si vous perdez votre pari, vous devez boire autant de shot que le numéro de la phase en cours.\n
-        Sinon, vous devez faire boire un joueur et lui donner autant de tir que le numéro de la phase en cours.\n
-        Vous pouvez également diviser le nombre de shot à donner aux autres joueurs.\n
-    </string>
-    <string name="warnings">
-        Red or Black est un jeu convivial qui peut se jouer entre amis, en famille ou tout seul si ta vie est triste.\n
-        Tout le monde finit généralement bien bourré. (on rappelle que l\'abus d\'alcool est dangereux pour la santé).\n
-        Bonne beuverie !
+        Si vous vous trompez, vous devrez boire le nombre de gorgées indiquées.\n
+        Si vous gagnez, vous pourrez donner le nombre de gorgées indiquées au joueur de votre choix.\n
     </string>
 
     <string name="win">Gagné !</string>
@@ -37,5 +31,8 @@
     <string name="give">Donne %1$d gorgées</string>
     <string name="drink1">Bois %1$d gorgée</string>
     <string name="give1">Donne %1$d gorgée</string>
+
+
+    <string name="button_add">+</string>
     <string name="playeralreadyexists">Le joueur existe déjà.\nChoisis un autre nom.</string>
 </resources>

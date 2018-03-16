@@ -16,8 +16,6 @@ class StartGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_game)
 
-//        RedOrBlackApp.generateDeck(playerList.size)
-
         RedOrBlackApp.deck = generateDeckRec(intent.getIntExtra("nbJeuCartes", 2))
 
         startActivity(Intent(this, Phase1Activity::class.java))
@@ -34,7 +32,7 @@ class StartGameActivity : AppCompatActivity() {
 
     private fun generateOneDeck(): List<Card>
     {
-        val values = listOf<String>("1", "2", "3", "4", "5", "6", "7", "8", "9", "t", "j", "q", "k")
+        val values = listOf<String>("1", "2", "3", "4", "5", "6", "7", "8", "9", "t", "v", "d", "r")
         val signs = listOf<String>("Spades", "Clubs", "Heart", "Diamonds")
         return values.map { value ->
             signs.map { sign ->

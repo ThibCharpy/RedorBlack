@@ -50,6 +50,7 @@ class RedOrBlackApp : Application()
         var deck : MutableList<Card> = mutableListOf<Card>(Card("NaN", 0))
         var players : MutableList<Player> = mutableListOf()
         var rules : Rules = Rules("Normal", 1, 2, 3, 4, 5, 0.1, 1)
+        const val masked: Float = 0.6F
 
         fun pickCardFromDeck() : Card
         {
@@ -72,5 +73,6 @@ class RedOrBlackApp : Application()
             return null
 
         }
+
     }
 }

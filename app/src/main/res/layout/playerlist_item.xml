@@ -13,6 +13,6 @@
         android:paddingTop="10dp"
         android:textAlignment="center"
         android:textSize="@dimen/playerlist_fontsize"
-        android:text="@string/default_string"/>
+        android:text="@string/default_string" />
 
 </android.support.constraint.ConstraintLayout>

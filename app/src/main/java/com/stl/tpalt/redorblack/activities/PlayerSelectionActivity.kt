@@ -1,15 +1,10 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.graphics.PorterDuff
-import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.utils.PlayerListAdapter
 import com.stl.tpalt.redorblack.R
@@ -30,14 +25,19 @@ class PlayerSelectionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_player_selection)
 
         //for testing purpose
-//        playerList.add(Player("Rudy", arrayOfNulls(5)))
-//        playerList.add(Player("Thibthib", arrayOfNulls(5)))
+        playerList.add(Player("Tomo", arrayOfNulls(5)))
+        playerList.add(Player("Tomshiro", arrayOfNulls(5)))
+        playerList.add(Player("Kenshiro", arrayOfNulls(5)))
 
         val adapter = PlayerListAdapter(this, playerList)
         listview_playerlist.adapter = adapter
 
-
         button_startgame.setOnClickListener { _ ->
+            if (RedOrBlackApp.players.size < 1)
+            {
+                toast(R.string.emptyplayerlist)
+                return@setOnClickListener
+            }
             val intent = Intent(this, StartGameActivity::class.java)
             intent.putExtra("nbJeuCartes", number_picker.value)
             startActivity(intent)
@@ -66,9 +66,7 @@ class PlayerSelectionActivity : AppCompatActivity() {
                 button_add.isEnabled=!p0.isNullOrBlank()
             }
         })
-
     }
-
 
     //need to be called after changing (add / suppress) list of players
     private fun updateNumberPicker() {

@@ -6,8 +6,6 @@
     android:id="@+id/layout_phase2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="false"
-    android:onClick="goToPhase3"
     tools:context="com.stl.tpalt.redorblack.activities.Phase2Activity">
 
     <include
@@ -25,7 +23,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/phase2_card_mycard"
         app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"/>
+        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/phase2_card_equals"
@@ -38,7 +37,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/guidelinetop"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinemid"/>
+        app:layout_constraintBottom_toBottomOf="@id/guidelinemid"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/phase2_card_mycard"
@@ -50,7 +50,8 @@
         app:layout_constraintLeft_toRightOf="@id/phase2_card_less"
         app:layout_constraintRight_toLeftOf="@id/phase2_card_more"
         app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"/>
+        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/phase2_card_more"
@@ -64,7 +65,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/phase2_card_mycard"
         app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"/>
+        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:padding="5dp"
@@ -76,7 +78,7 @@
         app:layout_constraintBottom_toBottomOf="@id/guidelinebotbot"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tv_winorlose"

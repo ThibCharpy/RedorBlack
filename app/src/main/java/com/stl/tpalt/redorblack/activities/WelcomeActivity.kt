@@ -30,7 +30,6 @@ class WelcomeActivity : AppCompatActivity() {
                     _ ->
                     val intent = Intent(this, PlayerSelectionActivity::class.java)
                     startActivity(intent)
-                    finish()
                 })
         buttonRules.setOnClickListener(
                 {

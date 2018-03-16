@@ -4,8 +4,7 @@
     <string name="default_string">Default String</string>
 
     <!--Welcome activity-->
-    <string name="textview_welcomemessage">Welcome to</string>
-    <string name="textview_warningalcool">Alcohol: Temporary Fun With Permanent Consequences</string>
+    <string name="textview_warningalcool">Alcohol abuse is dangerous to your health.</string>
     <string name="button_showrules">Rules</string>
     <string name="button_start">Start</string>
 
@@ -13,6 +12,7 @@
     <string name="textview_nbdecks">Count of card games :</string>
     <string name="button_launchgame">Start the game</string>
     <string name="hint_addplayer">Players names</string>
+    <string name="emptyplayerlist">Add your name… at least.</string>
     <string name="rules">
         Stage 1 : Bet on card color between Red or Black\n
         Stage 2 : Bet on next card number Greater or Lower than your first card\n
