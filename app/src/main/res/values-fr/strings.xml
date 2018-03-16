@@ -32,8 +32,10 @@
 
     <string name="win">Gagné !</string>
     <string name="lose">Perdu !</string>
+    <string name="bojeu">Bôjeu !</string>
     <string name="drink">Bois %1$d gorgées</string>
     <string name="give">Donne %1$d gorgées</string>
     <string name="drink1">Bois %1$d gorgée</string>
     <string name="give1">Donne %1$d gorgée</string>
+    <string name="playeralreadyexists">Le joueur existe déjà.\nChoisis un autre nom.</string>
 </resources>

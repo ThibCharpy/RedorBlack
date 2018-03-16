@@ -1,69 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_phase2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="false"
-    android:onClick="goToPhase3"
-    tools:context="com.stl.tpalt.redorblack.activities.Phase2Activity">
+    tools:context="com.stl.tpalt.redorblack.activities.Phase3Activity">
 
     <include
         android:id="@+id/header"
         layout="@layout/header" />
 
     <ImageView
-        android:id="@+id/phase2_card_less"
+        android:id="@+id/phase3_inter"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:onClick="onLessClicked"
         android:src="@drawable/errorcard"
-        android:layout_margin="@dimen/seccardsmargin"
         android:adjustViewBounds="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/phase2_card_mycard"
-        app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"/>
-
-    <ImageView
-        android:id="@+id/phase2_card_equals"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:onClick="onEqualsClicked"
-        android:adjustViewBounds="true"
-        android:src="@drawable/errorcard"
-        android:layout_margin="@dimen/seccardsmargin"
+        app:layout_constraintTop_toTopOf="@id/guidelinetoptop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guidelinetop"/>
+
+    <ImageView
+        android:id="@+id/phase3_mycard1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/errorcard"
+        android:adjustViewBounds="true"
         app:layout_constraintTop_toTopOf="@id/guidelinetop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/phase3_mycard2"
         app:layout_constraintBottom_toBottomOf="@id/guidelinemid"/>
 
     <ImageView
-        android:id="@+id/phase2_card_mycard"
-        android:layout_width="0dp"
+        android:id="@+id/phase3_mycard2"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:adjustViewBounds="true"
         android:src="@drawable/errorcard"
-        android:layout_margin="@dimen/maincardsmargin"
-        app:layout_constraintLeft_toRightOf="@id/phase2_card_less"
-        app:layout_constraintRight_toLeftOf="@id/phase2_card_more"
-        app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"/>
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="@id/guidelinetop"
+        app:layout_constraintLeft_toRightOf="@id/phase3_mycard1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guidelinemid"/>
 
     <ImageView
-        android:id="@+id/phase2_card_more"
-        android:layout_width="0dp"
+        android:id="@+id/phase3_exter"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:scaleType="fitCenter"
-        android:onClick="onMoreClicked"
-        android:adjustViewBounds="true"
         android:src="@drawable/errorcard"
-        android:layout_margin="@dimen/seccardsmargin"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/phase2_card_mycard"
+        android:adjustViewBounds="true"
         app:layout_constraintTop_toTopOf="@id/guidelinemid"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/guidelinebot"/>
 
     <ImageView
@@ -105,18 +93,25 @@
         android:visibility="invisible"/>
 
     <android.support.constraint.Guideline
+        android:id="@+id/guidelinetoptop"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+  <android.support.constraint.Guideline
         android:id="@+id/guidelinetop"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintGuide_percent="0.35" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemid"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinebot"

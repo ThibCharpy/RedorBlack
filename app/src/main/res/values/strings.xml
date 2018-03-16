@@ -29,10 +29,17 @@
         Everyone usually ends up drunk. (Remember that alcohol abuse is dangerous for your health). \n
         Good drinking!
     </string>
-    <string name="loose">PERDU TU BOIS %1$d GORGE</string>
-    <string name="win">GAGNE TU DONNES %1$d GORGE</string>
+
+    <string name="win">Win !</string>
+    <string name="lose">Lost !</string>
+    <string name="bojeu">Epic win !</string>
+    <string name="drink">Drink %1$d sips</string>
+    <string name="give">Give %1$d sips</string>
+    <string name="drink1">Drink %1$d sip</string>
+    <string name="give1">Give %1$d sip</string>
 
     <!-- Utils strings -->
     <string name="button_add">+</string>
+    <string name="playeralreadyexists">Player already exists.\nPlease choose a different name.</string>
 
 </resources>

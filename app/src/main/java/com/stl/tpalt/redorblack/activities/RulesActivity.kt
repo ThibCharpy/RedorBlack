@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.View
 import com.stl.tpalt.redorblack.R
 
@@ -19,6 +18,7 @@ class RulesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rules)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun goToWelcome(v : View){
         val intent = Intent(this, WelcomeActivity::class.java)
         startActivity(intent)

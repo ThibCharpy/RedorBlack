@@ -22,9 +22,5 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         assertEquals("com.stl.tpalt.redorblack", appContext.packageName)
-
-        val deck = RedOrBlackApp.buildDeck()
-        Log.e("error",deck.toString())
-        assert(!deck.isEmpty() && deck.size == 52)
     }
 }

@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            app:np_wheelItemCount="5"
             app:np_width="150dp"
             app:np_height="50dp"
             app:np_dividerColor="@color/transparent"
@@ -74,7 +75,7 @@
             android:enabled="false"
             app:layout_constraintRight_toRightOf="parent" />
 
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/input_playername"
             android:layout_width="0dp"
             android:layout_height="match_parent"

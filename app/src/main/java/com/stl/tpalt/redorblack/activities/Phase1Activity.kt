@@ -1,98 +1,118 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
+import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
-import com.stl.tpalt.redorblack.utils.CardImage
 import kotlinx.android.synthetic.main.activity_phase1.*
-import org.jetbrains.anko.toast
+import kotlinx.android.synthetic.main.header.*
 
 class Phase1Activity : AppCompatActivity() {
 
     lateinit var hiddenCard : Card
-    lateinit var redCard : CardImage
-    lateinit var blackCard : CardImage
+    lateinit var redCard : ImageView
+    lateinit var blackCard : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phase1)
 
+        val playerCurr = RedOrBlackApp.getPlayerForPhase(1)
+        if (playerCurr == null)
+        {
+            val intent = Intent(this, Phase2Activity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         redCard = phase1_card_red
         blackCard = phase1_card_black
+        tv_header.text=playerCurr!!.name
         hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        playerCurr.cartes[0]=hiddenCard
 
+        //UI init
         redCard.setImageResource(R.drawable.red)
         blackCard.setImageResource(R.drawable.black)
 
+
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun redClicked(v : View)
     {
-        //TODO : show card and reduce other opacity
-        toast("red clicked")
-        makeBackGroundClickableAfterXsec(3)
+        makeBackGroundClickableAfterXsec(1.0)
         val win = when (hiddenCard.cardname[0]) {
             'd', 'h' -> true
             else -> false
         }
+        winlose(win)
         redCard.setImageResource(hiddenCard.image)
 
         /**
-         * Resources res = getResources();
-         * String text = String.format(res.getString(R.string.welcome_messages), username, mailCount);
          * https://stackoverflow.com/questions/3656371/dynamic-string-using-string-xml
          */
-
-        if (win) {
-            //TODO: Afficher le text view correspondant "Gagné tu donne une gorgée"
-        }else{
-            //TODO: Afficher le text view correspondant "Gagné tu bois une gorgée"
-        }
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun blackClicked(v : View)
     {
-        //TODO : show card and reduce other opacity
-        toast("black clicked")
-        makeBackGroundClickableAfterXsec(3)
-        toast("red clicked")
-        makeBackGroundClickableAfterXsec(3)
+        makeBackGroundClickableAfterXsec(1.0)
         val win = when (hiddenCard.cardname[0]) {
             's', 'c' -> true
             else -> false
         }
+        winlose(win)
         blackCard.setImageResource(hiddenCard.image)
-
-        if (win) {
-            //TODO: Afficher le text view correspondant R.string.loose
-        }else{
-            //TODO: Afficher le text view correspondant R.string.win
-        }
     }
 
-    fun goToPhase2(v : View)
+    private fun makeBackGroundClickableAfterXsec(sec: Double)
     {
-        val intent = Intent(this, Phase2Activy::class.java)
-        startActivity(intent)
-        finish()
-    }
-
-    fun makeBackGroundClickableAfterXsec(sec : Long)
-    {
-        phase1_card_red.isEnabled=false
-        phase1_card_black.isEnabled=false
-        object : CountDownTimer(sec*1000, 1000) {
+        val that = this
+        redCard.isEnabled=false
+        blackCard.isEnabled=false
+        redCard.isClickable=false
+        blackCard.isClickable=false
+        object : CountDownTimer((sec*1000).toLong(), 1000) {
             override fun onTick(p0: Long) {}
             override fun onFinish() {
-                layout_phase1.isClickable=true;
-                toast("bg clickable")
+                if (RedOrBlackApp.getPlayerForPhase(1) == null) {
+                    val intent = Intent(that, Phase2Activity::class.java)
+                    layout_phase1.setOnClickListener({ _ ->
+                        startActivity(intent)
+                        finish()
+                    })
+                }
+                else
+                {
+                    val intent = Intent(that, Phase1Activity::class.java)
+                    layout_phase1.setOnClickListener({ _ ->
+                        startActivity(intent)
+                        finish()
+                    })
+                }
             }
         }.start()
     }
+
+    private fun winlose(win : Boolean)
+    {
+        questionmark.visibility=View.INVISIBLE
+        val sips = RedOrBlackApp.rules.phase1sips
+        tv_winorlose.visibility=View.VISIBLE
+        tv_drinkorgive.visibility=View.VISIBLE
+        tv_winorlose.text = if(win) getString(R.string.win) else getString(R.string.lose)
+        when(sips)
+        {
+            0   -> tv_drinkorgive.visibility=View.INVISIBLE
+            1   -> tv_drinkorgive.text = if(win) getString(R.string.give1,sips) else getString(R.string.drink1,sips)
+            else-> tv_drinkorgive.text = if(win) getString(R.string.give,sips)  else getString(R.string.drink,sips)
+        }
+    }
+
 }

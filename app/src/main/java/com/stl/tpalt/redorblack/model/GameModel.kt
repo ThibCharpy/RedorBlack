@@ -1,16 +1,46 @@
 package com.stl.tpalt.redorblack.model
 
 import android.app.Application
+import android.util.Log
 import com.stl.tpalt.redorblack.R
+import com.stl.tpalt.redorblack.activities.StartGameActivity
 import java.util.*
 
-/**
- * Created by thibault on 14/03/18.
- */
-
 sealed class Entity
-data class Card(var cardname:String, var image: Int) : Entity()
-data class Player(var name: String) : Entity()
+
+data class Card(
+        var cardname:String,
+        var image: Int
+) : Entity()
+{
+    fun getValue() : Int
+    {
+        return when(cardname[1])
+        {
+            'k', 'r' -> 13
+            'q', 'd' -> 12
+            'j', 'v' -> 11
+            't'      -> 10
+            else     -> cardname[1].toInt()-'0'.toInt()
+        }
+    }
+}
+@Suppress("ArrayInDataClass")
+data class Player(
+        var name: String,
+        var cartes : Array<Card?>
+) : Entity()
+
+data class Rules(
+        var type : String, //"Normal", "soft", "Hard"
+        var phase1sips : Int ,
+        var phase2sips : Int ,
+        var phase3sips : Int ,
+        var phase4sips : Int ,
+        var phase5sips : Int ,
+        var randomFrequence : Double,
+        var bonusForEquals : Int
+)
 
 
 class RedOrBlackApp : Application()
@@ -19,12 +49,28 @@ class RedOrBlackApp : Application()
     companion object {
         var deck : MutableList<Card> = mutableListOf<Card>(Card("NaN", 0))
         var players : MutableList<Player> = mutableListOf()
-
+        var rules : Rules = Rules("Normal", 1, 2, 3, 4, 5, 0.1, 1)
 
         fun pickCardFromDeck() : Card
         {
+            Log.i("deck :", deck.map { c -> c.cardname }.toString())
+            if (deck.size==0)
+            {
+                Log.e("Error", "Card Picked on an empty deck")
+                return Card("NaN", 0)
+            }
             return deck.removeAt(Random().nextInt(deck.size))
-//            return Card("lol", 0)
+        }
+
+        fun getPlayerForPhase(phase: Int): Player? {
+            players.forEach { p ->
+                if (p.cartes[phase-1]==null)
+                {
+                    return p
+                }
+            }
+            return null
+
         }
     }
 }

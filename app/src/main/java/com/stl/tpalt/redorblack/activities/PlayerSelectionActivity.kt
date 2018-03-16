@@ -1,10 +1,15 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.utils.PlayerListAdapter
 import com.stl.tpalt.redorblack.R
@@ -25,26 +30,14 @@ class PlayerSelectionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_player_selection)
 
         //for testing purpose
-        playerList.add(Player("Rudy"))
-        playerList.add(Player("Kruissel"))
-        playerList.add(Player("Thibthib"))
-        playerList.add(Player("Charpy"))
-        playerList.add(Player("Yannick"))
-        playerList.add(Player("Alain"))
-        playerList.add(Player("Djézou"))
-        playerList.add(Player("Couassi"))
-        playerList.add(Player("Blé"))
-        playerList.add(Player("Evan"))
-        playerList.add(Player("Joseph"))
-        playerList.add(Player("Dat"))
-        playerList.add(Player("NGuyen"))
+//        playerList.add(Player("Rudy", arrayOfNulls(5)))
+//        playerList.add(Player("Thibthib", arrayOfNulls(5)))
 
         val adapter = PlayerListAdapter(this, playerList)
         listview_playerlist.adapter = adapter
 
 
         button_startgame.setOnClickListener { _ ->
-            //            RedOrBlackApp.generateDeck(number_picker.value)
             val intent = Intent(this, StartGameActivity::class.java)
             intent.putExtra("nbJeuCartes", number_picker.value)
             startActivity(intent)
@@ -52,18 +45,20 @@ class PlayerSelectionActivity : AppCompatActivity() {
         }
 
         button_add.setOnClickListener { _ ->
-            val newplayername : String = input_playername.text.toString()
+            val newplayername : String = input_playername.text.toString().trim().replace("\\s+".toRegex(), " ")
             if (newplayername == "")
                 return@setOnClickListener
-            input_playername.setText("")
-            playerList.add(Player(newplayername))
+            if (playerList.any { p -> p.name.toLowerCase()==newplayername.toLowerCase() }) {
+                toast(R.string.playeralreadyexists)
+                return@setOnClickListener
+            }
+            else
+                input_playername.setText("")
+            playerList.add(Player(newplayername, arrayOfNulls(5)))
             adapter.notifyDataSetChanged()
             updateNumberPicker()
-            toast("$newplayername added.\n")
         }
 
-        // Enable the button when the user put text into the editText
-        // Else the Button to Add is disable
         input_playername.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(p0: Editable?) {}
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
@@ -78,7 +73,9 @@ class PlayerSelectionActivity : AppCompatActivity() {
     //need to be called after changing (add / suppress) list of players
     private fun updateNumberPicker() {
         number_picker.maxValue=Math.max(1, playerList.size)
+        number_picker.wrapSelectorWheel = false
         number_picker.minValue=playerList.size/8+1
+        number_picker.wrapSelectorWheel = false
     }
 
 }

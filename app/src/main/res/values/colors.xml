@@ -10,4 +10,8 @@
     <color name="numberpicker_selected">#b40000</color>
     <color name="numberpicker_others">#200</color>
     <color name="tv_winorlose">#000000</color>
+
+    <color name="blue">#00F</color>
+    <color name="red">#F00</color>
+    <color name="green">#0F0</color>
 </resources>
