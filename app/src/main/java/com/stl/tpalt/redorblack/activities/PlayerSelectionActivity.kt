@@ -1,22 +1,20 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
-import com.stl.tpalt.redorblack.model.Player
-import com.stl.tpalt.redorblack.utils.PlayerListAdapter
 import com.stl.tpalt.redorblack.R
+import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
-import org.jetbrains.anko.toast
+import com.stl.tpalt.redorblack.utils.PlayerListAdapter
 import kotlinx.android.synthetic.main.activity_player_selection.*
+import org.jetbrains.anko.toast
 
 
 //can go to StartGameActivity from here
 class PlayerSelectionActivity : AppCompatActivity() {
-
-    private var NumberOfDecks : Int = 0
 
     private val playerList: MutableList<Player> = RedOrBlackApp.players
 
@@ -25,9 +23,10 @@ class PlayerSelectionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_player_selection)
 
         //for testing purpose
-        playerList.add(Player("Tomo", arrayOfNulls(5)))
-        playerList.add(Player("Tomshiro", arrayOfNulls(5)))
-        playerList.add(Player("Kenshiro", arrayOfNulls(5)))
+        playerList.add(Player("Rudy"))
+        playerList.add(Player("Justine"))
+//        playerList.add(Player("ABCDEFGHIJKLMOPQRSTUVWXYZ", arrayOfNulls(5)))
+
 
         val adapter = PlayerListAdapter(this, playerList)
         listview_playerlist.adapter = adapter

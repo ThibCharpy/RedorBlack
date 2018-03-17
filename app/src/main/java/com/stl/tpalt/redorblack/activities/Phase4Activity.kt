@@ -1,13 +1,14 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase4.*
 import kotlinx.android.synthetic.main.header.*
@@ -15,12 +16,14 @@ import kotlinx.android.synthetic.main.header.*
 class Phase4Activity : AppCompatActivity() {
     val phase : Int = 4
 
-    lateinit var spadeCard : ImageView
-    lateinit var heartCard : ImageView
-    lateinit var diamondCard : ImageView
-    lateinit var clubCard : ImageView
+    private lateinit var spadeCard : ImageView
+    private lateinit var heartCard : ImageView
+    private lateinit var diamondCard : ImageView
+    private lateinit var clubCard : ImageView
     private var win : Boolean = false
-    lateinit var hiddenCard : Card
+    private lateinit var hiddenCard : Card
+
+    private lateinit var joueur : Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +41,7 @@ class Phase4Activity : AppCompatActivity() {
         }
         else
         {
+            joueur=playerCurr
             tv_header.text = playerCurr.name
             hiddenCard = RedOrBlackApp.pickCardFromDeck()
             playerCurr.cartes[3]=hiddenCard
@@ -149,5 +153,9 @@ class Phase4Activity : AppCompatActivity() {
             1   -> tv_drinkorgive.text = if(win) getString(R.string.give1,sips) else getString(R.string.drink1,sips)
             else-> tv_drinkorgive.text = if(win) getString(R.string.give,sips)  else getString(R.string.drink,sips)
         }
+        if (win)
+            joueur.given=joueur.given+sips
+        else
+            joueur.drunk=joueur.drunk+sips
     }
 }

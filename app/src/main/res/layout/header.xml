@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     tools:context="com.stl.tpalt.redorblack.activities.TemplatePhasesActivity"
     app:layout_constraintTop_toTopOf="parent"
-    android:background="#AA200000">
+    android:background="#BB3030">
 
     <TextView
         android:id="@+id/tv_header"
@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:text="$PlayerName"
         android:textSize="@dimen/header_playername"
+        android:maxLines="1"
         android:padding="10dp"
         tools:ignore="HardcodedText"
         app:layout_constraintRight_toRightOf="parent"

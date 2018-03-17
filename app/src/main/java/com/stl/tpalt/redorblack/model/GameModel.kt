@@ -2,8 +2,6 @@ package com.stl.tpalt.redorblack.model
 
 import android.app.Application
 import android.util.Log
-import com.stl.tpalt.redorblack.R
-import com.stl.tpalt.redorblack.activities.StartGameActivity
 import java.util.*
 
 sealed class Entity
@@ -27,9 +25,12 @@ data class Card(
 }
 @Suppress("ArrayInDataClass")
 data class Player(
-        var name: String,
-        var cartes : Array<Card?>
+        var name: String = "PlayerName",
+        var cartes : Array<Card?> = arrayOfNulls(5),
+        var drunk : Int = 0,
+        var given : Int = 0
 ) : Entity()
+
 
 data class Rules(
         var type : String, //"Normal", "soft", "Hard"
@@ -71,8 +72,9 @@ class RedOrBlackApp : Application()
                 }
             }
             return null
-
         }
+
+
 
     }
 }

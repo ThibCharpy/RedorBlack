@@ -1,13 +1,14 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase1.*
 import kotlinx.android.synthetic.main.header.*
@@ -15,10 +16,13 @@ import kotlinx.android.synthetic.main.header.*
 class Phase1Activity : AppCompatActivity() {
 
     val phase : Int = 1
+    var win : Boolean = false
 
     private lateinit var hiddenCard : Card
     private lateinit var redCard : ImageView
     private lateinit var blackCard : ImageView
+
+    private lateinit var joueur : Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +34,10 @@ class Phase1Activity : AppCompatActivity() {
             val intent = Intent(this, Phase2Activity::class.java)
             startActivity(intent)
             finish()
+        }
+        else
+        {
+            joueur=playerCurr
         }
 
         redCard = phase1_card_red
@@ -51,24 +59,23 @@ class Phase1Activity : AppCompatActivity() {
     fun redClicked(v : View)
     {
         makeBackGroundClickableAfterXsec(1.0)
-        val win = when (hiddenCard.cardname[0]) {
+        win = when (hiddenCard.cardname[0]) {
             'd', 'h' -> true
             else -> false
         }
-        winlose(win)
+        winlose()
         redCard.setImageResource(hiddenCard.image)
         blackCard.alpha=RedOrBlackApp.masked
     }
-
     @Suppress("UNUSED_PARAMETER")
     fun blackClicked(v : View)
     {
         makeBackGroundClickableAfterXsec(1.0)
-        val win = when (hiddenCard.cardname[0]) {
+        win = when (hiddenCard.cardname[0]) {
             's', 'c' -> true
             else -> false
         }
-        winlose(win)
+        winlose()
         blackCard.setImageResource(hiddenCard.image)
         redCard.alpha=RedOrBlackApp.masked
     }
@@ -102,7 +109,7 @@ class Phase1Activity : AppCompatActivity() {
         }.start()
     }
 
-    private fun winlose(win : Boolean)
+    private fun winlose()
     {
         questionmark.visibility=View.INVISIBLE
         val sips = RedOrBlackApp.rules.phase1sips
@@ -115,6 +122,10 @@ class Phase1Activity : AppCompatActivity() {
             1   -> tv_drinkorgive.text = if(win) getString(R.string.give1,sips) else getString(R.string.drink1,sips)
             else-> tv_drinkorgive.text = if(win) getString(R.string.give,sips)  else getString(R.string.drink,sips)
         }
+        if (win)
+            joueur.given=joueur.given+sips
+        else
+            joueur.drunk=joueur.drunk+sips
     }
 
 }
