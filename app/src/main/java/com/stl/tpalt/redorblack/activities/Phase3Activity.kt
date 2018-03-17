@@ -1,18 +1,19 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase3.*
 import kotlinx.android.synthetic.main.header.*
-import kotlin.math.*
+import kotlin.math.max
+import kotlin.math.min
 
 @Suppress("MemberVisibilityCanBePrivate")
 class Phase3Activity : AppCompatActivity() {
@@ -29,6 +30,7 @@ class Phase3Activity : AppCompatActivity() {
     private var win : Boolean = false
     private var bojeu : Boolean = false
     lateinit var hiddenCard : Card
+    private lateinit var joueur : Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +48,7 @@ class Phase3Activity : AppCompatActivity() {
         }
         else
         {
+            joueur=playerCurr
             tv_header.text = playerCurr.name
             hiddenCard = RedOrBlackApp.pickCardFromDeck()
             playerCurr.cartes[2]=hiddenCard
@@ -94,11 +97,11 @@ class Phase3Activity : AppCompatActivity() {
     fun onEqualsClicked(v : View)
     {
         makeBackGroundClickableAfterXsec(1.0)
-        if (card1value == newcardValue) {
+        if (card1value == newcardValue || card2value == newcardValue) {
             win=true
             bojeu=true
         }
-        winlose()
+        winlose(win)
         equalsCard.setImageResource(hiddenCard.image)
         interCard.alpha=RedOrBlackApp.masked
         exterCard.alpha=RedOrBlackApp.masked
@@ -178,5 +181,9 @@ class Phase3Activity : AppCompatActivity() {
             1   -> tv_drinkorgive.text = if(win) getString(R.string.give1,sips) else getString(R.string.drink1,sips)
             else-> tv_drinkorgive.text = if(win) getString(R.string.give,sips)  else getString(R.string.drink,sips)
         }
+        if (win)
+            joueur.given=joueur.given+sips
+        else
+            joueur.drunk=joueur.drunk+sips
     }
 }

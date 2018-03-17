@@ -1,21 +1,18 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase2.*
 import kotlinx.android.synthetic.main.header.*
-import org.jetbrains.anko.toast
-
-
-
 
 
 @Suppress("MemberVisibilityCanBePrivate")
@@ -31,6 +28,8 @@ class Phase2Activity : AppCompatActivity() {
     private var newcardValue: Int = -1
     private var win : Boolean = false
     private var bojeu : Boolean = false
+
+    private lateinit var joueur : Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +47,7 @@ class Phase2Activity : AppCompatActivity() {
             finish()
         }
         else {
+            joueur=playerCurr
             tv_header.text = playerCurr.name
             hiddenCard = RedOrBlackApp.pickCardFromDeck()
             playerCurr.cartes[1] = hiddenCard
@@ -153,6 +153,10 @@ class Phase2Activity : AppCompatActivity() {
             1   -> tv_drinkorgive.text = if(win) getString(R.string.give1,sips) else getString(R.string.drink1,sips)
             else-> tv_drinkorgive.text = if(win) getString(R.string.give,sips)  else getString(R.string.drink,sips)
         }
+        if (win)
+            joueur.given=joueur.given+sips
+        else
+            joueur.drunk=joueur.drunk+sips
     }
 }
 

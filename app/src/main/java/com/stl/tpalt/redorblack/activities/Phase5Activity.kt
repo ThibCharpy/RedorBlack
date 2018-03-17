@@ -1,14 +1,14 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase5.*
 import kotlinx.android.synthetic.main.header.*
@@ -29,40 +29,47 @@ class Phase5Activity : AppCompatActivity() {
     private lateinit var hiddenCard : Card
     private var newCardValue: Int=-1
 
+    private lateinit var joueur : Player
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phase5)
         val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
         if (playerCurr == null)
         {
-            val intent = Intent(this, Phase5Activity::class.java)
+            val intent = Intent(this, EndGameActivity::class.java)
             startActivity(intent)
             finish()
         }
         else {
+            joueur=playerCurr
             tv_header.text = playerCurr.name
             hiddenCard = RedOrBlackApp.pickCardFromDeck()
             playerCurr.cartes[4] = hiddenCard
+            mycard1 = phase5_mycard1
+            mycard2 = phase5_mycard2
+            mycard3 = phase5_mycard3
+            mycard4 = phase5_mycard4
+            jai=phase5_cardjai
+            jaipas=phase5_cardjaipas
+
+            //Ui init
+            mycard1.setImageResource(playerCurr.cartes[0]!!.image)
+            mycard2.setImageResource(playerCurr.cartes[1]!!.image)
+            mycard3.setImageResource(playerCurr.cartes[2]!!.image)
+            mycard4.setImageResource(playerCurr.cartes[3]!!.image)
+            jai.setImageResource(R.drawable.jai)
+            jaipas.setImageResource(R.drawable.jaipas)
+            tv_drinkorgive.visibility = View.INVISIBLE
+            tv_winorlose.visibility = View.INVISIBLE
+
+            newCardValue = hiddenCard.getValue()
+            card1value = playerCurr.cartes[0]!!.getValue()
+            card2value = playerCurr.cartes[1]!!.getValue()
+            card3value = playerCurr.cartes[2]!!.getValue()
+            card4value = playerCurr.cartes[3]!!.getValue()
         }
-
-        //Ui init
-        mycard1.setImageResource(playerCurr!!.cartes[0]!!.image)
-        mycard2.setImageResource(playerCurr.cartes[1]!!.image)
-        mycard3.setImageResource(playerCurr.cartes[2]!!.image)
-        mycard4.setImageResource(playerCurr.cartes[3]!!.image)
-        jai.setImageResource(R.drawable.jai)
-        jaipas.setImageResource(R.drawable.jaipas)
-        tv_drinkorgive.visibility= View.INVISIBLE
-        tv_winorlose.visibility= View.INVISIBLE
-
-
-        newCardValue=hiddenCard.getValue()
-        card1value=playerCurr.cartes[0]!!.getValue()
-        card2value=playerCurr.cartes[1]!!.getValue()
-        card3value=playerCurr.cartes[2]!!.getValue()
-        card4value=playerCurr.cartes[3]!!.getValue()
     }
-
     @Suppress("UNUSED_PARAMETER")
     fun onJaiClicked(v : View)
     {
@@ -115,7 +122,7 @@ class Phase5Activity : AppCompatActivity() {
             override fun onFinish() {
                 if (RedOrBlackApp.getPlayerForPhase(phase) == null)
                 {
-                    val intent = Intent(that, StartGameActivity/*TODO*/::class.java)
+                    val intent = Intent(that, EndGameActivity::class.java)
                     layout_phase5.setOnClickListener({ _ ->
                         startActivity(intent)
                         finish()
@@ -136,7 +143,7 @@ class Phase5Activity : AppCompatActivity() {
     private fun winlose()
     {
         questionmark.visibility=View.INVISIBLE
-        val sips = RedOrBlackApp.rules.phase4sips
+        val sips = RedOrBlackApp.rules.phase5sips
         tv_winorlose.visibility=View.VISIBLE
         tv_drinkorgive.visibility=View.VISIBLE
         tv_winorlose.text = if(win) getString(R.string.win) else getString(R.string.lose)
@@ -146,5 +153,9 @@ class Phase5Activity : AppCompatActivity() {
             1   -> tv_drinkorgive.text = if(win) getString(R.string.give1,sips) else getString(R.string.drink1,sips)
             else-> tv_drinkorgive.text = if(win) getString(R.string.give,sips)  else getString(R.string.drink,sips)
         }
+        if (win)
+            joueur.given=joueur.given+sips
+        else
+            joueur.drunk=joueur.drunk+sips
     }
 }

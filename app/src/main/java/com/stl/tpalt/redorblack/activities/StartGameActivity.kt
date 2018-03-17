@@ -1,11 +1,12 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.stl.tpalt.redorblack.model.Player
+import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 
 class StartGameActivity : AppCompatActivity() {
@@ -16,10 +17,17 @@ class StartGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_game)
 
+        RedOrBlackApp.players.map { j -> j.cartes= arrayOfNulls(5) }
         RedOrBlackApp.deck = generateDeckRec(intent.getIntExtra("nbJeuCartes", 2))
-
+        Log.w("test", "start phase 1")
         startActivity(Intent(this, Phase1Activity::class.java))
+        finish()
     }
+
+//    override fun onResume() {
+//        super.onResume()
+//        startActivity(Intent(this, PlayerSelectionActivity::class.java))
+//    }
 
     private fun generateDeckRec(countOfDeck : Int): MutableList<Card>
     {
@@ -46,7 +54,7 @@ class StartGameActivity : AppCompatActivity() {
                         Card(code, resources.getIdentifier(code, "drawable", packageName))
                     "Diamonds" ->
                         Card(code, resources.getIdentifier(code, "drawable", packageName)) //
-                    else -> throw IllegalArgumentException("Bad Color Matching");
+                    else -> throw IllegalArgumentException("Bad Color Matching")
                 }
             }
         }.flatten()
