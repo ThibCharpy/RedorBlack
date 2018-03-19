@@ -23,8 +23,9 @@ class PlayerSelectionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_player_selection)
 
         //for testing purpose
-        playerList.add(Player("Rudy"))
-        playerList.add(Player("Justine"))
+        playerList.add(Player("Thiblin"))
+        playerList.add(Player("Djezlin"))
+        playerList.add(Player("Tomlin"))
 //        playerList.add(Player("ABCDEFGHIJKLMOPQRSTUVWXYZ", arrayOfNulls(5)))
 
 

@@ -112,7 +112,7 @@ class Phase1Activity : AppCompatActivity() {
     private fun winlose()
     {
         questionmark.visibility=View.INVISIBLE
-        val sips = RedOrBlackApp.rules.phase1sips
+        val sips = if (win) RedOrBlackApp.rules.phase1sipsgiven else RedOrBlackApp.rules.phase1sipsdrunk
         tv_winorlose.visibility=View.VISIBLE
         tv_drinkorgive.visibility=View.VISIBLE
         tv_winorlose.text = if(win) getString(R.string.win) else getString(R.string.lose)

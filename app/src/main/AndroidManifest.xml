@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.stl.tpalt.redorblack">
 
     <application
@@ -9,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/RedOrBlack">
+        android:theme="@style/RedOrBlack"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".activities.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +22,7 @@
         <activity android:name=".activities.PlayerSelectionActivity" />
         <activity android:name=".activities.StartGameActivity" />
         <activity android:name=".activities.RulesActivity" />
-        <activity android:name=".activities.TemplatePhasesActivity" />
+        <activity android:name=".activities.SettingsActivity" />
         <activity android:name=".activities.Phase1Activity" />
         <activity android:name=".activities.Phase2Activity" />
         <activity android:name=".activities.Phase3Activity" />

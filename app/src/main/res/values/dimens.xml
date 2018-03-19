@@ -16,6 +16,6 @@
 
     <dimen name="dualcardsmargin">10dp</dimen>
     <dimen name="maincardsmargin">0dp</dimen>
-    <dimen name="seccardsmargin">20dp</dimen>
+    <dimen name="seccardsmargin">25dp</dimen>
 
 </resources>

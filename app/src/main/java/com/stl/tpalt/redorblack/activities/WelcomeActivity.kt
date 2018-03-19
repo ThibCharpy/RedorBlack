@@ -1,22 +1,17 @@
 package com.stl.tpalt.redorblack.activities
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.content.Intent
-import android.os.Build
-import android.widget.Button
+import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.annotation.RequiresApi
-import android.widget.ImageButton
+import android.support.v7.app.AppCompatActivity
+import android.widget.Button
 import com.stl.tpalt.redorblack.R
-import java.util.*
 
 //can go to RulesActivity or PlayerSelectionActivity from here
 class WelcomeActivity : AppCompatActivity() {
 
     private val firstLaunchPref = "firstLaunchPref"
 
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
@@ -41,28 +36,6 @@ class WelcomeActivity : AppCompatActivity() {
                     startActivity(intent)
                 })
 
-        val flagFr= findViewById<ImageButton>(R.id.flagFr)
-        flagFr.setOnClickListener{v ->
-            val locale = Locale("fr")
-            val dm = resources.displayMetrics
-            val config = resources.configuration
-            config.setLocale(locale)
-            resources.updateConfiguration(config,dm)
-            super.onConfigurationChanged(config)
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
-        }
-        val flagEn= findViewById<ImageButton>(R.id.flagEn)
-        flagEn.setOnClickListener{v ->
-            val locale = Locale("en")
-            val dm = resources.displayMetrics
-            val config = resources.configuration
-            config.setLocale(locale)
-            resources.updateConfiguration(config,dm)
-            super.onConfigurationChanged(config)
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
 

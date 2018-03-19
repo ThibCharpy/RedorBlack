@@ -33,14 +33,19 @@ data class Player(
 
 
 data class Rules(
-        var type : String, //"Normal", "soft", "Hard"
-        var phase1sips : Int ,
-        var phase2sips : Int ,
-        var phase3sips : Int ,
-        var phase4sips : Int ,
-        var phase5sips : Int ,
-        var randomFrequence : Double,
-        var bonusForEquals : Int
+        var type : String = "Normal", //"Normal", "soft", "Hard"
+        var phase1sipsdrunk : Int = 1,
+        var phase1sipsgiven : Int = 1,
+        var phase2sipsdrunk : Int = 1,
+        var phase2sipsgiven : Int = 1,
+        var phase3sipsdrunk : Int = 1,
+        var phase3sipsgiven : Int = 1,
+        var phase4sipsdrunk : Int = 1,
+        var phase4sipsgiven : Int = 1,
+        var phase5sipsdrunk : Int = 1,
+        var phase5sipsgiven : Int = 1,
+        var randomFrequence : Double = 0.1,
+        var bonusForEquals : Int=2
 )
 
 
@@ -50,7 +55,7 @@ class RedOrBlackApp : Application()
     companion object {
         var deck : MutableList<Card> = mutableListOf<Card>(Card("NaN", 0))
         var players : MutableList<Player> = mutableListOf()
-        var rules : Rules = Rules("Normal", 1, 2, 3, 4, 5, 0.1, 1)
+        var rules : Rules = Rules()
         const val masked: Float = 0.6F
 
         fun pickCardFromDeck() : Card

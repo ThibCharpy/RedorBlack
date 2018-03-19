@@ -12,19 +12,8 @@
         android:id="@+id/header"
         layout="@layout/header" />
 
-    <ImageView
-        android:id="@+id/phase2_card_less"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:onClick="onLessClicked"
-        android:src="@drawable/errorcard"
-        android:layout_margin="@dimen/seccardsmargin"
-        android:adjustViewBounds="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/phase2_card_mycard"
-        app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
-        tools:ignore="ContentDescription" />
+
+
 
     <ImageView
         android:id="@+id/phase2_card_equals"
@@ -41,21 +30,35 @@
         tools:ignore="ContentDescription" />
 
     <ImageView
+        android:id="@+id/phase2_card_less"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:onClick="onLessClicked"
+        android:src="@drawable/errorcard"
+        android:layout_margin="@dimen/seccardsmargin"
+        android:adjustViewBounds="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guidelineleft"
+        app:layout_constraintTop_toTopOf="@id/guidelinemid"
+        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
         android:id="@+id/phase2_card_mycard"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:adjustViewBounds="true"
         android:src="@drawable/errorcard"
         android:layout_margin="@dimen/maincardsmargin"
-        app:layout_constraintLeft_toRightOf="@id/phase2_card_less"
-        app:layout_constraintRight_toLeftOf="@id/phase2_card_more"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+        app:layout_constraintRight_toRightOf="@id/guidelineright"
         app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
-        tools:ignore="ContentDescription" />
+    app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
+    tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/phase2_card_more"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:scaleType="fitCenter"
         android:onClick="onMoreClicked"
@@ -63,7 +66,7 @@
         android:src="@drawable/errorcard"
         android:layout_margin="@dimen/seccardsmargin"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/phase2_card_mycard"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineright"
         app:layout_constraintTop_toTopOf="@id/guidelinemid"
         app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
         tools:ignore="ContentDescription" />
@@ -74,6 +77,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/questionmark"
+        android:layout_margin="10dp"
         app:layout_constraintTop_toTopOf="@id/guidelinebot"
         app:layout_constraintBottom_toBottomOf="@id/guidelinebotbot"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -106,26 +110,43 @@
         android:textSize="@dimen/DrinkOrGive"
         android:visibility="invisible"/>
 
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineleft"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineright"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.67"/>
+
     <android.support.constraint.Guideline
         android:id="@+id/guidelinetop"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintGuide_percent="0.15"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemid"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.45" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinebot"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.75" />
+
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinebotbot"
@@ -133,5 +154,4 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
-
 </android.support.constraint.ConstraintLayout>

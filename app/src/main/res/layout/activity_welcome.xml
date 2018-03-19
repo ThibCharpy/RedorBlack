@@ -9,31 +9,9 @@
     tools:context="com.stl.tpalt.redorblack.activities.WelcomeActivity"
     android:background="@drawable/parchmentmini">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
-        <ImageButton
-            android:id="@+id/flagFr"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/flagEn"
-            android:background="@drawable/fr"/>
-
-        <ImageButton
-            android:id="@+id/flagEn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:background="@drawable/en"/>
-
-    </android.support.constraint.ConstraintLayout>
+    <include
+        layout="@layout/settings_button"
+        />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/logo_constraintlayout"

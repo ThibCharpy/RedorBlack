@@ -169,7 +169,7 @@ class Phase3Activity : AppCompatActivity() {
     private fun winlose(bonus : Boolean = false)
     {
         questionmark.visibility=View.INVISIBLE
-        var sips = RedOrBlackApp.rules.phase3sips
+        var sips = if (win) RedOrBlackApp.rules.phase3sipsgiven else RedOrBlackApp.rules.phase3sipsdrunk
         val bonussips = if (bonus) RedOrBlackApp.rules.bonusForEquals else 0
         tv_winorlose.visibility=View.VISIBLE
         tv_drinkorgive.visibility=View.VISIBLE
