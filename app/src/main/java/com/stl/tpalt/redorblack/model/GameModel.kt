@@ -78,8 +78,5 @@ class RedOrBlackApp : Application()
             }
             return null
         }
-
-
-
     }
 }
