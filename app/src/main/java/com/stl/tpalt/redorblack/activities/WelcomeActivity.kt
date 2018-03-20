@@ -1,11 +1,15 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
+import android.widget.ImageButton
 import com.stl.tpalt.redorblack.R
+import java.util.*
 
 //can go to RulesActivity or PlayerSelectionActivity from here
 class WelcomeActivity : AppCompatActivity() {
@@ -35,7 +39,6 @@ class WelcomeActivity : AppCompatActivity() {
                     val intent = Intent(this, RulesActivity::class.java)
                     startActivity(intent)
                 })
-
     }
 }
 
