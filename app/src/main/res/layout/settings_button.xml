@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.stl.tpalt.redorblack.activities.SettingsActivity">
+    tools:context="com.stl.tpalt.redorblack.activities.WelcomeActivity">
 
     <ImageButton
         android:id="@+id/settings"
@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:background="@drawable/settings"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:onClick="goToSettings"/>
 
 </android.support.constraint.ConstraintLayout>
