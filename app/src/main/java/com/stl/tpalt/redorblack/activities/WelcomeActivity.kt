@@ -1,14 +1,22 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ViewAnimator
 import com.stl.tpalt.redorblack.R
+import org.jetbrains.anko.Orientation
+import org.jetbrains.anko.configuration
+import org.jetbrains.anko.displayMetrics
+import java.lang.Boolean.getBoolean
 import java.util.*
 
 //can go to RulesActivity or PlayerSelectionActivity from here
@@ -18,6 +26,13 @@ class WelcomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+
+        if (isTablet) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        }
+
         setContentView(R.layout.activity_welcome)
 
         val buttonRules= findViewById<Button>(R.id.button_regles)
@@ -40,5 +55,12 @@ class WelcomeActivity : AppCompatActivity() {
                     startActivity(intent)
                 })
     }
+
+    fun goToSettings(v: View){
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
 }
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
@@ -30,6 +31,7 @@ class Phase1Activity : AppCompatActivity() {
         setContentView(R.layout.activity_phase1)
 
         val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
+        Log.e("joueur", playerCurr.toString())
         if (playerCurr == null)
         {
             val intent = Intent(this, Phase2Activity::class.java)
