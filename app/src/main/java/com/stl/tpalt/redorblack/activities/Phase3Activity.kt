@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.CardPickedEvent
 import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase3.*
@@ -50,8 +51,6 @@ class Phase3Activity : AppCompatActivity() {
         {
             joueur=playerCurr
             tv_header.text = playerCurr.name
-            hiddenCard = RedOrBlackApp.pickCardFromDeck()
-            playerCurr.cartes[2]=hiddenCard
 
             //rebinding to make card value crescent
             if ((playerCurr.cartes[0]!!.getValue() > playerCurr.cartes[1]!!.getValue())) {
@@ -75,13 +74,15 @@ class Phase3Activity : AppCompatActivity() {
 
             card1value=playerCurr.cartes[0]!!.getValue()
             card2value=playerCurr.cartes[1]!!.getValue()
-            newcardValue=hiddenCard.getValue()
         }
     }
 
     @Suppress("UNUSED_PARAMETER")
     fun onInterClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[2]=hiddenCard
+        newcardValue=hiddenCard.getValue()
         makeBackGroundClickableAfterXsec(1.0)
         val min = min(card1value, card2value)
         val max = max(card1value, card2value)
@@ -96,6 +97,9 @@ class Phase3Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onEqualsClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[2]=hiddenCard
+        newcardValue=hiddenCard.getValue()
         makeBackGroundClickableAfterXsec(1.0)
         if (card1value == newcardValue || card2value == newcardValue) {
             win=true
@@ -109,6 +113,9 @@ class Phase3Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onExterClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[2]=hiddenCard
+        newcardValue=hiddenCard.getValue()
         makeBackGroundClickableAfterXsec(1.0)
         val min = min(card1value, card2value)
         val max = max(card1value, card2value)
@@ -185,5 +192,6 @@ class Phase3Activity : AppCompatActivity() {
             joueur.given=joueur.given+sips
         else
             joueur.drunk=joueur.drunk+sips
+        RedOrBlackApp.history.add(CardPickedEvent(joueur, hiddenCard, win, sips))
     }
 }

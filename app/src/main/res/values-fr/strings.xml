@@ -35,4 +35,5 @@
 
     <string name="button_add">+</string>
     <string name="playeralreadyexists">Le joueur existe déjà.\nChoisis un autre nom.</string>
+    <string name="yourname">Your Name</string>
 </resources>

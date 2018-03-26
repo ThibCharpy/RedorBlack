@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.CardPickedEvent
 import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase5.*
@@ -44,8 +45,7 @@ class Phase5Activity : AppCompatActivity() {
         else {
             joueur=playerCurr
             tv_header.text = playerCurr.name
-            hiddenCard = RedOrBlackApp.pickCardFromDeck()
-            playerCurr.cartes[4] = hiddenCard
+
             mycard1 = phase5_mycard1
             mycard2 = phase5_mycard2
             mycard3 = phase5_mycard3
@@ -63,7 +63,6 @@ class Phase5Activity : AppCompatActivity() {
             tv_drinkorgive.visibility = View.INVISIBLE
             tv_winorlose.visibility = View.INVISIBLE
 
-            newCardValue = hiddenCard.getValue()
             card1value = playerCurr.cartes[0]!!.getValue()
             card2value = playerCurr.cartes[1]!!.getValue()
             card3value = playerCurr.cartes[2]!!.getValue()
@@ -73,6 +72,9 @@ class Phase5Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onJaiClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[4] = hiddenCard
+        newCardValue=hiddenCard.getValue()
         makeBackGroundClickableAfterXsec(1.0)
         if (newCardValue == card1value
                 || newCardValue == card2value
@@ -87,6 +89,9 @@ class Phase5Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onJaiPasClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[4] = hiddenCard
+        newCardValue=hiddenCard.getValue()
         makeBackGroundClickableAfterXsec(1.0)
         if (newCardValue != card1value &&
                 newCardValue != card2value &&
@@ -143,7 +148,7 @@ class Phase5Activity : AppCompatActivity() {
     private fun winlose()
     {
         questionmark.visibility=View.INVISIBLE
-        var sips = if (win) RedOrBlackApp.rules.phase5sipsgiven else RedOrBlackApp.rules.phase5sipsdrunk
+        val sips = if (win) RedOrBlackApp.rules.phase5sipsgiven else RedOrBlackApp.rules.phase5sipsdrunk
         tv_winorlose.visibility=View.VISIBLE
         tv_drinkorgive.visibility=View.VISIBLE
         tv_winorlose.text = if(win) getString(R.string.win) else getString(R.string.lose)
@@ -157,5 +162,6 @@ class Phase5Activity : AppCompatActivity() {
             joueur.given=joueur.given+sips
         else
             joueur.drunk=joueur.drunk+sips
+        RedOrBlackApp.history.add(CardPickedEvent(joueur, hiddenCard, win, sips))
     }
 }

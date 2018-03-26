@@ -41,5 +41,6 @@
     <!-- Utils strings -->
     <string name="button_add">+</string>
     <string name="playeralreadyexists">Player already exists.\nPlease choose a different name.</string>
+    <string name="yourname">Your Name</string>
 
 </resources>

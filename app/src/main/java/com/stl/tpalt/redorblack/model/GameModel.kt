@@ -47,7 +47,12 @@ data class Rules(
         var randomFrequence : Double = 0.1,
         var bonusForEquals : Int=2
 )
-
+data class CardPickedEvent(
+        var player : Player,
+        var cardGotten : Card,
+        var won : Boolean,
+        var sips : Int
+)
 
 class RedOrBlackApp : Application()
 {
@@ -55,6 +60,7 @@ class RedOrBlackApp : Application()
     companion object {
         var deck : MutableList<Card> = mutableListOf<Card>(Card("NaN", 0))
         var players : MutableList<Player> = mutableListOf()
+        var history : MutableList<CardPickedEvent> = mutableListOf()
         var rules : Rules = Rules()
         const val masked: Float = 0.6F
 

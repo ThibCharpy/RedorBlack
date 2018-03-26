@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.CardPickedEvent
 import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase1.*
@@ -39,12 +40,9 @@ class Phase1Activity : AppCompatActivity() {
         {
             joueur=playerCurr
         }
-
         redCard = phase1_card_red
         blackCard = phase1_card_black
         tv_header.text=playerCurr!!.name
-        hiddenCard = RedOrBlackApp.pickCardFromDeck()
-        playerCurr.cartes[0]=hiddenCard
 
         //UI init
         redCard.setImageResource(R.drawable.red)
@@ -58,6 +56,8 @@ class Phase1Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun redClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[0]=hiddenCard
         makeBackGroundClickableAfterXsec(1.0)
         win = when (hiddenCard.cardname[0]) {
             'd', 'h' -> true
@@ -70,6 +70,8 @@ class Phase1Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun blackClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[0]=hiddenCard
         makeBackGroundClickableAfterXsec(1.0)
         win = when (hiddenCard.cardname[0]) {
             's', 'c' -> true
@@ -126,6 +128,7 @@ class Phase1Activity : AppCompatActivity() {
             joueur.given=joueur.given+sips
         else
             joueur.drunk=joueur.drunk+sips
+        RedOrBlackApp.history.add(CardPickedEvent(joueur, hiddenCard, win, sips))
     }
 
 }

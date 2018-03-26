@@ -9,6 +9,7 @@ import android.view.ViewGroup.MarginLayoutParams
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.CardPickedEvent
 import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase2.*
@@ -49,8 +50,6 @@ class Phase2Activity : AppCompatActivity() {
         else {
             joueur=playerCurr
             tv_header.text = playerCurr.name
-            hiddenCard = RedOrBlackApp.pickCardFromDeck()
-            playerCurr.cartes[1] = hiddenCard
 
             //UI init
             lessCard.setImageResource(R.drawable.minus)
@@ -58,7 +57,6 @@ class Phase2Activity : AppCompatActivity() {
             equalsCard.setImageResource(R.drawable.equals)
             firstCard.setImageResource(playerCurr.cartes[0]!!.image)
             card1value = playerCurr.cartes[0]!!.getValue()
-            newcardValue = hiddenCard.getValue()
             tv_drinkorgive.visibility=View.INVISIBLE
             tv_winorlose.visibility=View.INVISIBLE
         }
@@ -67,6 +65,9 @@ class Phase2Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onLessClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[1] = hiddenCard
+        newcardValue = hiddenCard.getValue()
         makeBackGroundClickableAfterXsec(1.0)
         if (card1value > newcardValue)
             win=true
@@ -80,6 +81,9 @@ class Phase2Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onMoreClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[1] = hiddenCard
+        newcardValue = hiddenCard.getValue()
         makeBackGroundClickableAfterXsec(1.0)
         if (card1value < newcardValue)
             win=true
@@ -91,6 +95,9 @@ class Phase2Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onEqualsClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+        joueur.cartes[1] = hiddenCard
+
         makeBackGroundClickableAfterXsec(1.0)
         if (card1value == newcardValue) {
             win=true
@@ -157,6 +164,7 @@ class Phase2Activity : AppCompatActivity() {
             joueur.given=joueur.given+sips
         else
             joueur.drunk=joueur.drunk+sips
+        RedOrBlackApp.history.add(CardPickedEvent(joueur, hiddenCard, win, sips))
     }
 }
 

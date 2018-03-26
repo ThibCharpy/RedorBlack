@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Card
+import com.stl.tpalt.redorblack.model.CardPickedEvent
 import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_phase4.*
@@ -43,8 +44,6 @@ class Phase4Activity : AppCompatActivity() {
         {
             joueur=playerCurr
             tv_header.text = playerCurr.name
-            hiddenCard = RedOrBlackApp.pickCardFromDeck()
-            playerCurr.cartes[3]=hiddenCard
         }
 
         //UI init
@@ -58,6 +57,9 @@ class Phase4Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onSpadeClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+            joueur.cartes[3]=hiddenCard
+
         makeBackGroundClickableAfterXsec(1.0)
         if (hiddenCard.cardname[0] == 's')
             win=true
@@ -70,6 +72,9 @@ class Phase4Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onHeartClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+            joueur.cartes[3]=hiddenCard
+
         makeBackGroundClickableAfterXsec(1.0)
         if (hiddenCard.cardname[0] == 'h')
             win=true
@@ -82,6 +87,9 @@ class Phase4Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onDiamondClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+            joueur.cartes[3]=hiddenCard
+
         makeBackGroundClickableAfterXsec(1.0)
         if (hiddenCard.cardname[0] == 'd')
             win=true
@@ -94,6 +102,9 @@ class Phase4Activity : AppCompatActivity() {
     @Suppress("UNUSED_PARAMETER")
     fun onClubClicked(v : View)
     {
+        hiddenCard = RedOrBlackApp.pickCardFromDeck()
+            joueur.cartes[3]=hiddenCard
+
         makeBackGroundClickableAfterXsec(1.0)
         if (hiddenCard.cardname[0] == 'c')
             win=true
@@ -157,5 +168,6 @@ class Phase4Activity : AppCompatActivity() {
             joueur.given=joueur.given+sips
         else
             joueur.drunk=joueur.drunk+sips
+        RedOrBlackApp.history.add(CardPickedEvent(joueur, hiddenCard, win, sips))
     }
 }
