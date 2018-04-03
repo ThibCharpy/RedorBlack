@@ -41,6 +41,17 @@
     <!-- Utils strings -->
     <string name="button_add">+</string>
     <string name="playeralreadyexists">Player already exists.\nPlease choose a different name.</string>
+    <string name="level_soft">soft</string>
+    <string name="level_normal">normal</string>
+    <string name="level_hard">hard</string>
+    <string name="settings_numberofsips">Number of sips</string>
+    <string name="settings_numberofsipstaken">Taken</string>
+    <string name="settings_numberofsipsgiven">Given</string>
+    <string name="settings_phase1">Phase 1</string>
+    <string name="settings_phase2">Phase 2</string>
+    <string name="settings_phase3">Phase 3</string>
+    <string name="settings_phase4">Phase 4</string>
+    <string name="settings_phase5">Phase 5</string>
     <string name="yourname">Your Name</string>
 
 </resources>

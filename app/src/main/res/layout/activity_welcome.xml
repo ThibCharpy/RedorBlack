@@ -11,7 +11,11 @@
 
     <include
         layout="@layout/settings_button"
-        />
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp" />
 
 
     <ImageView

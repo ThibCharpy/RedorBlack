@@ -32,8 +32,16 @@
     <string name="drink1">Bois %1$d gorgée</string>
     <string name="give1">Donne %1$d gorgée</string>
 
-
     <string name="button_add">+</string>
     <string name="playeralreadyexists">Le joueur existe déjà.\nChoisis un autre nom.</string>
+    <string name="level_soft">P\'tite bite</string>
+    <string name="level_normal">Normal</string>
+    <string name="level_hard">Alcoolique</string>
+    <string name="settings_numberofsips">Number of sips</string>
+    <string name="settings_phase1">phase 1</string>
+    <string name="settings_phase2">phase 2</string>
+    <string name="settings_phase3">phase 3</string>
+    <string name="settings_phase4">phase 4</string>
+    <string name="settings_phase5">phase 5</string>
     <string name="yourname">Your Name</string>
 </resources>

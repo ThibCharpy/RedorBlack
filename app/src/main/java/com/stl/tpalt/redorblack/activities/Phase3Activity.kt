@@ -156,18 +156,20 @@ class Phase3Activity : AppCompatActivity() {
                 if (RedOrBlackApp.getPlayerForPhase(phase) == null)
                 {
                     val intent = Intent(that, Phase4Activity::class.java)
-                    layout_phase3.setOnClickListener({ _ ->
-                        startActivity(intent)
-                        finish()
-                    })
+                    layout_phase3.setOnClickListener(
+                            {
+                                startActivity(intent)
+                                finish()
+                            })
                 }
                 else
                 {
                     val intent = Intent(that, Phase3Activity::class.java)
-                    layout_phase3.setOnClickListener({ _ ->
-                        startActivity(intent)
-                        finish()
-                    })
+                    layout_phase3.setOnClickListener(
+                            {
+                                startActivity(intent)
+                                finish()
+                            })
                 }
             }
         }.start()

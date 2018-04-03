@@ -8,50 +8,310 @@
     android:background="@drawable/parchmentmini"
     tools:context="com.stl.tpalt.redorblack.activities.SettingsActivity">
 
-<android.support.constraint.ConstraintLayout
-    android:id="@+id/layout_header"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintRight_toRightOf="parent">
-
-    <ImageButton
-        android:id="@+id/flagFr"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@drawable/fr"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="5dp"
-        tools:ignore="ContentDescription" />
-
-    <ImageButton
-        android:id="@+id/flagEn"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@drawable/en"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/flagFr"
-        android:layout_margin="5dp"
-        tools:ignore="ContentDescription" />
-
-    <ImageButton
-        android:id="@+id/closesettings"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="5dp"
-        android:background="@drawable/ic_close"/>
-
-</android.support.constraint.ConstraintLayout>
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/layout_header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/level_soft"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/level_soft"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/level_normal"/>
+        <Button
+            android:id="@+id/level_normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/level_normal"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toRightOf="@id/level_soft"
+            app:layout_constraintRight_toLeftOf="@id/level_hard"/>
+        <Button
+            android:id="@+id/level_hard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/level_hard"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toRightOf="@id/level_normal"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <!--TITLE-->
+        <TextView
+            android:id="@+id/nb_sips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_numberofsips"
+            app:layout_constraintTop_toBottomOf="@id/level_normal"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/level_hard"
+            android:gravity="center"
+            android:textSize="@dimen/settings_titles"/>
+        <TextView
+            android:id="@+id/nb_sips_taken"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_numberofsipstaken"
+            app:layout_constraintTop_toBottomOf="@id/nb_sips"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/guidelineright"
+            android:gravity="center"
+            android:textSize="@dimen/settings_titles"/>
+        <TextView
+            android:id="@+id/nb_sips_given"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_numberofsipsgiven"
+            app:layout_constraintTop_toBottomOf="@id/nb_sips"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineright"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            android:textSize="@dimen/settings_titles"/>
+
+        <!--PHASES-->
+        <TextView
+            android:id="@+id/settings_phase1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_phase1"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/nb_sips_taken"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/guidelineleft"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/settings_phase2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_phase2"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_phase1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/guidelineleft"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/settings_phase3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_phase3"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_phase2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/guidelineleft"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/settings_phase4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_phase4"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_phase3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/guidelineleft"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/settings_phase5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/settings_phase5"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/guidelineleft"
+            app:layout_constraintTop_toBottomOf="@id/settings_phase4" />
+
+        <!--TAKEN-->
+        <EditText
+            android:id="@+id/settings_taken1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/guidelineright"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/nb_sips_taken"/>
+        <EditText
+            android:id="@+id/settings_taken2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/guidelineright"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_taken1"/>
+        <EditText
+            android:id="@+id/settings_taken3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/guidelineright"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_taken2"/>
+        <EditText
+            android:id="@+id/settings_taken4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/guidelineright"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_taken3"/>
+        <EditText
+            android:id="@+id/settings_taken5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
+            app:layout_constraintRight_toRightOf="@id/guidelineright"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_taken4"/>
+
+        <!--GIVEN-->
+        <EditText
+            android:id="@+id/settings_given1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineright"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/nb_sips_given"/>
+        <EditText
+            android:id="@+id/settings_given2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineright"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_given1"/>
+        <EditText
+            android:id="@+id/settings_given3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineright"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_given2"/>
+        <EditText
+            android:id="@+id/settings_given4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineright"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_given3"/>
+        <EditText
+            android:id="@+id/settings_given5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineright"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/settings_given4"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineleft"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33"/>
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineright"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.67"/>
 
     </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp">
+
+        <ImageButton
+            android:id="@+id/flagFr"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/fr"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="15dp"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/flagEn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/en"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/flagFr"
+            android:layout_margin="15dp"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/closesettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/ic_close"
+            tools:ignore="ContentDescription" />
+
+</android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

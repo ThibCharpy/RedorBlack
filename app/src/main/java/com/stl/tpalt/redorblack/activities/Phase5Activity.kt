@@ -16,10 +16,10 @@ import kotlinx.android.synthetic.main.header.*
 
 class Phase5Activity : AppCompatActivity() {
     val phase : Int = 5
-    lateinit var mycard1 : ImageView
-    lateinit var mycard2 : ImageView
-    lateinit var mycard3 : ImageView
-    lateinit var mycard4 : ImageView
+    private lateinit var mycard1 : ImageView
+    private lateinit var mycard2 : ImageView
+    private lateinit var mycard3 : ImageView
+    private lateinit var mycard4 : ImageView
     private var card1value : Int = -1
     private var card2value : Int = -1
     private var card3value : Int = -1
@@ -128,18 +128,20 @@ class Phase5Activity : AppCompatActivity() {
                 if (RedOrBlackApp.getPlayerForPhase(phase) == null)
                 {
                     val intent = Intent(that, EndGameActivity::class.java)
-                    layout_phase5.setOnClickListener({ _ ->
-                        startActivity(intent)
-                        finish()
-                    })
+                    layout_phase5.setOnClickListener(
+                            {
+                                startActivity(intent)
+                                finish()
+                            })
                 }
                 else
                 {
                     val intent = Intent(that, Phase5Activity::class.java)
-                    layout_phase5.setOnClickListener({ _ ->
-                        startActivity(intent)
-                        finish()
-                    })
+                    layout_phase5.setOnClickListener(
+                            {
+                                startActivity(intent)
+                                finish()
+                            })
                 }
             }
         }.start()

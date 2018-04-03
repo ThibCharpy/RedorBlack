@@ -58,7 +58,7 @@ class Phase4Activity : AppCompatActivity() {
     fun onSpadeClicked(v : View)
     {
         hiddenCard = RedOrBlackApp.pickCardFromDeck()
-            joueur.cartes[3]=hiddenCard
+        joueur.cartes[3]=hiddenCard
 
         makeBackGroundClickableAfterXsec(1.0)
         if (hiddenCard.cardname[0] == 's')
@@ -73,7 +73,7 @@ class Phase4Activity : AppCompatActivity() {
     fun onHeartClicked(v : View)
     {
         hiddenCard = RedOrBlackApp.pickCardFromDeck()
-            joueur.cartes[3]=hiddenCard
+        joueur.cartes[3]=hiddenCard
 
         makeBackGroundClickableAfterXsec(1.0)
         if (hiddenCard.cardname[0] == 'h')
@@ -88,7 +88,7 @@ class Phase4Activity : AppCompatActivity() {
     fun onDiamondClicked(v : View)
     {
         hiddenCard = RedOrBlackApp.pickCardFromDeck()
-            joueur.cartes[3]=hiddenCard
+        joueur.cartes[3]=hiddenCard
 
         makeBackGroundClickableAfterXsec(1.0)
         if (hiddenCard.cardname[0] == 'd')
@@ -103,7 +103,7 @@ class Phase4Activity : AppCompatActivity() {
     fun onClubClicked(v : View)
     {
         hiddenCard = RedOrBlackApp.pickCardFromDeck()
-            joueur.cartes[3]=hiddenCard
+        joueur.cartes[3]=hiddenCard
 
         makeBackGroundClickableAfterXsec(1.0)
         if (hiddenCard.cardname[0] == 'c')
@@ -134,18 +134,20 @@ class Phase4Activity : AppCompatActivity() {
                 if (RedOrBlackApp.getPlayerForPhase(phase) == null)
                 {
                     val intent = Intent(that, Phase5Activity::class.java)
-                    layout_phase4.setOnClickListener({ _ ->
-                        startActivity(intent)
-                        finish()
-                    })
+                    layout_phase4.setOnClickListener(
+                            {
+                                startActivity(intent)
+                                finish()
+                            })
                 }
                 else
                 {
                     val intent = Intent(that, Phase4Activity::class.java)
-                    layout_phase4.setOnClickListener({ _ ->
-                        startActivity(intent)
-                        finish()
-                    })
+                    layout_phase4.setOnClickListener(
+                            {
+                                startActivity(intent)
+                                finish()
+                            })
                 }
             }
         }.start()

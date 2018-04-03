@@ -96,18 +96,20 @@ class Phase1Activity : AppCompatActivity() {
             override fun onFinish() {
                 if (RedOrBlackApp.getPlayerForPhase(phase) == null) {
                     val intent = Intent(that, Phase2Activity::class.java)
-                    layout_phase1.setOnClickListener({ _ ->
-                        startActivity(intent)
-                        finish()
-                    })
+                    layout_phase1.setOnClickListener(
+                            {
+                                startActivity(intent)
+                                finish()
+                            })
                 }
                 else
                 {
                     val intent = Intent(that, Phase1Activity::class.java)
-                    layout_phase1.setOnClickListener({ _ ->
-                        startActivity(intent)
-                        finish()
-                    })
+                    layout_phase1.setOnClickListener(
+                            {
+                                startActivity(intent)
+                                finish()
+                            })
                 }
             }
         }.start()

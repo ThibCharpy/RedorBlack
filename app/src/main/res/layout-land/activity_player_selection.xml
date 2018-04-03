@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
-    tools:context="com.stl.tpalt.redorblack.activities.PlayerSelectionActivity"
-    android:background="#74AF">
+    tools:context="com.stl.tpalt.redorblack.activities.PlayerSelectionActivity">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -90,7 +89,16 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_nbdecks" />
         </android.support.constraint.ConstraintLayout>
-
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:ignore="NestedWeights" />
+        <include
+            android:id="@+id/settings_button"
+            layout="@layout/settings_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -110,5 +118,10 @@
             android:background="#05000000"/>
 
     </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
+
 
 </LinearLayout>

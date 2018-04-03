@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Button
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
@@ -17,22 +18,22 @@ import org.jetbrains.anko.toast
 class PlayerSelectionActivity : AppCompatActivity() {
 
     private val playerList: MutableList<Player> = RedOrBlackApp.players
+    private lateinit var buttonSettings : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_selection)
-
-        //for testing purpose
-        playerList.add(Player("Thiblin"))
-        playerList.add(Player("Djezlin"))
-        playerList.add(Player("Tomlin"))
-//        playerList.add(Player("ABCDEFGHIJKLMOPQRSTUVWXYZ", arrayOfNulls(5)))
+//
+//        //for testing purpose
+//        playerList.add(Player("Thiblin"))
+//        playerList.add(Player("Djezlin"))
+//        playerList.add(Player("Tomlin"))
 
 
         val adapter = PlayerListAdapter(this, playerList)
         listview_playerlist.adapter = adapter
 
-        button_startgame.setOnClickListener { _ ->
+        button_startgame.setOnClickListener {
             if (RedOrBlackApp.players.size < 1)
             {
                 toast(R.string.emptyplayerlist)
@@ -44,7 +45,7 @@ class PlayerSelectionActivity : AppCompatActivity() {
             onPause()
         }
 
-        button_add.setOnClickListener { _ ->
+        button_add.setOnClickListener {
             val newplayername : String = input_playername.text.toString().trim().replace("\\s+".toRegex(), " ")
             if (newplayername == "")
                 return@setOnClickListener
@@ -54,9 +55,15 @@ class PlayerSelectionActivity : AppCompatActivity() {
             }
             else
                 input_playername.setText("")
-            playerList.add(Player(newplayername, arrayOfNulls(5)))
+            playerList.add(Player(newplayername))
             adapter.notifyDataSetChanged()
             updateNumberPicker()
+        }
+
+        buttonSettings = findViewById(R.id.settings_button)
+        buttonSettings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
 
         input_playername.addTextChangedListener(object: TextWatcher {

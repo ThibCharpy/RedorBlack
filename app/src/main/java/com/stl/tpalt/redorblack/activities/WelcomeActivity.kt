@@ -2,27 +2,19 @@ package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ViewAnimator
 import com.stl.tpalt.redorblack.R
-import org.jetbrains.anko.Orientation
-import org.jetbrains.anko.configuration
-import org.jetbrains.anko.displayMetrics
-import java.lang.Boolean.getBoolean
-import java.util.*
 
 //can go to RulesActivity or PlayerSelectionActivity from here
 class WelcomeActivity : AppCompatActivity() {
 
     private val firstLaunchPref = "firstLaunchPref"
+
+    private lateinit var buttonSettings : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,22 +33,28 @@ class WelcomeActivity : AppCompatActivity() {
 
         buttonStart.setOnClickListener(
                 {
-                    _ ->
                     val intent = Intent(this, PlayerSelectionActivity::class.java)
                     startActivity(intent)
                 })
         buttonRules.setOnClickListener(
                 {
-                    _ ->
                     val editor = prefs.edit()
                     editor.putBoolean(firstLaunchPref, true)
                     editor.apply()
                     val intent = Intent(this, RulesActivity::class.java)
                     startActivity(intent)
                 })
+
+        buttonSettings = findViewById(R.id.settings_button)
+        buttonSettings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
-    fun goToSettings(v: View){
+    @Suppress("UNUSED_PARAMETER")
+    fun goToSettings(v : View){
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
         finish()
