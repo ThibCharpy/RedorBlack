@@ -7,6 +7,7 @@ import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import com.stl.tpalt.redorblack.R
 
 //can go to RulesActivity or PlayerSelectionActivity from here
@@ -14,7 +15,7 @@ class WelcomeActivity : AppCompatActivity() {
 
     private val firstLaunchPref = "firstLaunchPref"
 
-    private lateinit var buttonSettings : Button
+    private lateinit var buttonSettings : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +46,7 @@ class WelcomeActivity : AppCompatActivity() {
                     startActivity(intent)
                 })
 
-        buttonSettings = findViewById(R.id.settings_button)
+        buttonSettings = findViewById(R.id.settings)
         buttonSettings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)

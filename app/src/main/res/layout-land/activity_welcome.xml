@@ -9,6 +9,7 @@
 
 
     <include
+        android:id="@+id/settings_button"
         layout="@layout/settings_button"
         android:layout_height="40dp"
         android:layout_width="40dp"

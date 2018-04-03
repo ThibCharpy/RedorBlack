@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.Button
+import android.widget.ImageButton
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.Player
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
@@ -18,7 +18,7 @@ import org.jetbrains.anko.toast
 class PlayerSelectionActivity : AppCompatActivity() {
 
     private val playerList: MutableList<Player> = RedOrBlackApp.players
-    private lateinit var buttonSettings : Button
+    private lateinit var buttonSettings : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +60,7 @@ class PlayerSelectionActivity : AppCompatActivity() {
             updateNumberPicker()
         }
 
-        buttonSettings = findViewById(R.id.settings_button)
+        buttonSettings = findViewById(R.id.settings)
         buttonSettings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
