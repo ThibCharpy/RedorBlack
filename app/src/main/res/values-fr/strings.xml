@@ -44,4 +44,9 @@
     <string name="settings_phase4">phase 4</string>
     <string name="settings_phase5">phase 5</string>
     <string name="yourname">Your Name</string>
+    <string name="historique_de_la_partie">Historique de la partie</string>
+
+    <string name="rules1">Règle 1</string>
+    <string name="rules2">Règle 2</string>
+    <string name="rules3">Règle 3</string>
 </resources>

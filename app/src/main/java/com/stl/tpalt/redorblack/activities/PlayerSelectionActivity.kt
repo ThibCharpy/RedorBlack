@@ -1,6 +1,7 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
@@ -28,6 +29,18 @@ class PlayerSelectionActivity : AppCompatActivity() {
 //        playerList.add(Player("Thiblin"))
 //        playerList.add(Player("Djezlin"))
 //        playerList.add(Player("Tomlin"))
+
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+
+        if (isTablet) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        }
+
+        //for testing purpose
+        playerList.add(Player("Thiblin"))
+        playerList.add(Player("Djezlin"))
+        playerList.add(Player("Tomlin"))
+//        playerList.add(Player("ABCDEFGHIJKLMOPQRSTUVWXYZ", arrayOfNulls(5)))
 
 
         val adapter = PlayerListAdapter(this, playerList)

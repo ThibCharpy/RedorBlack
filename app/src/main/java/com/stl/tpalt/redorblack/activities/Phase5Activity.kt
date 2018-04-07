@@ -1,16 +1,15 @@
 package com.stl.tpalt.redorblack.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
 import com.stl.tpalt.redorblack.R
-import com.stl.tpalt.redorblack.model.Card
-import com.stl.tpalt.redorblack.model.CardPickedEvent
-import com.stl.tpalt.redorblack.model.Player
-import com.stl.tpalt.redorblack.model.RedOrBlackApp
+import com.stl.tpalt.redorblack.model.*
 import kotlinx.android.synthetic.main.activity_phase5.*
 import kotlinx.android.synthetic.main.header.*
 
@@ -35,6 +34,13 @@ class Phase5Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phase5)
+
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+
+        if (isTablet) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        }
+
         val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
         if (playerCurr == null)
         {
@@ -85,6 +91,8 @@ class Phase5Activity : AppCompatActivity() {
         winlose()
         jai.setImageResource(hiddenCard.image)
         jaipas.alpha=RedOrBlackApp.masked
+
+        logWhatHappened()
     }
     @Suppress("UNUSED_PARAMETER")
     fun onJaiPasClicked(v : View)
@@ -102,6 +110,8 @@ class Phase5Activity : AppCompatActivity() {
         winlose()
         jaipas.setImageResource(hiddenCard.image)
         jai.alpha=RedOrBlackApp.masked
+
+        logWhatHappened()
     }
 
     private fun makeBackGroundClickableAfterXsec(sec : Double)
@@ -165,5 +175,25 @@ class Phase5Activity : AppCompatActivity() {
         else
             joueur.drunk=joueur.drunk+sips
         RedOrBlackApp.history.add(CardPickedEvent(joueur, hiddenCard, win, sips))
+    }
+
+    fun logWhatHappened(){
+        val sips = if (win) RedOrBlackApp.rules.phase1sipsgiven else RedOrBlackApp.rules.phase1sipsdrunk
+        when(sips)
+        {
+            1   -> if(win)
+                addLog(joueur.name+" "+getString(R.string.give1,sips).toLowerCase())
+            else
+                addLog(joueur.name+" "+getString(R.string.drink1,sips).toLowerCase())
+            else-> if(win)
+                addLog(joueur.name+" "+getString(R.string.give,sips).toLowerCase())
+            else
+                addLog(joueur.name+" "+getString(R.string.drink,sips).toLowerCase())
+        }
+    }
+
+    @SuppressLint("NewApi")
+    fun addLog(text : String){
+        RedOrBlackApp.logs.add(GameLog(text,R.drawable.errorcard))
     }
 }

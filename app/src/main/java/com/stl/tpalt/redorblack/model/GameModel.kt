@@ -5,6 +5,7 @@ import android.util.Log
 import java.util.*
 
 sealed class Entity
+sealed class AppLog (var text: String)
 
 data class Card(
         var cardname:String,
@@ -47,6 +48,7 @@ data class Rules(
         var randomFrequence : Double = 0.1,
         var bonusForEquals : Int=2
 )
+
 data class CardPickedEvent(
         var player : Player,
         var cardGotten : Card,
@@ -54,14 +56,23 @@ data class CardPickedEvent(
         var sips : Int
 )
 
+
+data class GameLog(var logText: String, var cardId: Int) : AppLog(logText)
+
+/*data class LogInfo(var time: LocalDateTime, var logText: String) : AppLog(time,"INFO",logText)
+data class LogWarning(var time : LocalDateTime, var logText : String) : AppLog(time,"WARNING",logText)
+data class LogError(var time : LocalDateTime, var logText : String) : AppLog(time,"ERROR",logText)*/
+
 class RedOrBlackApp : Application()
 {
     //global vars
     companion object {
-        var deck : MutableList<Card> = mutableListOf<Card>(Card("NaN", 0))
+        var deck : MutableList<Card> = mutableListOf(Card("NaN", 0))
         var players : MutableList<Player> = mutableListOf()
         var history : MutableList<CardPickedEvent> = mutableListOf()
         var rules : Rules = Rules()
+        var logs: MutableList<GameLog> = mutableListOf()
+        var stats : MutableMap<Player,Int> = mutableMapOf()
         const val masked: Float = 0.6F
 
         fun pickCardFromDeck() : Card

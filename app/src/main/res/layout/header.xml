@@ -28,7 +28,7 @@
         android:id="@+id/tv_sub_header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="$Defaut sentence"
+        android:text="@string/default_string"
         android:textSize="@dimen/header_sentence"
         android:maxLines="1"
         android:padding="2dp"

@@ -1,17 +1,18 @@
 package com.stl.tpalt.redorblack.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.ListView
 import com.stl.tpalt.redorblack.R
-import com.stl.tpalt.redorblack.model.Card
-import com.stl.tpalt.redorblack.model.CardPickedEvent
-import com.stl.tpalt.redorblack.model.Player
-import com.stl.tpalt.redorblack.model.RedOrBlackApp
+import com.stl.tpalt.redorblack.model.*
+import com.stl.tpalt.redorblack.utils.AppLogListAdapter
 import kotlinx.android.synthetic.main.activity_phase1.*
 import kotlinx.android.synthetic.main.header.*
 
@@ -26,9 +27,19 @@ class Phase1Activity : AppCompatActivity() {
 
     private lateinit var joueur : Player
 
+    val adapter = AppLogListAdapter(this, RedOrBlackApp.logs)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phase1)
+
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+
+        if (isTablet) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+            val listview = findViewById<ListView>(R.id.listview_loglist)
+            listview.adapter = adapter
+        }
 
         val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
         Log.e("joueur", playerCurr.toString())
@@ -52,7 +63,6 @@ class Phase1Activity : AppCompatActivity() {
         tv_drinkorgive.visibility=View.INVISIBLE
         tv_winorlose.visibility=View.INVISIBLE
 
-
     }
 
     @Suppress("UNUSED_PARAMETER")
@@ -68,7 +78,9 @@ class Phase1Activity : AppCompatActivity() {
         winlose()
         redCard.setImageResource(hiddenCard.image)
         blackCard.alpha=RedOrBlackApp.masked
+        logWhatHappened(hiddenCard.image)
     }
+
     @Suppress("UNUSED_PARAMETER")
     fun blackClicked(v : View)
     {
@@ -82,6 +94,8 @@ class Phase1Activity : AppCompatActivity() {
         winlose()
         blackCard.setImageResource(hiddenCard.image)
         redCard.alpha=RedOrBlackApp.masked
+
+        logWhatHappened(hiddenCard.image)
     }
 
     private fun makeBackGroundClickableAfterXsec(sec: Double)
@@ -133,6 +147,27 @@ class Phase1Activity : AppCompatActivity() {
         else
             joueur.drunk=joueur.drunk+sips
         RedOrBlackApp.history.add(CardPickedEvent(joueur, hiddenCard, win, sips))
+    }
+
+    fun logWhatHappened(cardId : Int){
+        val sips = if (win) RedOrBlackApp.rules.phase1sipsgiven else RedOrBlackApp.rules.phase1sipsdrunk
+        when(sips)
+        {
+            1   -> if(win)
+                addLog(joueur.name+" "+getString(R.string.give1,sips).toLowerCase(),cardId)
+            else
+                addLog(joueur.name+" "+getString(R.string.drink1,sips).toLowerCase(),cardId)
+            else-> if(win)
+                addLog(joueur.name+" "+getString(R.string.give,sips).toLowerCase(),cardId)
+            else
+                addLog(joueur.name+" "+getString(R.string.drink,sips).toLowerCase(),cardId)
+        }
+    }
+
+    @SuppressLint("NewApi")
+    fun addLog(text : String, cardId: Int){
+        RedOrBlackApp.logs.add(GameLog(text,cardId))
+        adapter.notifyDataSetChanged()
     }
 
 }
