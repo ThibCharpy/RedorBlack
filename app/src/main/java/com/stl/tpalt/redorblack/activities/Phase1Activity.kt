@@ -6,7 +6,6 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ListView
@@ -42,7 +41,6 @@ class Phase1Activity : AppCompatActivity() {
         }
 
         val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
-        Log.e("joueur", playerCurr.toString())
         if (playerCurr == null)
         {
             val intent = Intent(this, Phase2Activity::class.java)
@@ -56,6 +54,7 @@ class Phase1Activity : AppCompatActivity() {
         redCard = phase1_card_red
         blackCard = phase1_card_black
         tv_header.text=playerCurr!!.name
+        tv_sub_header.text=getString(R.string.help_phase1)
 
         //UI init
         redCard.setImageResource(R.drawable.red)
@@ -77,6 +76,7 @@ class Phase1Activity : AppCompatActivity() {
         }
         winlose()
         redCard.setImageResource(hiddenCard.image)
+        blackCard.setImageResource(R.drawable.verso)
         blackCard.alpha=RedOrBlackApp.masked
         logWhatHappened(hiddenCard.image)
     }
@@ -93,6 +93,7 @@ class Phase1Activity : AppCompatActivity() {
         }
         winlose()
         blackCard.setImageResource(hiddenCard.image)
+        redCard.setImageResource(R.drawable.verso)
         redCard.alpha=RedOrBlackApp.masked
 
         logWhatHappened(hiddenCard.image)

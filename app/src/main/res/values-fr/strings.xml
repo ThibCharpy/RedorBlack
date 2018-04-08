@@ -10,7 +10,7 @@
 
     <!-- PlayerSelectionActivitytion Activity -->
     <string name="textview_nbdecks">Nombre de jeux de cartes :</string>
-    <string name="button_launchgame">Lancer la partie</string>
+    <string name="button_launchgame">On se la colle</string>
     <string name="hint_addplayer">Entrez le nom d\'un joueur</string>
     <string name="emptyplayerlist">Y\'a au moins toi qui joues, non ?\nAlors ajoute ton nom.</string>
     <string name="rules">
@@ -38,15 +38,21 @@
     <string name="level_normal">Normal</string>
     <string name="level_hard">Alcoolo</string>
     <string name="settings_numberofsips">Number of sips</string>
-    <string name="settings_phase1">phase 1</string>
-    <string name="settings_phase2">phase 2</string>
-    <string name="settings_phase3">phase 3</string>
-    <string name="settings_phase4">phase 4</string>
-    <string name="settings_phase5">phase 5</string>
+    <string name="settings_phase1">Round 1</string>
+    <string name="settings_phase2">Round 2</string>
+    <string name="settings_phase3">Round 3</string>
+    <string name="settings_phase4">Round 4</string>
+    <string name="settings_phase5">Round 5</string>
     <string name="yourname">Your Name</string>
     <string name="historique_de_la_partie">Historique de la partie</string>
 
     <string name="rules1">Règle 1</string>
     <string name="rules2">Règle 2</string>
     <string name="rules3">Règle 3</string>
+
+    <string name="help_phase1">Rouge, ou noir ?</string>
+    <string name="help_phase2">Plus ou moins ?</string>
+    <string name="help_phase3">Entre tes 2 cartes ? ou non ?</string>
+    <string name="help_phase4">Pique, carreau, trèfle ou coeur ?</string>
+    <string name="help_phase5">As-tu déjà une cette valeur ?</string>
 </resources>

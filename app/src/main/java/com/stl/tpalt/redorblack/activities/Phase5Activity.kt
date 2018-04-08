@@ -51,6 +51,7 @@ class Phase5Activity : AppCompatActivity() {
         else {
             joueur=playerCurr
             tv_header.text = playerCurr.name
+            tv_sub_header.text=getString(R.string.help_phase5)
 
             mycard1 = phase5_mycard1
             mycard2 = phase5_mycard2

@@ -56,6 +56,7 @@ class Phase2Activity : AppCompatActivity() {
         else {
             joueur=playerCurr
             tv_header.text = playerCurr.name
+            tv_sub_header.text=getString(R.string.help_phase2)
 
             //UI init
             lessCard.setImageResource(R.drawable.minus)
@@ -79,7 +80,9 @@ class Phase2Activity : AppCompatActivity() {
             win=true
         winlose()
         lessCard.setImageResource(hiddenCard.image)
+        moreCard.setImageResource(R.drawable.verso)
         moreCard.alpha=RedOrBlackApp.masked
+        equalsCard.setImageResource(R.drawable.verso)
         equalsCard.alpha=RedOrBlackApp.masked
         val margin = resources.getDimension(R.dimen.maincardsmargin).toInt()
         MarginLayoutParams(lessCard.layoutParams).setMargins(margin,margin,margin,margin)
@@ -98,8 +101,8 @@ class Phase2Activity : AppCompatActivity() {
             win=true
         winlose()
         moreCard.setImageResource(hiddenCard.image)
-        lessCard.alpha=RedOrBlackApp.masked
-        equalsCard.alpha=RedOrBlackApp.masked
+        lessCard.setImageResource(R.drawable.verso)
+        equalsCard.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }
@@ -117,8 +120,8 @@ class Phase2Activity : AppCompatActivity() {
         }
         winlose(win)
         equalsCard.setImageResource(hiddenCard.image)
-        lessCard.alpha=RedOrBlackApp.masked
-        moreCard.alpha=RedOrBlackApp.masked
+        lessCard.setImageResource(R.drawable.verso)
+        moreCard.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }

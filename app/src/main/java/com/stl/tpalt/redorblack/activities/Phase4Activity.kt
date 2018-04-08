@@ -50,6 +50,7 @@ class Phase4Activity : AppCompatActivity() {
         {
             joueur=playerCurr
             tv_header.text = playerCurr.name
+            tv_sub_header.text=getString(R.string.help_phase4)
         }
 
         //UI init

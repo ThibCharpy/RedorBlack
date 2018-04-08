@@ -19,6 +19,7 @@ class WelcomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_welcome)
 
         val isTablet = resources.getBoolean(R.bool.isTablet)
 
@@ -26,7 +27,6 @@ class WelcomeActivity : AppCompatActivity() {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         }
 
-        setContentView(R.layout.activity_welcome)
 
         val buttonRules= findViewById<Button>(R.id.button_regles)
         val buttonStart= findViewById<Button>(R.id.button_start)

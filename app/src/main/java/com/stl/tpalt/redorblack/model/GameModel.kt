@@ -36,15 +36,17 @@ data class Player(
 data class Rules(
         var type : String = "Normal", //"Normal", "soft", "Hard"
         var phase1sipsdrunk : Int = 1,
+        var phase2sipsdrunk : Int = 2,
+        var phase3sipsdrunk : Int = 3,
+        var phase4sipsdrunk : Int = 4,
+        var phase5sipsdrunk : Int = 5,
+
         var phase1sipsgiven : Int = 1,
-        var phase2sipsdrunk : Int = 1,
         var phase2sipsgiven : Int = 1,
-        var phase3sipsdrunk : Int = 1,
         var phase3sipsgiven : Int = 1,
-        var phase4sipsdrunk : Int = 1,
         var phase4sipsgiven : Int = 1,
-        var phase5sipsdrunk : Int = 1,
         var phase5sipsgiven : Int = 1,
+
         var randomFrequence : Double = 0.1,
         var bonusForEquals : Int=2
 )

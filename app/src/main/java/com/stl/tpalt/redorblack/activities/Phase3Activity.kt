@@ -57,6 +57,7 @@ class Phase3Activity : AppCompatActivity() {
         {
             joueur=playerCurr
             tv_header.text = playerCurr.name
+            tv_sub_header.text=getString(R.string.help_phase3)
 
             //rebinding to make card value crescent
             if ((playerCurr.cartes[0]!!.getValue() > playerCurr.cartes[1]!!.getValue())) {
@@ -77,7 +78,6 @@ class Phase3Activity : AppCompatActivity() {
             exterCard.setImageResource(R.drawable.exter)
             tv_drinkorgive.visibility=View.INVISIBLE
             tv_winorlose.visibility=View.INVISIBLE
-
             card1value=playerCurr.cartes[0]!!.getValue()
             card2value=playerCurr.cartes[1]!!.getValue()
         }

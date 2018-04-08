@@ -4,6 +4,7 @@
     package="com.stl.tpalt.redorblack">
 
     <application
+        android:theme="@style/RedOrBlack"
         android:name=".model.RedOrBlackApp"
         android:allowBackup="false"
         android:icon="@mipmap/launcher"

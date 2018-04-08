@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="first_preferencescreen">
+    <EditTextPreference
+        android:key="username"
+        android:title="@string/yourname"
+        android:summary="Provide your username to be added automatically to every game" />
+    <CheckBoxPreference
+        android:key="bool_randomevents"
+        android:title="Random events"
+        android:summary="Check to enable random events occurences"/>
+    <PreferenceScreen
+        android:key="sips_settings"
+        android:title="Sips settings">
+        <com.example.preference.NumberPickerPreference
+            android:key="key_number"
+            android:title="Give me a number"
+            android:defaultValue="55" />
+    </PreferenceScreen>
+</PreferenceScreen>

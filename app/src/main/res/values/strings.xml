@@ -9,8 +9,8 @@
     <string name="button_start">Start</string>
 
     <!-- PlayerSelectionActivitytion Activity-->
-    <string name="textview_nbdecks">Count of card games :</string>
-    <string name="button_launchgame">Start the game</string>
+    <string name="textview_nbdecks">Number of game decks :</string>
+    <string name="button_launchgame">Let\'s get drunk</string>
     <string name="hint_addplayer">Players names</string>
     <string name="emptyplayerlist">Add your name… at least.</string>
     <string name="rules">
@@ -20,12 +20,11 @@
         Stage 4 : Bet on next card suit between Hearts, Diamonds, Spades or Clubs\n
         Stage 5 : Bet on if you already have next card or not, based only on card values.\n
 
-        If you loose your bet you have to drink as much shot as the number of the current stage.\n
-        Else you must make drink one player and give him as much shot as the number of the current stage.\n
-        You can also divide the count of shot to give to other players.\n
+        If you loose your bet you have to drink as much sips as indicated.\n
+        If you win, you can make another player drink these sips.\n
     </string>
     <string name="warnings">
-        Red or Black is a friendly game that can be played with friends, family or alone if your life is sad. \n
+        Red or Black is a friendly game that can be played with friends, family or even alone if your life is sad. \n
         Everyone usually ends up drunk. (Remember that alcohol abuse is dangerous for your health). \n
         Good drinking!
     </string>
@@ -41,17 +40,17 @@
     <!-- Utils strings -->
     <string name="button_add">+</string>
     <string name="playeralreadyexists">Player already exists.\nPlease choose a different name.</string>
-    <string name="level_soft">soft</string>
-    <string name="level_normal">normal</string>
-    <string name="level_hard">hard</string>
+    <string name="level_soft">Pussy</string>
+    <string name="level_normal">Normal</string>
+    <string name="level_hard">Toper</string>
     <string name="settings_numberofsips">Number of sips</string>
     <string name="settings_numberofsipstaken">Taken</string>
     <string name="settings_numberofsipsgiven">Given</string>
-    <string name="settings_phase1">Phase 1</string>
-    <string name="settings_phase2">Phase 2</string>
-    <string name="settings_phase3">Phase 3</string>
-    <string name="settings_phase4">Phase 4</string>
-    <string name="settings_phase5">Phase 5</string>
+    <string name="settings_phase1">Stage 1</string>
+    <string name="settings_phase2">Stage 2</string>
+    <string name="settings_phase3">Stage 3</string>
+    <string name="settings_phase4">Stage 4</string>
+    <string name="settings_phase5">Stage 5</string>
     <string name="yourname">Your Name</string>
     <string name="title_activity_test_drawer">TestDrawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -65,5 +64,11 @@
     <string name="rules1">Rules 1</string>
     <string name="rules2">Rules 2</string>
     <string name="rules3">Rules 3</string>
+
+    <string name="help_phase1">Choisis en rouge et noir</string>
+    <string name="help_phase2">La prochaine carte est-elle au dessus ou en dessous de la tienne ?</string>
+    <string name="help_phase3">As-tu déjà une carte de même valeur ?</string>
+    <string name="help_phase4">As-tu déjà une carte de même valeur ?</string>
+    <string name="help_phase5">As-tu déjà une carte de même valeur ?</string>
 
 </resources>
