@@ -12,7 +12,7 @@
         android:layout_margin="20dp"
         android:adjustViewBounds="true"
         android:background="@drawable/settings"
-        tools:ignore="ContentDescription"
-        android:onClick="goToSettings"/>
+        android:onClick="goToSettings"
+        tools:ignore="ContentDescription" />
 
 </android.support.constraint.ConstraintLayout>

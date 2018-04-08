@@ -52,7 +52,7 @@
 
     <string name="help_phase1">Rouge, ou noir ?</string>
     <string name="help_phase2">Plus ou moins ?</string>
-    <string name="help_phase3">Entre tes 2 cartes ? ou non ?</string>
-    <string name="help_phase4">Pique, carreau, trèfle ou coeur ?</string>
+    <string name="help_phase3">Entre tes 2 cartes ? ou pas ?</string>
+    <string name="help_phase4">Pique, Carreau, Trèfle ou Coeur ?</string>
     <string name="help_phase5">As-tu déjà une cette valeur ?</string>
 </resources>

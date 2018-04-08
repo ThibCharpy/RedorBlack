@@ -26,6 +26,10 @@ class WelcomeActivity : AppCompatActivity() {
         if (isTablet) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         }
+        else
+        {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
 
 
         val buttonRules= findViewById<Button>(R.id.button_regles)

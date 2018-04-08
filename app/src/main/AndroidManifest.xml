@@ -12,24 +12,36 @@
         android:roundIcon="@mipmap/launcher_round"
         android:supportsRtl="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.WelcomeActivity">
+        <activity android:name=".activities.WelcomeActivity"
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.PlayerSelectionActivity" />
-        <activity android:name=".activities.StartGameActivity" />
-        <activity android:name=".activities.RulesActivity" />
-        <activity android:name=".activities.SettingsActivity" />
-        <activity android:name=".activities.Phase1Activity" />
-        <activity android:name=".activities.Phase2Activity" />
-        <activity android:name=".activities.Phase3Activity" />
-        <activity android:name=".activities.Phase4Activity" />
-        <activity android:name=".activities.Phase5Activity" />
-        <activity android:name=".activities.EndGameActivity" />
-        <activity android:name=".activities.AppLogActivity" />
+        <activity android:name=".activities.PlayerSelectionActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.StartGameActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.RulesActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.SettingsActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.Phase1Activity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.Phase2Activity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.Phase3Activity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.Phase4Activity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.Phase5Activity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.EndGameActivity"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".activities.AppLogActivity"
+            android:screenOrientation="nosensor"/>
     </application>
 
 </manifest> <!-- android:screenOrientation="nosensor" -->

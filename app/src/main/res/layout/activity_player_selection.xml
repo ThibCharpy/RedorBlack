@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.stl.tpalt.redorblack.activities.PlayerSelectionActivity">
+    tools:context="com.stl.tpalt.redorblack.activities.PlayerSelectionActivity"
+    android:background="@drawable/parchmentmini">
 
     <include
         android:id="@+id/settings_button"
@@ -71,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/layout_nbdecks"
         android:layout_margin="30dp"
         android:divider="@drawable/listview_divider"
-        android:background="#06000000"/>
+        android:background="#15000000"/>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layout_newplayer"

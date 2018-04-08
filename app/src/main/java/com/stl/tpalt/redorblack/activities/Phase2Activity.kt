@@ -40,6 +40,10 @@ class Phase2Activity : AppCompatActivity() {
         if (isTablet) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         }
+        else
+        {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
 
         lessCard=phase2_card_less
         moreCard=phase2_card_more
@@ -81,9 +85,7 @@ class Phase2Activity : AppCompatActivity() {
         winlose()
         lessCard.setImageResource(hiddenCard.image)
         moreCard.setImageResource(R.drawable.verso)
-        moreCard.alpha=RedOrBlackApp.masked
         equalsCard.setImageResource(R.drawable.verso)
-        equalsCard.alpha=RedOrBlackApp.masked
         val margin = resources.getDimension(R.dimen.maincardsmargin).toInt()
         MarginLayoutParams(lessCard.layoutParams).setMargins(margin,margin,margin,margin)
 

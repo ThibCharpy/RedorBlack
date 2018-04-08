@@ -39,6 +39,10 @@ class Phase1Activity : AppCompatActivity() {
             val listview = findViewById<ListView>(R.id.listview_loglist)
             listview.adapter = adapter
         }
+        else
+        {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
 
         val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
         if (playerCurr == null)
@@ -77,7 +81,6 @@ class Phase1Activity : AppCompatActivity() {
         winlose()
         redCard.setImageResource(hiddenCard.image)
         blackCard.setImageResource(R.drawable.verso)
-        blackCard.alpha=RedOrBlackApp.masked
         logWhatHappened(hiddenCard.image)
     }
 
@@ -94,7 +97,6 @@ class Phase1Activity : AppCompatActivity() {
         winlose()
         blackCard.setImageResource(hiddenCard.image)
         redCard.setImageResource(R.drawable.verso)
-        redCard.alpha=RedOrBlackApp.masked
 
         logWhatHappened(hiddenCard.image)
     }

@@ -6,7 +6,8 @@
     android:id="@+id/layout_phase2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.stl.tpalt.redorblack.activities.Phase2Activity">
+    tools:context="com.stl.tpalt.redorblack.activities.Phase2Activity"
+    android:background="@drawable/parchmentmini">
 
     <include
         android:id="@+id/header"

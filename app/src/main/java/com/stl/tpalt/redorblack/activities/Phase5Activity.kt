@@ -40,6 +40,10 @@ class Phase5Activity : AppCompatActivity() {
         if (isTablet) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         }
+        else
+        {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
 
         val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
         if (playerCurr == null)
@@ -91,7 +95,7 @@ class Phase5Activity : AppCompatActivity() {
         }
         winlose()
         jai.setImageResource(hiddenCard.image)
-        jaipas.alpha=RedOrBlackApp.masked
+        jaipas.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }
@@ -110,7 +114,7 @@ class Phase5Activity : AppCompatActivity() {
         }
         winlose()
         jaipas.setImageResource(hiddenCard.image)
-        jai.alpha=RedOrBlackApp.masked
+        jai.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }

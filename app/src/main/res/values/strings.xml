@@ -65,10 +65,10 @@
     <string name="rules2">Rules 2</string>
     <string name="rules3">Rules 3</string>
 
-    <string name="help_phase1">Choisis en rouge et noir</string>
-    <string name="help_phase2">La prochaine carte est-elle au dessus ou en dessous de la tienne ?</string>
-    <string name="help_phase3">As-tu déjà une carte de même valeur ?</string>
-    <string name="help_phase4">As-tu déjà une carte de même valeur ?</string>
-    <string name="help_phase5">As-tu déjà une carte de même valeur ?</string>
+    <string name="help_phase1">Choose between Red or Black</string>
+    <string name="help_phase2">Is the card value higher? Lower?</string>
+    <string name="help_phase3">Is the card value between yours?</string>
+    <string name="help_phase4">Spade, Diamond, Club or Heart?</string>
+    <string name="help_phase5">Do you already got this value?</string>
 
 </resources>

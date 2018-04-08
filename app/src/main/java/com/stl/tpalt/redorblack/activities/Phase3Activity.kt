@@ -41,6 +41,10 @@ class Phase3Activity : AppCompatActivity() {
         if (isTablet) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         }
+        else
+        {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
 
         interCard=phase3_card_inter
         equalsCard=phase3_card_equals
@@ -97,8 +101,8 @@ class Phase3Activity : AppCompatActivity() {
         }
         winlose()
         interCard.setImageResource(hiddenCard.image)
-        exterCard.alpha=RedOrBlackApp.masked
-        equalsCard.alpha=RedOrBlackApp.masked
+        exterCard.setImageResource(R.drawable.verso)
+        equalsCard.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }
@@ -116,8 +120,8 @@ class Phase3Activity : AppCompatActivity() {
         }
         winlose(win)
         equalsCard.setImageResource(hiddenCard.image)
-        interCard.alpha=RedOrBlackApp.masked
-        exterCard.alpha=RedOrBlackApp.masked
+        interCard.setImageResource(R.drawable.verso)
+        exterCard.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }
@@ -136,8 +140,8 @@ class Phase3Activity : AppCompatActivity() {
         }
         winlose()
         exterCard.setImageResource(hiddenCard.image)
-        interCard.alpha=RedOrBlackApp.masked
-        equalsCard.alpha=RedOrBlackApp.masked
+        interCard.setImageResource(R.drawable.verso)
+        equalsCard.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }

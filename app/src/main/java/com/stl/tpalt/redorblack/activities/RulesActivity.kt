@@ -2,12 +2,12 @@ package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.stl.tpalt.redorblack.R
-import android.support.v4.view.ViewPager
 import com.stl.tpalt.redorblack.utils.CustomPagerAdapter
 
 
@@ -36,7 +36,7 @@ class RulesActivity : AppCompatActivity() {
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 println("pos 1 : "+position)
-                if (position == 3)
+                if (position == 5)
                     goToWelcome(null)
             }
 

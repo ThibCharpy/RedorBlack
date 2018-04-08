@@ -35,12 +35,13 @@ class PlayerSelectionActivity : AppCompatActivity() {
         if (isTablet) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         }
+        else
+        {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
 
         //for testing purpose
-        playerList.add(Player("Thiblin"))
-        playerList.add(Player("Djezlin"))
-        playerList.add(Player("Tomlin"))
-//        playerList.add(Player("ABCDEFGHIJKLMOPQRSTUVWXYZ", arrayOfNulls(5)))
+        playerList.add(Player("ABCDEFGHIJKLMOPQRSTUVWXYZ", arrayOfNulls(5)))
 
 
         val adapter = PlayerListAdapter(this, playerList)

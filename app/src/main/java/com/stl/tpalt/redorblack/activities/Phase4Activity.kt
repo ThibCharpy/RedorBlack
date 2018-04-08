@@ -34,6 +34,10 @@ class Phase4Activity : AppCompatActivity() {
         if (isTablet) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         }
+        else
+        {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
 
         spadeCard=phase4_card_spade
         heartCard=phase4_card_heart
@@ -72,9 +76,9 @@ class Phase4Activity : AppCompatActivity() {
             win=true
         winlose()
         spadeCard.setImageResource(hiddenCard.image)
-        heartCard.alpha=RedOrBlackApp.masked
-        diamondCard.alpha=RedOrBlackApp.masked
-        clubCard.alpha=RedOrBlackApp.masked
+        heartCard.setImageResource(R.drawable.verso)
+        diamondCard.setImageResource(R.drawable.verso)
+        clubCard.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }
@@ -89,9 +93,9 @@ class Phase4Activity : AppCompatActivity() {
             win=true
         winlose()
         heartCard.setImageResource(hiddenCard.image)
-        spadeCard.alpha=RedOrBlackApp.masked
-        diamondCard.alpha=RedOrBlackApp.masked
-        clubCard.alpha=RedOrBlackApp.masked
+        spadeCard.setImageResource(R.drawable.verso)
+        diamondCard.setImageResource(R.drawable.verso)
+        clubCard.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }
@@ -106,9 +110,9 @@ class Phase4Activity : AppCompatActivity() {
             win=true
         winlose()
         diamondCard.setImageResource(hiddenCard.image)
-        spadeCard.alpha=RedOrBlackApp.masked
-        heartCard.alpha=RedOrBlackApp.masked
-        clubCard.alpha=RedOrBlackApp.masked
+        spadeCard.setImageResource(R.drawable.verso)
+        heartCard.setImageResource(R.drawable.verso)
+        clubCard.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }
@@ -123,9 +127,9 @@ class Phase4Activity : AppCompatActivity() {
             win=true
         winlose()
         clubCard.setImageResource(hiddenCard.image)
-        spadeCard.alpha=RedOrBlackApp.masked
-        heartCard.alpha=RedOrBlackApp.masked
-        diamondCard.alpha=RedOrBlackApp.masked
+        spadeCard.setImageResource(R.drawable.verso)
+        heartCard.setImageResource(R.drawable.verso)
+        diamondCard.setImageResource(R.drawable.verso)
 
         logWhatHappened()
     }
