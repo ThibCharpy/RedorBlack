@@ -8,8 +8,10 @@ import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
+import android.widget.ListView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.*
+import com.stl.tpalt.redorblack.utils.AppLogListAdapter
 import kotlinx.android.synthetic.main.activity_phase5.*
 import kotlinx.android.synthetic.main.header.*
 
@@ -31,6 +33,8 @@ class Phase5Activity : AppCompatActivity() {
 
     private lateinit var joueur : Player
 
+    val adapter = AppLogListAdapter(this, RedOrBlackApp.logs)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phase5)
@@ -39,6 +43,8 @@ class Phase5Activity : AppCompatActivity() {
 
         if (isTablet) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+            val listview = findViewById<ListView>(R.id.listview_loglist)
+            listview.adapter = adapter
         }
         else
         {
@@ -97,7 +103,7 @@ class Phase5Activity : AppCompatActivity() {
         jai.setImageResource(hiddenCard.image)
         jaipas.setImageResource(R.drawable.verso)
 
-        logWhatHappened()
+        logWhatHappened(hiddenCard.image)
     }
     @Suppress("UNUSED_PARAMETER")
     fun onJaiPasClicked(v : View)
@@ -116,7 +122,7 @@ class Phase5Activity : AppCompatActivity() {
         jaipas.setImageResource(hiddenCard.image)
         jai.setImageResource(R.drawable.verso)
 
-        logWhatHappened()
+        logWhatHappened(hiddenCard.image)
     }
 
     private fun makeBackGroundClickableAfterXsec(sec : Double)
@@ -182,23 +188,26 @@ class Phase5Activity : AppCompatActivity() {
         RedOrBlackApp.history.add(CardPickedEvent(joueur, hiddenCard, win, sips))
     }
 
-    fun logWhatHappened(){
+    fun logWhatHappened(cardId : Int){
         val sips = if (win) RedOrBlackApp.rules.phase1sipsgiven else RedOrBlackApp.rules.phase1sipsdrunk
         when(sips)
         {
             1   -> if(win)
-                addLog(joueur.name+" "+getString(R.string.give1,sips).toLowerCase())
+                addLog(joueur.name+" "+getString(R.string.give1,sips).toLowerCase(),cardId)
             else
-                addLog(joueur.name+" "+getString(R.string.drink1,sips).toLowerCase())
+                addLog(joueur.name+" "+getString(R.string.drink1,sips).toLowerCase(),cardId)
             else-> if(win)
-                addLog(joueur.name+" "+getString(R.string.give,sips).toLowerCase())
+                addLog(joueur.name+" "+getString(R.string.give,sips).toLowerCase(),cardId)
             else
-                addLog(joueur.name+" "+getString(R.string.drink,sips).toLowerCase())
+                addLog(joueur.name+" "+getString(R.string.drink,sips).toLowerCase(),cardId)
         }
     }
 
     @SuppressLint("NewApi")
-    fun addLog(text : String){
-        RedOrBlackApp.logs.add(GameLog(text,R.drawable.errorcard))
+    fun addLog(text : String, cardId: Int){
+        RedOrBlackApp.logs.reverse()
+        RedOrBlackApp.logs.add(GameLog(text,cardId))
+        RedOrBlackApp.logs.reverse()
+        adapter.notifyDataSetChanged()
     }
 }
