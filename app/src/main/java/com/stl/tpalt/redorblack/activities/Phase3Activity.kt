@@ -227,13 +227,13 @@ class Phase3Activity : AppCompatActivity() {
         when(sips)
         {
             1   -> if(win)
-                addLog(joueur.name+" "+getString(R.string.give1,sips).toLowerCase(),cardId)
+                addLog("3: "+joueur.name+" "+getString(R.string.give1,sips).toLowerCase(),cardId)
             else
-                addLog(joueur.name+" "+getString(R.string.drink1,sips).toLowerCase(),cardId)
+                addLog("3: "+joueur.name+" "+getString(R.string.drink1,sips).toLowerCase(),cardId)
             else-> if(win)
-                addLog(joueur.name+" "+getString(R.string.give,sips).toLowerCase(),cardId)
+                addLog("3: "+joueur.name+" "+getString(R.string.give,sips).toLowerCase(),cardId)
             else
-                addLog(joueur.name+" "+getString(R.string.drink,sips).toLowerCase(),cardId)
+                addLog("3: "+joueur.name+" "+getString(R.string.drink,sips).toLowerCase(),cardId)
         }
     }
 
