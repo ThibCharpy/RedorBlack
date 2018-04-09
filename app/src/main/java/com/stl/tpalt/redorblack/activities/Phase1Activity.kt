@@ -39,7 +39,6 @@ class Phase1Activity : AppCompatActivity() {
 
         if (isTablet) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
-            println("blanboiango : $listview_loglist")
             val listview = findViewById<ListView>(R.id.listview_loglist)
             listview.adapter = adapter
         }
@@ -60,7 +59,6 @@ class Phase1Activity : AppCompatActivity() {
         val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
         if (playerCurr == null)
         {
-
             val intent = Intent(this, Phase2Activity::class.java)
             startActivity(intent)
             finish()
@@ -167,25 +165,27 @@ class Phase1Activity : AppCompatActivity() {
         RedOrBlackApp.history.add(CardPickedEvent(joueur, hiddenCard, win, sips))
     }
 
-    fun logWhatHappened(cardId : Int){
+    private fun logWhatHappened(cardId : Int){
         var sips = if (win) RedOrBlackApp.rules.phase1sipsgiven else RedOrBlackApp.rules.phase1sipsdrunk
         sips *= multiplier
         when(sips)
         {
             1   -> if(win)
-                addLog(joueur.name+" "+getString(R.string.give1,sips).toLowerCase(),cardId)
+                addLog("1: "+joueur.name+" "+getString(R.string.give1,sips).toLowerCase(),cardId)
             else
-                addLog(joueur.name+" "+getString(R.string.drink1,sips).toLowerCase(),cardId)
+                addLog("1: "+joueur.name+" "+getString(R.string.drink1,sips).toLowerCase(),cardId)
             else-> if(win)
-                addLog(joueur.name+" "+getString(R.string.give,sips).toLowerCase(),cardId)
+                addLog("1: "+joueur.name+" "+getString(R.string.give,sips).toLowerCase(),cardId)
             else
-                addLog(joueur.name+" "+getString(R.string.drink,sips).toLowerCase(),cardId)
+                addLog("1: "+joueur.name+" "+getString(R.string.drink,sips).toLowerCase(),cardId)
         }
     }
 
     @SuppressLint("NewApi")
-    fun addLog(text : String, cardId: Int){
+    private fun addLog(text : String, cardId: Int){
+        RedOrBlackApp.logs.reverse()
         RedOrBlackApp.logs.add(GameLog(text,cardId))
+        RedOrBlackApp.logs.reverse()
         adapter.notifyDataSetChanged()
     }
 
