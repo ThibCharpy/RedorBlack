@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.RedOrBlackApp
 import kotlinx.android.synthetic.main.activity_stats.*
-import org.jetbrains.anko.longToast
 
 class StatsActivity : AppCompatActivity() {
 
@@ -24,8 +23,6 @@ class StatsActivity : AppCompatActivity() {
         var numbermostgiven = players[0].given
         var playerleastgiven = players[0].name
         var numberleastgiven = players[0].given
-
-        players.forEach { player -> longToast(player.name+" : d"+player.drunk+" g"+player.given) }
 
         players.forEach { p ->
             if (p.drunk > numbermostdrank)

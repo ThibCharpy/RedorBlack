@@ -3,6 +3,7 @@ package com.stl.tpalt.redorblack.activities
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
@@ -12,6 +13,7 @@ import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.*
 import kotlinx.android.synthetic.main.activity_phase3.*
 import kotlinx.android.synthetic.main.header.*
+import kotlinx.android.synthetic.main.random_event.*
 import kotlin.math.max
 import kotlin.math.min
 
@@ -31,6 +33,7 @@ class Phase3Activity : AppCompatActivity() {
     private var bojeu : Boolean = false
     lateinit var hiddenCard : Card
     private lateinit var joueur : Player
+    private var multiplier : Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +48,15 @@ class Phase3Activity : AppCompatActivity() {
         {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
+
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP)
+            if (Math.random() < RedOrBlackApp.rules.randomFrequence) {
+                random_layout.visibility = View.VISIBLE
+                random_layout.setOnClickListener {
+                    random_layout.visibility = View.GONE
+                }
+                multiplier = 2
+            }
 
         interCard=phase3_card_inter
         equalsCard=phase3_card_equals
@@ -202,7 +214,8 @@ class Phase3Activity : AppCompatActivity() {
         tv_winorlose.visibility=View.VISIBLE
         tv_drinkorgive.visibility=View.VISIBLE
         tv_winorlose.text = if(bojeu) getString(R.string.bojeu) else if(win) getString(R.string.win) else getString(R.string.lose)
-        sips+=bonussips
+        sips += bonussips
+        sips *= multiplier
         when(sips)
         {
             0   -> tv_drinkorgive.visibility=View.INVISIBLE
@@ -217,7 +230,8 @@ class Phase3Activity : AppCompatActivity() {
     }
 
     fun logWhatHappened(){
-        val sips = if (win) RedOrBlackApp.rules.phase1sipsgiven else RedOrBlackApp.rules.phase1sipsdrunk
+        var sips = if (win) RedOrBlackApp.rules.phase1sipsgiven else RedOrBlackApp.rules.phase1sipsdrunk
+        sips *= multiplier
         when(sips)
         {
             1   -> if(win)

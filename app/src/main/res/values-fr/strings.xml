@@ -26,7 +26,7 @@
 
     <string name="win">Gagné !</string>
     <string name="lose">Perdu !</string>
-    <string name="bojeu">Bôjeu !</string>
+    <string name="bojeu">Bô jeu !</string>
     <string name="drink">Bois %1$d gorgées</string>
     <string name="give">Donne %1$d gorgées</string>
     <string name="drink1">Bois %1$d gorgée</string>
@@ -70,5 +70,17 @@
     <string name="leastgiven">Joueur ayant le moins donné :</string>
     <string name="leastgivenanswer">%1$s (%2$d gorgées)</string>
     <string name="leastgivenanswer1">%1$s (%2$d gorgée)</string>
-    <string name="rejouer">Rejouer</string>
+    <string name="rejouer">Encore !</string>
+    <string name="random_double">Gorgées doublées pour ce tour !!</string>
+    <string name="random_event_frequency">Random event frequency :</string>
+    <string name="tuto1">Ajoute tous les joueurs, et c\'est parti !</string>
+    <string name="tuto2">Fais ton choix successivement parmi :\n
+    -Rouge ou Noir\n
+    -Plus, Moins, ou Égal\n
+    -Inter, Exter ou Égal\n
+    -Pique, Coeur, Trèfle ou Carreau\n
+    -J\'ai ou J\'ai pas (valeurs)</string>
+    <string name="tuto3">Attention ! Des évènements aléatoires peuvent survenir pour foutre un peu la merde</string>
+
+    <string name="longtaptodel">Faire un appui long pour supprimer un joueur</string>
 </resources>

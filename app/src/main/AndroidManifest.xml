@@ -50,9 +50,6 @@
             android:name=".activities.Phase5Activity"
             android:screenOrientation="nosensor" />
         <activity
-            android:name=".activities.EndGameActivity"
-            android:screenOrientation="nosensor" />
-        <activity
             android:name=".activities.AppLogActivity"
             android:screenOrientation="nosensor" />
         <activity

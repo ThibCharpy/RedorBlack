@@ -79,7 +79,7 @@ class RedOrBlackApp : Application()
 
         fun pickCardFromDeck() : Card
         {
-            Log.i("deck :", deck.map { c -> c.cardname }.toString())
+//            Log.i("deck :", deck.map { c -> c.cardname }.toString())
             if (deck.size==0)
             {
                 Log.e("Error", "Card Picked on an empty deck")

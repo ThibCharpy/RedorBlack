@@ -260,6 +260,49 @@
             android:textSize="@dimen/settings_titles"
             app:layout_constraintTop_toBottomOf="@id/settings_given4"/>
 
+        <TextView
+            android:id="@+id/blankforblank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=" "
+            app:layout_constraintTop_toBottomOf="@id/settings_phase5"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:text="@string/random_event_frequency"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintTop_toBottomOf="@id/blankforblank"/>
+
+        <EditText
+            android:id="@+id/settings_random"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="-1"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@id/settings_random"
+            app:layout_constraintRight_toLeftOf="@id/percent"
+            app:layout_constraintTop_toBottomOf="@id/blankforblank"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            tools:ignore="HardcodedText,LabelFor"
+            android:textSize="@dimen/settings_titles"/>
+
+        <TextView
+            android:id="@+id/percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:textSize="@dimen/settings_titles"
+            app:layout_constraintLeft_toRightOf="@id/settings_random"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/blankforblank"
+            tools:ignore="HardcodedText" />
+
         <android.support.constraint.Guideline
             android:id="@+id/guidelineleft"
             android:layout_width="0dp"

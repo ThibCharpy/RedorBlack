@@ -69,6 +69,7 @@ class SettingsActivity : AppCompatActivity() {
         settings_given3.setText(RedOrBlackApp.rules.phase3sipsgiven.toString())
         settings_given4.setText(RedOrBlackApp.rules.phase4sipsgiven.toString())
         settings_given5.setText(RedOrBlackApp.rules.phase5sipsgiven.toString())
+        settings_random.setText((RedOrBlackApp.rules.randomFrequence*100).toInt().toString())
 
         level_soft.setOnClickListener {
             RedOrBlackApp.rules.phase1sipsdrunk=1
@@ -91,6 +92,8 @@ class SettingsActivity : AppCompatActivity() {
             settings_given3.setText(RedOrBlackApp.rules.phase3sipsgiven.toString())
             settings_given4.setText(RedOrBlackApp.rules.phase4sipsgiven.toString())
             settings_given5.setText(RedOrBlackApp.rules.phase5sipsgiven.toString())
+            RedOrBlackApp.rules.randomFrequence=0.05
+            settings_random.setText((RedOrBlackApp.rules.randomFrequence*100).toInt().toString())
         }
         level_normal.setOnClickListener {
             RedOrBlackApp.rules.phase1sipsdrunk=1
@@ -113,6 +116,8 @@ class SettingsActivity : AppCompatActivity() {
             settings_given3.setText(RedOrBlackApp.rules.phase3sipsgiven.toString())
             settings_given4.setText(RedOrBlackApp.rules.phase4sipsgiven.toString())
             settings_given5.setText(RedOrBlackApp.rules.phase5sipsgiven.toString())
+            RedOrBlackApp.rules.randomFrequence=0.1
+            settings_random.setText((RedOrBlackApp.rules.randomFrequence*100).toInt().toString())
         }
         level_hard.setOnClickListener {
             RedOrBlackApp.rules.phase1sipsdrunk=1
@@ -135,6 +140,8 @@ class SettingsActivity : AppCompatActivity() {
             settings_given3.setText(RedOrBlackApp.rules.phase3sipsgiven.toString())
             settings_given4.setText(RedOrBlackApp.rules.phase4sipsgiven.toString())
             settings_given5.setText(RedOrBlackApp.rules.phase5sipsgiven.toString())
+            RedOrBlackApp.rules.randomFrequence=0.2
+            settings_random.setText((RedOrBlackApp.rules.randomFrequence*100).toInt().toString())
         }
 
         settings_taken1.addTextChangedListener(object: TextWatcher {
@@ -217,8 +224,30 @@ class SettingsActivity : AppCompatActivity() {
                     RedOrBlackApp.rules.phase5sipsgiven=p0.toString().toIntOrNull()!!
             }
         })
+        settings_random.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (p0.toString().toDoubleOrNull() != null) {
+                    var percent = p0.toString().toDoubleOrNull()!!/100.0
+                    if(percent !in 0.0..1.0)
+                    {
+                        percent = if (percent > 1.0)
+                            1.0
+                        else
+                            0.0
+                        settings_random.setText((percent*100.0).toInt().toString())
+                    }
+                    RedOrBlackApp.rules.randomFrequence = percent
+                }
+            }
+
+        })
     }
 
+    private fun isInRange(a: Double, b: Double, c: Double): Boolean {
+        return c in a..b
+    }
 
     private fun reloadActivity () {
         val intent = Intent(this, SettingsActivity::class.java)

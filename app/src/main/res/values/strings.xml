@@ -85,6 +85,16 @@
     <string name="leastgivenanswer">%1$s (%2$d sips)</string>
     <string name="leastgivenanswer1">%1$s (%2$d sip)</string>
     <string name="rejouer">Play again</string>
+    <string name="random_double">Sips are dubbed for this turn !!</string>
+    <string name="random_event_frequency">Random event frequency :</string>
+    <string name="tuto1">Add all the players to the list, and you\'re ready to drunk</string>
+    <string name="tuto2">Choose successively between :\n
+    -Red or Black\n
+    -More, Less or Equals \n
+    -In, Out or Equals\n
+    -Spade, Heart, Club or Diamond\n
+    -I got it or I don\'t (values only)</string>
+    <string name="tuto3">Beware ! Random events can occur to beef up punishments</string>
 
-
+    <string name="longtaptodel">Long tap to delete a player</string>
 </resources>

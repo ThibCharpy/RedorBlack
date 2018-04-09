@@ -3,6 +3,7 @@ package com.stl.tpalt.redorblack.activities
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
@@ -13,6 +14,7 @@ import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.*
 import kotlinx.android.synthetic.main.activity_phase2.*
 import kotlinx.android.synthetic.main.header.*
+import kotlinx.android.synthetic.main.random_event.*
 
 
 @Suppress("MemberVisibilityCanBePrivate")
@@ -28,12 +30,22 @@ class Phase2Activity : AppCompatActivity() {
     private var newcardValue: Int = -1
     private var win : Boolean = false
     private var bojeu : Boolean = false
+    private var multiplier : Int = 1
 
     private lateinit var joueur : Player
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phase2)
+
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP)
+            if (Math.random() < RedOrBlackApp.rules.randomFrequence) {
+                random_layout.visibility = View.VISIBLE
+                random_layout.setOnClickListener {
+                    random_layout.visibility = View.GONE
+                }
+                multiplier = 2
+            }
 
         val isTablet = resources.getBoolean(R.bool.isTablet)
 
@@ -174,7 +186,8 @@ class Phase2Activity : AppCompatActivity() {
         tv_winorlose.visibility=View.VISIBLE
         tv_drinkorgive.visibility=View.VISIBLE
         tv_winorlose.text = if(bojeu) getString(R.string.bojeu) else if(win) getString(R.string.win) else getString(R.string.lose)
-        sips+=bonussips
+        sips += bonussips
+        sips *= multiplier
         when(sips)
         {
             0   -> tv_drinkorgive.visibility=View.INVISIBLE
@@ -189,7 +202,8 @@ class Phase2Activity : AppCompatActivity() {
     }
 
     fun logWhatHappened(){
-        val sips = if (win) RedOrBlackApp.rules.phase1sipsgiven else RedOrBlackApp.rules.phase1sipsdrunk
+        var sips = if (win) RedOrBlackApp.rules.phase1sipsgiven else RedOrBlackApp.rules.phase1sipsdrunk
+        sips *= multiplier
         when(sips)
         {
             1   -> if(win)

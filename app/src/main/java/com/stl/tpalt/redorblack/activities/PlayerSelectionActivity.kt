@@ -24,20 +24,15 @@ class PlayerSelectionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_selection)
-//
-//        //for testing purpose
-//        playerList.add(Player("Thiblin"))
-//        playerList.add(Player("Djezlin"))
-//        playerList.add(Player("Tomlin"))
 
         val isTablet = resources.getBoolean(R.bool.isTablet)
 
-        if (isTablet) {
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        requestedOrientation = if (isTablet) {
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         }
         else
         {
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
 
         val adapter = PlayerListAdapter(this, playerList)
