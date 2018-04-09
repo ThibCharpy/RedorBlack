@@ -27,13 +27,13 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:adjustViewBounds="true"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/dualcardsmargin"
             android:onClick="onSpadeClicked"
             android:src="@drawable/errorcard"
-            app:layout_constraintTop_toTopOf="@id/guidelinetop"
-            app:layout_constraintBottom_toBottomOf="@id/guidelinemid"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinehmid"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/phase4_card_diamond"
+            app:layout_constraintRight_toRightOf="@id/guidelinevmid"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -41,13 +41,13 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:adjustViewBounds="true"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/dualcardsmargin"
             android:onClick="onDiamondClicked"
             android:src="@drawable/errorcard"
-            app:layout_constraintTop_toTopOf="@id/guidelinetop"
-            app:layout_constraintBottom_toBottomOf="@id/guidelinemid"
-            app:layout_constraintLeft_toRightOf="@id/phase4_card_spade"
-            app:layout_constraintRight_toLeftOf="@id/phase4_card_club"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinehmid"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/guidelinevmid"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -55,13 +55,13 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:adjustViewBounds="true"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/dualcardsmargin"
             android:onClick="onClubClicked"
             android:src="@drawable/errorcard"
-            app:layout_constraintTop_toTopOf="@id/guidelinetop"
-            app:layout_constraintBottom_toBottomOf="@id/guidelinemid"
-            app:layout_constraintLeft_toRightOf="@id/phase4_card_diamond"
-            app:layout_constraintRight_toLeftOf="@id/phase4_card_heart"
+            app:layout_constraintTop_toTopOf="@id/guidelinehmid"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/guidelinevmid"
             tools:ignore="ContentDescription" />
 
         <ImageView
@@ -69,19 +69,19 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:adjustViewBounds="true"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/dualcardsmargin"
             android:onClick="onHeartClicked"
             android:src="@drawable/errorcard"
-            app:layout_constraintTop_toTopOf="@id/guidelinetop"
-            app:layout_constraintBottom_toBottomOf="@id/guidelinemid"
-            app:layout_constraintLeft_toRightOf="@id/phase4_card_club"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guidelinehmid"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/guidelinevmid"
             tools:ignore="ContentDescription" />
 
 
         <android.support.constraint.Guideline
             android:clickable="false"
-            android:id="@+id/guidelinetop"
+            android:id="@+id/guidelinehmid"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
@@ -89,11 +89,11 @@
 
         <android.support.constraint.Guideline
             android:clickable="false"
-            android:id="@+id/guidelinemid"
+            android:id="@+id/guidelinevmid"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.8" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
     </android.support.constraint.ConstraintLayout>
 

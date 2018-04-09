@@ -40,10 +40,6 @@ class PlayerSelectionActivity : AppCompatActivity() {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
 
-        //for testing purpose
-        playerList.add(Player("ABCDEFGHIJKLMOPQRSTUVWXYZ", arrayOfNulls(5)))
-
-
         val adapter = PlayerListAdapter(this, playerList)
         listview_playerlist.adapter = adapter
 

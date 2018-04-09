@@ -36,7 +36,7 @@ class RulesActivity : AppCompatActivity() {
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 println("pos 1 : "+position)
-                if (position == 5)
+                if (position == 3)
                     goToWelcome(null)
             }
 

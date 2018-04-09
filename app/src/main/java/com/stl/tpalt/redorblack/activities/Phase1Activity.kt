@@ -8,7 +8,6 @@ import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageView
-import android.widget.ListView
 import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.*
 import com.stl.tpalt.redorblack.utils.AppLogListAdapter
@@ -36,8 +35,8 @@ class Phase1Activity : AppCompatActivity() {
 
         if (isTablet) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
-            val listview = findViewById<ListView>(R.id.listview_loglist)
-            listview.adapter = adapter
+//            val listview = findViewById<ListView>(R.id.listview_loglist)
+//            listview.adapter = adapter
         }
         else
         {

@@ -48,7 +48,7 @@ class Phase5Activity : AppCompatActivity() {
         val playerCurr = RedOrBlackApp.getPlayerForPhase(phase)
         if (playerCurr == null)
         {
-            val intent = Intent(this, EndGameActivity::class.java)
+            val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -142,7 +142,7 @@ class Phase5Activity : AppCompatActivity() {
             override fun onFinish() {
                 if (RedOrBlackApp.getPlayerForPhase(phase) == null)
                 {
-                    val intent = Intent(that, EndGameActivity::class.java)
+                    val intent = Intent(that, StatsActivity::class.java)
                     layout_phase5.setOnClickListener(
                             {
                                 startActivity(intent)

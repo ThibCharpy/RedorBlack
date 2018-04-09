@@ -23,12 +23,12 @@ class WelcomeActivity : AppCompatActivity() {
 
         val isTablet = resources.getBoolean(R.bool.isTablet)
 
-        if (isTablet) {
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        requestedOrientation = if (isTablet) {
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         }
         else
         {
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         }
 
 

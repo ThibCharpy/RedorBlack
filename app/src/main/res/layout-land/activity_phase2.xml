@@ -9,146 +9,173 @@
     tools:context="com.stl.tpalt.redorblack.activities.Phase2Activity"
     android:background="@drawable/parchmentmini">
 
+    <android.support.constraint.Guideline
+        android:id="@+id/separator"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4"/>
+
     <include
         android:id="@+id/header"
         layout="@layout/header" />
 
-    <ImageView
-        android:id="@+id/phase2_card_equals"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:onClick="onEqualsClicked"
-        android:adjustViewBounds="true"
-        android:src="@drawable/errorcard"
-        android:layout_margin="@dimen/seccardsmargin"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelinetop"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinemid"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/phase2_card_less"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:onClick="onLessClicked"
-        android:src="@drawable/errorcard"
-        android:layout_margin="@dimen/seccardsmargin"
-        android:adjustViewBounds="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@id/guidelineleft"
-        app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/phase2_card_mycard"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/errorcard"
-        android:layout_margin="@dimen/maincardsmargin"
-        app:layout_constraintLeft_toLeftOf="@id/guidelineleft"
-        app:layout_constraintRight_toRightOf="@id/guidelineright"
-        app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/phase2_card_more"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:scaleType="fitCenter"
-        android:onClick="onMoreClicked"
-        android:adjustViewBounds="true"
-        android:src="@drawable/errorcard"
-        android:layout_margin="@dimen/seccardsmargin"
+        app:layout_constraintLeft_toLeftOf="@id/separator"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/guidelineright"
-        app:layout_constraintTop_toTopOf="@id/guidelinemid"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebot"
-        tools:ignore="ContentDescription" />
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <ImageView
+            android:id="@+id/phase2_card_equals"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="onEqualsClicked"
+            android:adjustViewBounds="true"
+            android:src="@drawable/errorcard"
+            android:layout_margin="@dimen/maincardsmarginTablet"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guidelinetop"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinemid"
+            tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:padding="5dp"
-        android:id="@+id/questionmark"
+        <ImageView
+            android:id="@+id/phase2_card_less"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:onClick="onLessClicked"
+            android:src="@drawable/errorcard"
+            android:layout_margin="@dimen/maincardsmarginTablet"
+            android:adjustViewBounds="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/guidelineleft"
+            app:layout_constraintTop_toTopOf="@id/guidelinetop"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinemid"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/phase2_card_more"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            android:onClick="onMoreClicked"
+            android:adjustViewBounds="true"
+            android:src="@drawable/errorcard"
+            android:layout_margin="@dimen/maincardsmarginTablet"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineright"
+            app:layout_constraintTop_toTopOf="@id/guidelinetop"
+            app:layout_constraintBottom_toBottomOf="@id/guidelinemid"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/phase2_card_mycard"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/errorcard"
+            android:layout_margin="@dimen/maincardsmarginTablet"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_winorlose"
+            app:layout_constraintTop_toTopOf="@id/guidelinemid"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:padding="50dp"
+            android:id="@+id/questionmark"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/questionmark"
+            android:layout_margin="70dp"
+            app:layout_constraintTop_toTopOf="@id/guidelinemid"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/phase2_card_mycard"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_winorlose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WinOrLose"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/guidelinemid"
+            app:layout_constraintLeft_toRightOf="@id/phase2_card_mycard"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_drinkorgive"
+            android:gravity="center"
+            android:textSize="@dimen/WinOrLoseTablet"
+            android:textColor="@color/tv_winorlose"
+            tools:ignore="HardcodedText"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/tv_drinkorgive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="drinkorgive"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/tv_winorlose"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/phase2_card_mycard"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
+            tools:ignore="HardcodedText"
+            android:textSize="@dimen/DrinkOrGiveTablet"
+            android:visibility="invisible"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineleft"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineright"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.67"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelinetop"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelinemid"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelinebot"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.90" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelinebotbot"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.99" />
+    </android.support.constraint.ConstraintLayout>
+
+    <include android:id="@+id/appLog"
+        layout="@layout/applog_activity"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/questionmark"
-        android:layout_margin="10dp"
-        app:layout_constraintTop_toTopOf="@id/guidelinebot"
-        app:layout_constraintBottom_toBottomOf="@id/guidelinebotbot"
+        app:layout_constraintRight_toRightOf="@id/separator"
+        app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/tv_winorlose"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="WinOrLose"
-        app:layout_constraintTop_toTopOf="@id/guidelinebot"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:gravity="center"
-        android:textSize="@dimen/WinOrLose"
-        android:textColor="@color/tv_winorlose"
-        tools:ignore="HardcodedText"
-        android:visibility="invisible"/>
-
-    <TextView
-        android:id="@+id/tv_drinkorgive"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="drinkorgive"
-        app:layout_constraintTop_toBottomOf="@id/tv_winorlose"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:gravity="center"
-        tools:ignore="HardcodedText"
-        android:textSize="@dimen/DrinkOrGive"
-        android:visibility="invisible"/>
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineleft"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.33"/>
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineright"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.67"/>
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelinetop"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15"/>
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelinemid"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelinebot"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelinebotbot"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.99" />
-
+        app:layout_constraintBottom_toBottomOf="parent" />
 </android.support.constraint.ConstraintLayout>

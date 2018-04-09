@@ -5,6 +5,7 @@
     android:id="@+id/layout_phase1"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.stl.tpalt.redorblack.activities.Phase1Activity"
     android:background="@drawable/parchmentmini">
 
     <android.support.constraint.Guideline
@@ -90,7 +91,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:gravity="center"
             tools:ignore="HardcodedText"
-            android:textSize="@dimen/DrinkOrGive"
+            android:textSize="@dimen/DrinkOrGiveTablet"
             android:visibility="invisible"/>
 
         <ImageView

@@ -53,6 +53,22 @@
     <string name="help_phase1">Rouge, ou noir ?</string>
     <string name="help_phase2">Plus ou moins ?</string>
     <string name="help_phase3">Entre tes 2 cartes ? ou pas ?</string>
-    <string name="help_phase4">Pique, Carreau, Trèfle ou Coeur ?</string>
+    <string name="help_phase4">Pique, Carreau, Coeur ou Trèfle?</string>
     <string name="help_phase5">As-tu déjà une cette valeur ?</string>
+    <string name="statis">Statistiques de la partie</string>
+
+    <string name="mostdrunk">Joueur ayant le plus bu :</string>
+    <string name="mostdrunkanswer">%1$s (%2$d gorgées)</string>
+    <string name="mostdrunkanswer1">%1$s (%2$d gorgée)</string>
+    <string name="mostgiven">Joueur ayant le plus donné :</string>
+    <string name="mostgivenanswer">%1$s (%2$d gorgées)</string>
+    <string name="mostgivenanswer1">%1$s (%2$d gorgée)</string>
+
+    <string name="leastdrunk">Joueur ayant le moins bu :</string>
+    <string name="leastdrunkanswer">%1$s (%2$d gorgées)</string>
+    <string name="leastdrunkanswer1">%1$s (%2$d gorgée)</string>
+    <string name="leastgiven">Joueur ayant le moins donné :</string>
+    <string name="leastgivenanswer">%1$s (%2$d gorgées)</string>
+    <string name="leastgivenanswer1">%1$s (%2$d gorgée)</string>
+    <string name="rejouer">Rejouer</string>
 </resources>

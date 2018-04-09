@@ -12,11 +12,14 @@
     <dimen name="header_sentence">25sp</dimen>
 
     <dimen name="WinOrLose">30sp</dimen>
+    <dimen name="WinOrLoseTablet">40sp</dimen>
     <dimen name="DrinkOrGive">20sp</dimen>
+    <dimen name="DrinkOrGiveTablet">30sp</dimen>
 
 
     <dimen name="dualcardsmargin">10dp</dimen>
     <dimen name="maincardsmargin">0dp</dimen>
+    <dimen name="maincardsmarginTablet">20dp</dimen>
     <dimen name="seccardsmargin">25dp</dimen>
     <dimen name="settings_titles">25sp</dimen>
 

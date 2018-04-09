@@ -1,6 +1,7 @@
 package com.stl.tpalt.redorblack.activities
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
@@ -23,6 +24,16 @@ class SettingsActivity : AppCompatActivity() {
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+
+        requestedOrientation = if (isTablet) {
+            ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        }
+        else
+        {
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
 
         if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR1) {
             val flagFr= findViewById<ImageButton>(R.id.flagFr)

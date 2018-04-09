@@ -68,7 +68,23 @@
     <string name="help_phase1">Choose between Red or Black</string>
     <string name="help_phase2">Is the card value higher? Lower?</string>
     <string name="help_phase3">Is the card value between yours?</string>
-    <string name="help_phase4">Spade, Diamond, Club or Heart?</string>
+    <string name="help_phase4">Spade, Diamond, Heart or Club ?</string>
     <string name="help_phase5">Do you already got this value?</string>
+    <string name="statis">Achievements</string>
+
+    <string name="mostdrunk">Player who drank the most :</string>
+    <string name="mostdrunkanswer">%1$s (%2$d sips)</string>
+    <string name="mostdrunkanswer1">%1$s (%2$d sip)</string>
+    <string name="mostgiven">Player who gave the most :</string>
+    <string name="mostgivenanswer">%1$s (%2$d sips)</string>
+    <string name="mostgivenanswer1">%1$s (%2$d sip)</string>
+    <string name="leastdrunk">Player who drank the least :</string>
+    <string name="leastdrunkanswer">%1$s (%2$d sips)</string>
+    <string name="leastdrunkanswer1">%1$s (%2$d sip)</string>
+    <string name="leastgiven">Player who gave the least :</string>
+    <string name="leastgivenanswer">%1$s (%2$d sips)</string>
+    <string name="leastgivenanswer1">%1$s (%2$d sip)</string>
+    <string name="rejouer">Play again</string>
+
 
 </resources>
