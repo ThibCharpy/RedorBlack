@@ -14,7 +14,6 @@ import com.stl.tpalt.redorblack.R
 import com.stl.tpalt.redorblack.model.*
 import com.stl.tpalt.redorblack.utils.AppLogListAdapter
 import kotlinx.android.synthetic.main.activity_phase1.*
-import kotlinx.android.synthetic.main.applog_activity.*
 import kotlinx.android.synthetic.main.header.*
 import kotlinx.android.synthetic.main.random_event.*
 

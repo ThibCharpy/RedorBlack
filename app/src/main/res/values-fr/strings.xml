@@ -37,13 +37,14 @@
     <string name="level_soft">P\'tite bite</string>
     <string name="level_normal">Normal</string>
     <string name="level_hard">Alcoolo</string>
-    <string name="settings_numberofsips">Number of sips</string>
+    <string name="settings_numberofsips">Nombre de gorgées</string>
+    <string name="settings_numberofsipstaken">Bues</string>
+    <string name="settings_numberofsipsgiven">Données</string>
     <string name="settings_phase1">Round 1</string>
     <string name="settings_phase2">Round 2</string>
     <string name="settings_phase3">Round 3</string>
     <string name="settings_phase4">Round 4</string>
     <string name="settings_phase5">Round 5</string>
-    <string name="yourname">Your Name</string>
     <string name="historique_de_la_partie">Historique de la partie</string>
 
     <string name="rules1">Règle 1</string>
@@ -72,7 +73,7 @@
     <string name="leastgivenanswer1">%1$s (%2$d gorgée)</string>
     <string name="rejouer">Encore !</string>
     <string name="random_double">Gorgées doublées pour ce tour !!</string>
-    <string name="random_event_frequency">Random event frequency :</string>
+    <string name="random_event_frequency">"Évènement aléatoires : "</string>
     <string name="tuto1">Ajoute tous les joueurs, et c\'est parti !</string>
     <string name="tuto2">Fais ton choix successivement parmi :\n
     -Rouge ou Noir\n

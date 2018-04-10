@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Red or Black</string>
     <string name="default_string">Default String</string>
 
@@ -23,19 +23,14 @@
         If you loose your bet you have to drink as much sips as indicated.\n
         If you win, you can make another player drink these sips.\n
     </string>
-    <string name="warnings">
-        Red or Black is a friendly game that can be played with friends, family or even alone if your life is sad. \n
-        Everyone usually ends up drunk. (Remember that alcohol abuse is dangerous for your health). \n
-        Good drinking!
-    </string>
 
     <string name="win">Win !</string>
     <string name="lose">Lost !</string>
     <string name="bojeu">Epic win !</string>
-    <string name="drink">Drink %1$d sips</string>
-    <string name="give">Give %1$d sips</string>
-    <string name="drink1">Drink %1$d sip</string>
-    <string name="give1">Give %1$d sip</string>
+    <string name="drink" tools:ignore="PluralsCandidate">Drink %1$d sips</string>
+    <string name="give" tools:ignore="PluralsCandidate">Give %1$d sips</string>
+    <string name="drink1" tools:ignore="PluralsCandidate">Drink %1$d sip</string>
+    <string name="give1" tools:ignore="PluralsCandidate">Give %1$d sip</string>
 
     <!-- Utils strings -->
     <string name="button_add">+</string>
@@ -51,14 +46,6 @@
     <string name="settings_phase3">Stage 3</string>
     <string name="settings_phase4">Stage 4</string>
     <string name="settings_phase5">Stage 5</string>
-    <string name="yourname">Your Name</string>
-    <string name="title_activity_test_drawer">TestDrawer</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
     <string name="historique_de_la_partie">Game logs</string>
 
     <string name="rules1">Rules 1</string>
@@ -73,21 +60,21 @@
     <string name="statis">Achievements</string>
 
     <string name="mostdrunk">Player who drank the most :</string>
-    <string name="mostdrunkanswer">%1$s (%2$d sips)</string>
-    <string name="mostdrunkanswer1">%1$s (%2$d sip)</string>
+    <string name="mostdrunkanswer" tools:ignore="PluralsCandidate">%1$s (%2$d sips)</string>
+    <string name="mostdrunkanswer1" tools:ignore="PluralsCandidate">%1$s (%2$d sip)</string>
     <string name="mostgiven">Player who gave the most :</string>
-    <string name="mostgivenanswer">%1$s (%2$d sips)</string>
-    <string name="mostgivenanswer1">%1$s (%2$d sip)</string>
+    <string name="mostgivenanswer" tools:ignore="PluralsCandidate">%1$s (%2$d sips)</string>
+    <string name="mostgivenanswer1" tools:ignore="PluralsCandidate">%1$s (%2$d sip)</string>
     <string name="leastdrunk">Player who drank the least :</string>
-    <string name="leastdrunkanswer">%1$s (%2$d sips)</string>
-    <string name="leastdrunkanswer1">%1$s (%2$d sip)</string>
+    <string name="leastdrunkanswer" tools:ignore="PluralsCandidate">%1$s (%2$d sips)</string>
+    <string name="leastdrunkanswer1" tools:ignore="PluralsCandidate">%1$s (%2$d sip)</string>
     <string name="leastgiven">Player who gave the least :</string>
-    <string name="leastgivenanswer">%1$s (%2$d sips)</string>
-    <string name="leastgivenanswer1">%1$s (%2$d sip)</string>
+    <string name="leastgivenanswer" tools:ignore="PluralsCandidate">%1$s (%2$d sips)</string>
+    <string name="leastgivenanswer1" tools:ignore="PluralsCandidate">%1$s (%2$d sip)</string>
     <string name="rejouer">Play again</string>
     <string name="random_double">Sips are dubbed for this turn !!</string>
     <string name="random_event_frequency">Random event frequency :</string>
-    <string name="tuto1">Add all the players to the list, and you\'re ready to drunk</string>
+    <string name="tuto1">Add all the players to the list, and you\'re ready to drink</string>
     <string name="tuto2">Choose successively between :\n
     -Red or Black\n
     -More, Less or Equals \n
